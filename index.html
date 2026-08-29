@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Penjana Sebut Harga Ukur Tanah | Land Surveyor Quotation System</title>
+    <!-- Google Fonts for professional high-contrast typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=1.0.6">
+    <!-- html2pdf.js via CDN for direct browser-to-PDF rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5IfS51RRXXC62oGtBro5XM3z51gKQmggkWjDuURCO34NyqiGqQQ1tMh152n5yWD56nyR37cDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <!-- Top Application Header -->
+    <header>
+        <div class="header-brand">
+            <div>
+                <h1 id="uiHeaderTitle">Sistem Penjana Sebut Harga Ukur Tanah</h1>
+                <span id="uiHeaderSubtitle">Malaysian Licensed Land Surveyor Quotation & BQ System</span>
+            </div>
+        </div>
+
+        <div class="header-controls">
+            <!-- Bilingual Toggle Switcher -->
+            <div class="lang-switcher">
+                <button type="button" class="lang-btn active" id="langBmBtn" onclick="setLanguage('bm')">BM</button>
+                <button type="button" class="lang-btn" id="langEnBtn" onclick="setLanguage('en')">EN</button>
+            </div>
+
+            <button class="btn btn-secondary" id="previewToggleBtn" style="font-size: 0.78rem;">Papar Dokumen</button>
+        </div>
+    </header>
+
+    <!-- Top Action Toolbar (Phase 4 Templates & Phase 6 Storage/Versioning) -->
+    <div class="toolbar-bar">
+        <div class="toolbar-left">
+            <div class="template-selector-wrap">
+                <label for="templateSelect" style="font-size: 0.76rem; font-weight: 700; color: var(--primary-color);"
+                    id="lblTemplateSelect">Templat Projek:</label>
+                <select id="templateSelect" class="template-select">
+                    <option value="">-- Pilih Templat Pantas (1-Click Preset) --</option>
+                    <option value="tpl_jkr_bridge">Templat 1: Tender JKR (Standard Jalan & Jambatan)</option>
+                    <option value="tpl_drone_50ha">Templat 2: Ukur Dron UAV & LiDAR (50 Hektar)</option>
+                </select>
+                <button type="button" class="btn btn-primary btn-sm" id="btnApplyTemplate">Muat Templat</button>
+            </div>
+        </div>
+
+        <div class="toolbar-right">
+            <button type="button" class="btn btn-secondary btn-sm" id="btnNewQuotation"
+                title="Borang sebut harga baharu / reset">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span id="btnTextNewQuote">+ Sebut Harga Baru</span>
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btnSaveDraft" title="Simpan ke pelayar">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                    <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                <span id="btnTextSave">Simpan Draf</span>
+            </button>
+
+            <div class="dropdown-wrapper">
+                <button type="button" class="btn btn-secondary btn-sm" id="btnMoreOptions" title="Lebih banyak pilihan">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="1"></circle>
+                        <circle cx="12" cy="5" r="1"></circle>
+                        <circle cx="12" cy="19" r="1"></circle>
+                    </svg>
+                    <span>Lagi</span>
+                </button>
+                <div class="dropdown-menu">
+                    <button type="button" class="dropdown-item" id="btnDuplicateQuotation"
+                        title="Salin skop dan parameter untuk pelanggan baharu">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span id="btnTextDuplicate">Duplikasi</span>
+                    </button>
+                    <button type="button" class="dropdown-item" id="btnExportJson"
+                        title="Muat turun fail sandaran .json">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>Eksport JSON</span>
+                    </button>
+                    <button type="button" class="dropdown-item" id="btnImportJsonTrigger"
+                        title="Buka fail sebut harga .json">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span>Import JSON</span>
+                    </button>
+                </div>
+            </div>
+            <input type="file" id="jsonFileInput" accept=".json" style="display: none;">
+
+            <div class="autosave-indicator" id="autosaveIndicator">
+                <span>✓ Auto-Simpan</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container Layout (Form + Live A4 Preview) -->
+    <div class="main-container preview-hidden">
+
+        <!-- Left Side: Interactive Wizard Form -->
+        <div class="form-panel">
+
+            <!-- Step Navigation Tabs -->
+            <div class="form-tabs">
+                <button class="tab-btn active" id="tab1Btn" type="button">Langkah 1: Maklumat Am & Tanah</button>
+                <button class="tab-btn" id="tab2Btn" type="button">Langkah 2: Senarai BQ & Pengali</button>
+            </div>
+
+            <!-- Scrollable Form Content -->
+            <div class="form-content">
+
+                <!-- TAB 1: General Info, Firm Credentials & Land Administration -->
+                <div class="tab-pane active" id="tab1Pane">
+
+                    <!-- Section 1: Document Config & LJT Firm Credentials -->
+                    <div class="form-section">
+                        <h2 id="secTitleConfig">Konfigurasi Dokumen & Kredensial Firma LJT</h2>
+
+                        <!-- Firm Profile Directory Bar (BA/QA Criteria) -->
+                        <div class="directory-control-bar">
+                            <div style="flex: 2; min-width: 200px;">
+                                <label for="firmProfileSelect" id="lblFirmProfileSelect"
+                                    style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color);">Pilih
+                                    Profil Firma Ukur LJT:</label>
+                                <select id="firmProfileSelect" style="width: 100%;">
+                                    <!-- Dynamic list of firm profiles -->
+                                </select>
+                            </div>
+                            <div style="display: flex; gap: 0.3rem; flex-wrap: wrap;">
+                                <button type="button" class="btn btn-secondary btn-sm" id="btnNewFirmProfile"
+                                    title="Borang Profil Baharu">+ Profil Baru</button>
+                                <button type="button" class="btn btn-primary btn-sm" id="btnSaveFirmProfile"
+                                    title="Simpan Profil Semasa">Simpan Profil</button>
+                                <button type="button" class="btn btn-danger btn-sm" id="btnDeleteFirmProfile"
+                                    title="Padam Profil Terpilih">Padam</button>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firmName" id="lblFirmName">Nama Firma Ukur LJT</label>
+                                <input type="text" id="firmName">
+                            </div>
+                            <div class="form-group">
+                                <label for="bqType" id="lblBqType">Jenis Format Sebut Harga</label>
+                                <select id="bqType">
+                                    <option value="jkr">Format Piawaian JKR / Perbendaharaan (Stage 1 & Stage 2)
+                                    </option>
+                                    <option value="ljt">Format Piawaian LJT / PEJUTA (3-Bahagian A/B/C)</option>
+                                    <option value="custom">Format Komersial (Private Client)</option>
+                                </select>
+                                </div>
+
+                        <!-- LJT Surveyor Credentials -->
+                        <div class="form-grid-2" style="margin-top: 0.65rem;">
+                            <div class="form-group">
+                                <label for="firmLjtNo" id="lblFirmLjtNo">No. Pendaftaran Firma LJT</label>
+                                <input type="text" id="firmLjtNo">
+                            </div>
+                            <div class="form-group">
+                                <label for="surveyorLjtNo" id="lblSurveyorLjtNo">No. Perakuan Juruukur LJT</label>
+                                <input type="text" id="surveyorLjtNo">
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2" style="margin-top: 0.65rem;">
+                            <div class="form-group">
+                                <label for="practiceYear" id="lblPracticeYear">Tahun Sijil Amalan</label>
+                                <input type="text" id="practiceYear">
+                            </div>
+                            <div class="form-group">
+                                <label for="piiCoverage" id="lblPiiCoverage">Perlindungan Insurans PII (RM)</label>
+                                <input type="text" id="piiCoverage">
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2" style="margin-top: 0.65rem;">
+                            <div class="form-group">
+                                <label for="firmPhone" id="lblFirmPhone">No. Telefon Firma</label>
+                                <input type="text" id="firmPhone">
+                            </div>
+                            <div class="form-group">
+                                <label for="firmEmail" id="lblFirmEmail">E-mel Rasmi Firma</label>
+                                <input type="email" id="firmEmail">
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 0.65rem;">
+                            <label for="firmAddress" id="lblFirmAddress">Alamat Pejabat Firma</label>
+                            <input type="text" id="firmAddress">
+                        </div>
+
+                        <!-- Custom Logo & Signature Upload -->
+                        <div class="form-grid-2" style="margin-top: 0.65rem;">
+                            <div class="form-group">
+                                <label for="customLogo" id="lblCustomLogo">Muat Naik Logo Firma (PNG/JPG)</label>
+                                <input type="file" id="customLogo" accept="image/*"
+                                    style="font-size: 0.72rem; padding: 0.25rem;">
+                            </div>
+                            <div class="form-group">
+                                <label for="customSignature" id="lblCustomSignature">Muat Naik T/Tangan Juruukur
+                                    (PNG/JPG)</label>
+                                <input type="file" id="customSignature" accept="image/*"
+                                    style="font-size: 0.72rem; padding: 0.25rem;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Land Administration & Site Metadata (BA/QA Criteria 1) -->
+                    <div class="form-section">
+                        <h2 id="secTitleLandAdmin">Maklumat Pentadbiran Tanah & Tapak Ukur</h2>
+
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label for="landState" id="lblLandState">Negeri (14 Negeri)</label>
+                                <select id="landState">
+                                    <option value="Selangor">Selangor (Semenanjung RM743/PD)</option>
+                                    <option value="W.P. Kuala Lumpur">W.P. Kuala Lumpur</option>
+                                    <option value="Johor">Johor</option>
+                                    <option value="Kedah">Kedah</option>
+                                    <option value="Kelantan">Kelantan</option>
+                                    <option value="Melaka">Melaka</option>
+                                    <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                    <option value="Pahang">Pahang</option>
+                                    <option value="Perak">Perak</option>
+                                    <option value="Perlis">Perlis</option>
+                                    <option value="Pulau Pinang">Pulau Pinang</option>
+                                    <option value="Sabah">Sabah (Sabah/Sarawak RM966/PD)</option>
+                                    <option value="Sarawak">Sarawak (Sabah/Sarawak RM966/PD)</option>
+                                    <option value="Terengganu">Terengganu</option>
+                                    <option value="W.P. Putrajaya">W.P. Putrajaya</option>
+                                    <option value="W.P. Labuan">W.P. Labuan (RM966/PD)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="landDistrict" id="lblLandDistrict">Daerah</label>
+                                <input type="text" id="landDistrict">
+                            </div>
+                            <div class="form-group">
+                                <label for="landMukim" id="lblLandMukim">Mukim / Bandar / Pekan</label>
+                                <input type="text" id="landMukim">
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2" style="margin-top: 0.65rem;">
+                            <div class="form-group">
+                                <label for="lotNo" id="lblLotNo">No. Lot / No. PT</label>
+                                <input type="text" id="lotNo">
+                            </div>
+                            <div class="form-group">
+                                <label for="titleNo" id="lblTitleNo">No. & Jenis Hakmilik</label>
+                                <input type="text" id="titleNo">
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2" style="margin-top: 0.65rem;">
+                            <div class="form-group">
+                                <label for="landCategory" id="lblLandCategory">Kategori Kegunaan Tanah</label>
+                                <select id="landCategory">
+                                    <option value="Rizab / Khas">Rizab Jalan / Khas (Government Reserve)</option>
+                                    <option value="Pertanian">Pertanian (Agriculture)</option>
+                                    <option value="Bangunan Kediaman">Bangunan Kediaman (Residential)</option>
+                                    <option value="Bangunan Komersial">Bangunan Komersial (Commercial)</option>
+                                    <option value="Perindustrian">Perindustrian (Industrial)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="landArea" id="lblLandArea">Keluasan Tanah</label>
+                                <div style="display: flex; gap: 0.4rem;">
+                                    <input type="number" id="landArea" step="any" min="0"
+                                        style="flex: 2;">
+                                    <select id="landAreaUnit" style="flex: 1.5;">
+                                        <option value="Hektar">Hektar (Ha)</option>
+                                        <option value="Ekar">Ekar (Acres)</option>
+                                        <option value="Meter Persegi">m²</option>
+                                        <option value="Kaki Persegi">sq ft</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-3" style="margin-top: 0.65rem;">
+                            <div class="form-group">
+                                <label for="coordSystem" id="lblCoordSystem">Sistem Unjuran Koordinat</label>
+                                <select id="coordSystem">
+                                    <option value="Cassini-Soldner (Negeri)">Cassini-Soldner (Negeri Berkaitan)</option>
+                                    <option value="RSO Malayan (m)">RSO Malayan Grid (Meter)</option>
+                                    <option value="GDM2000 Geocentric">GDM2000 Geocentric Datum</option>
+                                    <option value="WGS 84 / UTM">WGS 84 / UTM Grid</option>
+                                    <option value="Cassini Sabah / Sarawak">Cassini Sabah / Sarawak</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="verticalDatum" id="lblVerticalDatum">Datum Aras Ketinggian</label>
+                                <select id="verticalDatum">
+                                    <option value="LSD JUPEM (Land Survey Datum)">LSD JUPEM (Piawaian Kebangsaan)
+                                    </option>
+                                    <option value="MSL (Mean Sea Level)">MSL (Mean Sea Level / Hidrografi)</option>
+                                    <option value="TBM (Assumed / Arbitrary Datum)">TBM (Assumed Arbitrary Datum)
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="distanceZone" id="lblDistanceZone">Zon Jarak Mobilisasi (Mob/Demob)</label>
+                                <select id="distanceZone">
+                                    <option value="zone_lt50">&lt; 50 km (Zon Tempatan)</option>
+                                    <option value="zone_50_150" selected>&gt; 50 km &amp; &lt; 150 km (Zon Sederhana)
+                                    </option>
+                                    <option value="zone_150_300">&gt; 150 km &amp; &lt; 300 km (Luar Stesen)</option>
+                                    <option value="zone_gt300">&gt; 300 km (Luar Stesen Jarak Jauh)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Client Details & Smart Reference Generator -->
+                    <div class="form-section">
+                        <h2 id="secTitleClient">Maklumat Pelanggan & Penomboran Rujukan</h2>
+
+                        <!-- Client Directory Bar (BA/QA Criteria) -->
+                        <div class="directory-control-bar">
+                            <div style="flex: 2; min-width: 200px;">
+                                <label for="clientDirectorySelect" id="lblClientDirectorySelect"
+                                    style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color);">Pilih
+                                    Pelanggan dari Direktori:</label>
+                                <select id="clientDirectorySelect" style="width: 100%;">
+                                    <!-- Dynamic list of clients -->
+                                </select>
+                            </div>
+                            <div style="display: flex; gap: 0.3rem; flex-wrap: wrap;">
+                                <button type="button" class="btn btn-secondary btn-sm" id="btnNewClient"
+                                    title="Borang Pelanggan Baharu">+ Pelanggan Baru</button>
+                                <button type="button" class="btn btn-primary btn-sm" id="btnSaveClient"
+                                    title="Simpan / Kemaskini Pelanggan">Simpan Pelanggan</button>
+                                <button type="button" class="btn btn-danger btn-sm" id="btnDeleteClient"
+                                    title="Padam Rekod Pelanggan">Padam</button>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <!-- Removed grid-2 to stack vertically -->
+                            <div class="form-group">
+                                <label for="clientCompany" id="lblClientCompany">Nama Syarikat / Agensi
+                                        Pelanggan</label>
+                                    <input type="text" id="clientCompany">
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientCategory" id="lblClientCategory">Kategori Pelanggan</label>
+                                    <select id="clientCategory">
+                                        <option value="Agensi Kerajaan">Agensi Kerajaan / Badan Berkanun</option>
+                                        <option value="Pemaju Swasta">Pemaju Swasta (Developer)</option>
+                                        <option value="Kontraktor">Kontraktor / Perunding Kejuruteraan</option>
+                                        <option value="Individu">Individu / Pemilik Tanah</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label for="clientRef" id="lblClientRef">Rujukan Pelanggan (Client Ref)</label>
+                                    <input type="text" id="clientRef">
+                                </div>
+                                <div class="form-group">
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
+                                        <label for="ourRef" id="lblOurRef" style="margin-bottom: 0;">Rujukan Kami (Our
+                                            Ref)</label>
+                                        <button type="button" class="btn btn-secondary btn-sm" id="btnIncrementRev"
+                                            title="Tambah Nombor Semakan (+1 Rev)"
+                                            style="padding: 0.1rem 0.4rem; font-size: 0.68rem;">+ Semakan (Rev)</button>
+                                    </div>
+                                    <input type="text" id="ourRef">
+                                </div>
+                            </div>
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label for="quoteDate" id="lblQuoteDate">Tarikh Dokumen (Date)</label>
+                                    <input type="date" id="quoteDate">
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientName" id="lblClientName">Untuk Perhatian (Attention To)</label>
+                                    <input type="text" id="clientName">
+                                </div>
+                            </div>
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label for="clientPhone" id="lblClientPhone">No. Telefon Pelanggan</label>
+                                    <input type="text" id="clientPhone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientEmail" id="lblClientEmail">E-mel Pelanggan</label>
+                                    <input type="email" id="clientEmail">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="clientAddress" id="lblClientAddress">Alamat Pelanggan</label>
+                                <textarea id="clientAddress" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Project Scope, Terms & Signatory -->
+                    <div class="form-section">
+                        <h2 id="secTitleTerms">Perkara, Tempoh & Terma Pembayaran</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="quoteTitle" id="lblQuoteTitle">Tajuk Sebut Harga (Project Title)</label>
+                                <input type="text" id="quoteTitle">
+                            </div>
+                            <div class="form-group">
+                                <label for="quoteSubtitle" id="lblQuoteSubtitle">Sub-Tajuk / Keterangan Lokasi</label>
+                                <input type="text" id="quoteSubtitle">
+                            </div>
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label for="projectManager" id="lblProjectManager">Juruukur Tanah Berlesen
+                                        (Signatory)</label>
+                                    <select id="projectManager">
+                                        <option value="Ir. Sr. Ahmad Zaki bin Haron">Ir. Sr. Ahmad Zaki bin Haron (LJT
+                                            8872)</option>
+                                        <option value="Sr. Tan Min Way">Sr. Tan Min Way (LJT 6721)</option>
+                                        <option value="Sr. Nurul Huda binti Ali">Sr. Nurul Huda binti Ali (LJT 9104)
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="duration" id="lblDuration">Tempoh Siap Kerja (Duration)</label>
+                                    <input type="text" id="duration">
+                                </div>
+                            </div>
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label for="deposit" id="lblDeposit">Jadual Bayaran Bertahap (Milestones)</label>
+                                    <input type="text" id="deposit">
+                                </div>
+                                <div class="form-group">
+                                    <label for="discount" id="lblDiscount">Jumlah Diskaun Yuran Perunding (RM)</label>
+                                    <input type="number" id="discount" min="0" step="any">
+                                </div>
+                            </div>
+                            <div class="form-group checkbox-row">
+                                <input type="checkbox" id="enableSst" checked>
+                                <label for="enableSst" id="lblEnableSst">Kenakan Cukai Perkhidmatan 8% ke atas Yuran
+                                    Profesional / Yuran Perunding</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes" id="lblNotes">Nota & Syarat-Syarat Perkhidmatan (Satu baris setiap
+                                    klausa)</label>
+                                <textarea id="notes" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- TAB 2: BQ Items, Multipliers, Daywork & Deliverables -->
+                <div class="tab-pane" id="tab2Pane">
+
+                    <!-- PEJUTA Multiplier Control Card -->
+                    <div class="multiplier-card" id="pejutaMultiplierCard">
+                        <div class="multiplier-header">
+                            <div class="multiplier-title" id="lblMultiplierTitle">Faktor Pengali Tapak PEJUTA (Site
+                                Terrain & Vegetation Multipliers)</div>
+                            <div class="multiplier-chip">
+                                <span id="combinedMultiplierLabel">Faktor Gabungan:</span>
+                                <strong id="combinedMultiplierVal">1.00x</strong>
+                            </div>
+                        </div>
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label for="terrainMultiplier" id="lblTerrainMultiplier">Rupa Bumi (Terrain
+                                    Factor)</label>
+                                <select id="terrainMultiplier">
+                                    <option value="1.00">Rata / Landai (Flat) - 1.00x</option>
+                                    <option value="1.25">Beralun Ringan (Undulating) - 1.25x</option>
+                                    <option value="1.50">Berbukit (Hilly) - 1.50x</option>
+                                    <option value="1.75">Curam / Pergunungan (Mountainous) - 1.75x</option>
+                                    <option value="2.00">Sangat Curam / Tebing (Extreme Relief) - 2.00x</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="vegetationMultiplier" id="lblVegetationMultiplier">Litupan Tumbuhan
+                                    (Vegetation Factor)</label>
+                                <select id="vegetationMultiplier">
+                                    <option value="1.00">Lapang / Bandar / Terbuka (Open) - 1.00x</option>
+                                    <option value="1.20">Tanaman / Sawit Matang (Plantation) - 1.20x</option>
+                                    <option value="1.40">Belukar Ringan (Scrub/Light Bush) - 1.40x</option>
+                                    <option value="1.80">Belukar Tebal / Sekunder (Thick Scrub) - 1.80x</option>
+                                    <option value="2.20">Paya / Hutan Bakau (Swamp/Mangrove) - 2.20x</option>
+                                    <option value="2.50">Hutan Tebal / Dara (Dense Jungle) - 2.50x</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.7rem; color: #718096; margin-top: 0.35rem;" id="lblMultiplierNote">
+                            * Pengali diaplikasikan secara automatik ke atas item ukur topografi, kejuruteraan & kerja
+                            lapangan berkaitan.
+                        </div>
+                    </div>
+
+                    <!-- JKR Terrain Filter Card -->
+                    <div class="multiplier-card" id="jkrTerrainCard" style="display: none; margin-bottom: 1rem;">
+                        <div class="multiplier-header">
+                            <div class="multiplier-title" id="lblJkrTerrainTitle" style="font-weight: 700;">Klasifikasi Rupa Bumi (Terrain Classification)</div>
+                        </div>
+                        <div style="margin-top: 0.75rem;">
+                            <label for="jkrTerrainFilter" id="lblJkrTerrainFilter" style="font-size: 0.78rem; font-weight: 600; color: #4a5568;">Pilihan Rupa Bumi untuk Tapisan Item BQ JKR:</label>
+                            <select id="jkrTerrainFilter" class="template-select" style="width: 100%; max-width: 400px; margin-top: 0.25rem;">
+                                <option value="flat">FLAT AREA</option>
+                                <option value="hilly">BUILT-UP / HILLY / SWAMPY AREA</option>
+                                <option value="mixed" selected>MIXED</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Statutory Cadastral Discount Warning Banner -->
+                    <div class="alert-banner warning" id="statutoryWarningBanner" style="display: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="flex-shrink: 0; margin-top: 2px;">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        <div id="statutoryWarningText">
+                            <strong>Peringatan Pematuhan Akta 458:</strong> Diskaun dilarang dikenakan ke atas item Ukur
+                            Kadaster Hakmilik statutori LJT (Skala Fi Mandatori). Diskaun hanya dikenakan ke atas
+                            perkhidmatan profesional lain.
+                        </div>
+                    </div>
+
+                    <!-- BQ Section Subtabs Filter -->
+                    <div class="bq-subtabs" id="bqSubtabsContainer">
+                        <button type="button" class="bq-subtab-btn active" data-filter="all" id="btnFilterAll">Semua
+                            Item (All)</button>
+                        <button type="button" class="bq-subtab-btn" data-filter="part_a" id="btnFilterPartA">Stage 1 /
+                            Bahagian A</button>
+                        <button type="button" class="bq-subtab-btn" data-filter="part_b" id="btnFilterPartB">Stage 2 /
+                            Bahagian B</button>
+                        <button type="button" class="bq-subtab-btn" data-filter="part_c"
+                            id="btnFilterPartC">Reimbursables / Bahagian C</button>
+                        <button type="button" class="bq-subtab-btn" data-filter="daywork" id="btnFilterDaywork">Kadar
+                            Daywork</button>
+                        <button type="button" class="bq-subtab-btn" data-filter="deliverables"
+                            id="btnFilterDeliverables">Matriks Serahan</button>
+                    </div>
+
+                    <!-- Show/Hide Reference Column Toggle -->
+                    <div
+                        style="margin: 0.75rem 0; display: flex; align-items: center; gap: 8px; justify-content: flex-end; padding-right: 5px;">
+                        <input type="checkbox" id="toggleRefCol" style="width: 15px; height: 15px; cursor: pointer;">
+                        <label for="toggleRefCol" id="lblToggleRefCol"
+                            style="font-size: 0.78rem; font-weight: 600; cursor: pointer; color: #4a5568; user-select: none;">Papar
+                            Lajur Rujukan (Show Reference Column)</label>
+                    </div>
+
+                    <!-- Interactive BQ Table -->
+                    <div id="bqTableContainer">
+                        <table class="form-bq-table hide-ref-col" id="formBqTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 8%; text-align: center;" id="thCode">Kod</th>
+                                    <th style="width: 12%; text-align: left;" id="thRef" class="ref-col">Rujukan</th>
+                                    <th style="width: 44%;" id="thDesc">Skop Kerja & Spesifikasi</th>
+                                    <th style="width: 12%; text-align: center;" id="thUnit">Unit</th>
+                                    <th style="width: 14%; text-align: center;" id="thQty">Kuantiti</th>
+                                    <th style="width: 22%; text-align: right;" id="thRate">Kadar (RM)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="formBqTableBody">
+                                <!-- Populated dynamically by app.js -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Daywork Rates Container (Filterable) -->
+                    <div id="dayworkContainer" style="display: none; margin-top: 1rem;">
+                        <h2 id="secTitleDaywork"
+                            style="font-size: 0.9rem; color: var(--primary-color); margin-bottom: 0.5rem; font-weight: bold;">
+                            Jadual Kadar Daywork (Schedule of Daywork Rates)</h2>
+                        <table class="form-bq-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%; text-align: center;">Item</th>
+                                    <th style="width: 50%;">Keterangan Sumber / Peralatan</th>
+                                    <th style="width: 15%; text-align: center;">Unit</th>
+                                    <th style="width: 25%; text-align: right;">Kadar Sehari (RM)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="formDayworkTableBody">
+                                <!-- Daywork rows -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Deliverables Matrix Checklist (Filterable) -->
+                    <div id="deliverablesContainer" style="display: none; margin-top: 1rem;">
+                        <h2 id="secTitleDeliverables"
+                            style="font-size: 0.9rem; color: var(--primary-color); margin-bottom: 0.5rem; font-weight: bold;">
+                            Matriks Format Serahan Projek (Deliverables Checklist)</h2>
+                        <p style="font-size: 0.75rem; color: #718096; margin-bottom: 0.5rem;">Tandakan format fail dan
+                            dokumen fizikal yang akan dibekalkan kepada pelanggan.</p>
+                        <div class="deliverables-grid" id="deliverablesChecklistGrid">
+                            <!-- Deliverable checkboxes -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Wizard Footer Navigation Steps -->
+            <div class="step-footer">
+                <button class="btn btn-secondary" id="prevStepBtn" style="visibility: hidden;" type="button">Kembali
+                    (Back)</button>
+                <button class="btn btn-primary" id="nextStepBtn" type="button">Seterusnya: Senarai BQ</button>
+            </div>
+
+        </div>
+
+        <!-- Right Side: Live A4 Document Preview -->
+        <div class="preview-panel">
+
+            <div class="preview-actions">
+                <button class="btn btn-secondary" id="printBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span id="btnTextPrint">Cetak (Print)</span>
+                </button>
+                <button class="btn btn-success" id="exportCsvBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="8" y1="13" x2="16" y2="13"></line>
+                        <line x1="8" y1="17" x2="16" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <span id="btnTextCsv">Eksport CSV</span>
+                </button>
+                <button class="btn btn-primary" id="downloadPdfBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span id="btnTextPdf">Muat Turun PDF</span>
+                </button>
+            </div>
+
+            <!-- Printable A4 Document Sheet -->
+            <div class="a4-document" id="a4Page">
+
+                <!-- Dynamic Letterhead Section with LJT Reg No -->
+                <div class="letterhead" id="prevLetterhead">
+                    <!-- Standard letterhead loaded from app.js -->
+                </div>
+
+                <!-- Document Meta Rows (Client & Ref) -->
+                <div class="doc-meta">
+                    <div class="doc-meta-client">
+                        <span style="font-size: 0.7rem; font-weight: bold; color: #4a5568; text-transform: uppercase;"
+                            id="prevLblTo">Kepada (To):</span>
+                        <strong id="prevClientCompany">Client Company</strong>
+                        <span id="prevClientName" style="display: block; font-weight: 500;">Attention Person</span>
+                        <span id="prevClientContact"
+                            style="display: block; font-size: 0.72rem; color: #4a5568; white-space: pre-line;">Client
+                            Details</span>
+                        <span id="prevClientAddress"
+                            style="display: block; color: #4a5568; margin-top: 0.2rem; font-size: 0.72rem;">Address</span>
+                    </div>
+                    <div class="doc-meta-details">
+                        <table class="doc-meta-table">
+                            <tr>
+                                <td id="prevLblOurRef">Rujukan Kami:</td>
+                                <td id="prevOurRef" style="font-weight: 600;">SJK/2026/Q-1002-Rev01</td>
+                            </tr>
+                            <tr>
+                                <td id="prevLblClientRef">Rujukan Tuan:</td>
+                                <td id="prevClientRef">-</td>
+                            </tr>
+                            <tr>
+                                <td id="prevLblQuoteDate">Tarikh:</td>
+                                <td id="prevQuoteDate">09 Ogos 2026</td>
+                            </tr>
+                            <tr>
+                                <td id="prevLblLjtFirm">Firma LJT:</td>
+                                <td id="prevFirmLjtNo" style="font-weight: 600;">LJT/F/1234</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Land Administration Details Box (BA/QA Criteria 1) -->
+                <div class="land-admin-box" id="prevLandAdminBox">
+                    <div class="land-admin-title">
+                        <span id="prevLblLandInfo">Butiran Pentadbiran Tanah & Tapak (Land & Site Metadata)</span>
+                        <span id="prevLandStateDisplay" style="color: var(--primary-color);">Selangor</span>
+                    </div>
+                    <div class="land-admin-grid">
+                        <div class="land-admin-cell">
+                            <span id="prevLblLot">No. Lot / PT:</span>
+                            <span id="prevLotNo">Lot 4512</span>
+                        </div>
+                        <div class="land-admin-cell">
+                            <span id="prevLblTitle">No. Hakmilik:</span>
+                            <span id="prevTitleNo">GRN 54321</span>
+                        </div>
+                        <div class="land-admin-cell">
+                            <span id="prevLblMukim">Mukim / Daerah:</span>
+                            <span id="prevMukimDistrict">Mukim Sungai Buloh, Petaling</span>
+                        </div>
+                        <div class="land-admin-cell">
+                            <span id="prevLblArea">Keluasan:</span>
+                            <span id="prevArea">5.00 Hektar</span>
+                        </div>
+                        <div class="land-admin-cell">
+                            <span id="prevLblCategory">Kategori Tanah:</span>
+                            <span id="prevLandCategory">Pertanian</span>
+                        </div>
+                        <div class="land-admin-cell">
+                            <span id="prevLblCoord">Sistem Unjuran:</span>
+                            <span id="prevCoordSystem">Cassini-Soldner (Negeri)</span>
+                        </div>
+                        <div class="land-admin-cell">
+                            <span id="prevLblDatum">Datum Aras:</span>
+                            <span id="prevVerticalDatum">LSD JUPEM</span>
+                        </div>
+                        <div class="land-admin-cell">
+                            <span id="prevLblSiteFactor">Faktor Tapak:</span>
+                            <span id="prevCombinedFactor">1.00x (Normal)</span>
+                        </div>
+                        <div class="land-admin-cell">
+                            <span id="prevLblDistanceZone">Zon Jarak:</span>
+                            <span id="prevDistanceZoneDisplay">&gt; 50 km &amp; &lt; 150 km</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Title Block -->
+                <div class="doc-title" id="prevQuoteTitle">
+                    SEBUT HARGA PERKHIDMATAN UKUR TANAH
+                </div>
+                <div id="prevQuoteSubtitle"
+                    style="font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem; text-align: center; color: #4a5568; text-transform: uppercase; margin-top: -0.6rem;">
+                    SUB TITLE SPECIFICATION
+                </div>
+
+                <!-- 3-Tier Structured BQ Table (Dynamic for JKR vs Commercial) -->
+                <table class="bq-table hide-ref-col" id="prevBqTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 8%;" id="prevThNo">Butiran</th>
+                            <th style="width: 12%;" class="ref-col" id="prevThRef">Rujukan (Ref)</th>
+                            <th style="width: 48%;" id="prevThScope">Keterangan Skop Kerja</th>
+                            <th style="width: 10%;" id="prevThUnit">Unit</th>
+                            <th style="width: 8%;" id="prevThQty">Kuantiti</th>
+                            <th style="width: 12%;" id="prevThRate">Kadar (RM)</th>
+                            <th style="width: 14%;" id="prevThTotal">Jumlah (RM)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prevBqTableBody">
+                        <!-- Populated dynamically via app.js -->
+                    </tbody>
+                </table>
+
+                <!-- Deliverables Matrix Preview Tag Box -->
+                <div class="doc-deliverables-box" id="prevDeliverablesBox">
+                    <div class="doc-deliverables-title" id="prevLblDeliverablesTitle">Format & Dokumen Serahan Projek
+                        (Deliverables):</div>
+                    <div class="doc-deliverables-tags" id="prevDeliverablesList">
+                        <!-- Tags inserted dynamically -->
+                    </div>
+                </div>
+
+                <!-- Summary Details (Duration & Payment Terms) -->
+                <div
+                    style="font-family: var(--font-sans); font-size: 0.72rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem; margin-top: 0.75rem;">
+                    <table style="width: 100%; border-collapse: collapse; border: none;">
+                        <tr>
+                            <td style="width: 25%; font-weight: bold; padding: 0.15rem 0;" id="prevLblDuration">Tempoh
+                                Siap Kerja:</td>
+                            <td id="prevDuration" style="padding: 0.15rem 0;">4 hingga 6 Minggu</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; padding: 0.15rem 0;" id="prevLblDeposit">Jadual Bayaran:</td>
+                            <td id="prevDeposit" style="padding: 0.15rem 0;">30% LOA, 40% Lapangan, 20% Deraf, 10% JUPEM
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Terms, Statutory Notes and Signatures -->
+                <div class="doc-footer-section">
+                    <div class="terms-conditions">
+                        <strong id="prevLblTermsHeader">Syarat-Syarat Perkhidmatan Juruukur Tanah Berlesen (LJT /
+                            PEJUTA):</strong>
+                        <ol id="prevNotes">
+                            <!-- Notes dynamically rendered -->
+                        </ol>
+                    </div>
+
+                    <div class="signature-block">
+                        <div class="signature-area">
+                            <div style="font-weight: bold; margin-bottom: 0.5rem;" id="prevLblPreparedBy">Disediakan
+                                oleh (Prepared by):</div>
+                            <div class="signature-image-container" id="prevSignatureContainer">
+                                <svg width="150" height="50" viewBox="0 0 150 50" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 35 C35 15, 50 45, 65 20 C75 8, 85 48, 100 25 C115 8, 125 38, 138 22"
+                                        stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round" />
+                                    <path d="M35 30 L115 25" stroke="#1d4ed8" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <div class="signature-line"></div>
+                            <div id="prevSurveyorName" style="font-weight: bold;">Ir. Sr. Ahmad Zaki bin Haron</div>
+                            <div style="color: #4a5568;" id="prevSurveyorTitle">Juruukur Tanah Berlesen Malaysia</div>
+                            <div style="font-size: 0.68rem; color: #718096;" id="prevSurveyorLjtReg">No. Perakuan LJT:
+                                8872 | PII: RM 1,000,000</div>
+                        </div>
+
+                        <!-- Vector Red Stamp Seal (LJT Compliant) -->
+                        <div class="surveyor-stamp">
+                            <svg width="85" height="85" viewBox="0 0 90 90" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="45" cy="45" r="41" stroke="#b91c1c" stroke-width="2"
+                                    stroke-dasharray="3,3" />
+                                <circle cx="45" cy="45" r="36" stroke="#b91c1c" stroke-width="1.2" />
+                                <path id="stampTextPath" d="M17 45 A28 28 0 1 1 73 45" fill="none" />
+                                <text fill="#b91c1c" font-family="var(--font-sans)" font-size="5.5" font-weight="bold">
+                                    <textPath href="#stampTextPath" startOffset="50%" text-anchor="middle">
+                                        JURUUKUR TANAH BERLESEN MALAYSIA
+                                    </textPath>
+                                </text>
+                                <text x="45" y="42" fill="#b91c1c" font-family="var(--font-sans)" font-size="7"
+                                    font-weight="bold" text-anchor="middle" id="prevSurveyorStampName">AHMAD ZAKI</text>
+                                <text x="45" y="52" fill="#b91c1c" font-family="var(--font-sans)" font-size="4.8"
+                                    font-weight="bold" text-anchor="middle" id="prevSurveyorStampLjt">LJT NO:
+                                    8872</text>
+                                <path d="M22 61 Q45 74 68 61" stroke="#b91c1c" stroke-width="1" fill="none" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>

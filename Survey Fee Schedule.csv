@@ -1,0 +1,171 @@
+Category,Sub-category,Item Description,Unit,Rate,Remarks / Conditions
+General Rates,Minimum Fees,Semenanjung Malaysia,RM/party-day,1750,Minimum fees
+General Rates,Minimum Fees,Sabah Sarawak and Labuan,RM/party-day,2275,Minimum fees
+,,,,,
+Mode of Payment,Payment Schedule,Upon mobilization,%,30,
+Mode of Payment,Payment Schedule,Upon completion of field survey,%,40,
+Mode of Payment,Payment Schedule,Upon submission of final survey plans and calculations,%,30,
+,,,,,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Preparatory work,party-day,1,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Mobilization and demobilization,party-day,2,Includes hire of vehicles/aircraft if necessary
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Planimetric control,RM/metre,7,Accuracy not less than 1 in 8000
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Missing boundary marks,RM/mark,400,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Height control - Ordinary,km/party-day,1.3,Accuracy + 0.012 sqrt(k)
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Height control - Precise,km/party-day,0.4,Accuracy + 0.003 sqrt(k)
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Contour and detail (1m interval),ha/party-day,1,Not applicable for hilly terrain
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Contour and detail (2m interval),ha/party-day,1,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Contour and detail (3m interval),ha/party-day,1.5,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Grid heighting (10m interval with detail),party-day/km,5.5,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Grid heighting (20m interval with detail),party-day/km,2.75,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Grid heighting (10m interval without detail),party-day/km,2.75,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Grid heighting (20m interval without detail),party-day/km,1.4,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Minimum fee,party-days,3,Inclusive of preparatory works
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Transformation of coordinates,RM/point,50,Minimum charge of RM 1000.00 per job
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Data processing,%,20,Percentage of relevant charges. Additional 10% for GIS or BIM.
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Professional consultation,%,10,Percentage of relevant charges
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Restricted or risk areas (Security pass or permit),%,25,Additional percentage of relevant charges
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Restricted or risk areas (Armed escort),%,50,Additional percentage of relevant charges
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Restricted or risk areas (Waiting time),party-day,1.5,Per survey party
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Motorable road (>2km away),%,20,Additional percentage of relevant charges
+TABLE I - GENERAL ENGINEERING SURVEY,CROSS-SECTIONING WITH SOUNDING FOR BRIDGE SITES,Preparatory work,party-day,1,
+TABLE I - GENERAL ENGINEERING SURVEY,CROSS-SECTIONING WITH SOUNDING FOR BRIDGE SITES,Mobilization and demobilization,party-day,2,
+TABLE I - GENERAL ENGINEERING SURVEY,CROSS-SECTIONING WITH SOUNDING FOR BRIDGE SITES,Planimetric control,RM/metre,7,
+TABLE I - GENERAL ENGINEERING SURVEY,CROSS-SECTIONING WITH SOUNDING FOR BRIDGE SITES,Missing boundary marks,RM/mark,400,
+TABLE I - GENERAL ENGINEERING SURVEY,CROSS-SECTIONING WITH SOUNDING FOR BRIDGE SITES,Height control - Ordinary,km/party-day,1.3,
+TABLE I - GENERAL ENGINEERING SURVEY,CROSS-SECTIONING WITH SOUNDING FOR BRIDGE SITES,Height control - Precise,km/party-day,0.4,
+TABLE I - GENERAL ENGINEERING SURVEY,CROSS-SECTIONING WITH SOUNDING FOR BRIDGE SITES,Bridge site survey,party-day/ha,5.5,Excluding wetted area
+TABLE I - GENERAL ENGINEERING SURVEY,CROSS-SECTIONING WITH SOUNDING FOR BRIDGE SITES,Cross-sectioning (water depth <= 1m),party-day/km,8,Spot level at 10m interval
+TABLE I - GENERAL ENGINEERING SURVEY,CROSS-SECTIONING WITH SOUNDING FOR BRIDGE SITES,Cross-sectioning (water depth > 1m),party-day/km,12,Spot level at 10m interval. Boat mob/demob: 1.0 party-day/boat
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,Preparatory work,party-day,1,
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,Mobilization and demobilization,party-day,2,
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,Planimetric control,RM/metre,7,
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,Missing boundary marks,RM/mark,400,
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,Height control - Ordinary,km/party-day,1.3,
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,Height control - Precise,km/party-day,0.4,
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,Survey of strip with spot level and detail,ha/party-day,1,Spot level at 20m interval
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,"Setting out centre line (IP to IP, 20m interval)",party-day/km,4.25,
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,"Setting out centre line (IP to IP, 20m interval, curve setting)",party-day/km,5.5,
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,Longitudinal profiling,party-day/km,3,Levels taken every 20m
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,Cross-sectioning,sections/party-day,5,
+TABLE I - GENERAL ENGINEERING SURVEY,ROAD AND RAILWAY SURVEY,Setting of reserve boundaries,party-day/km,3,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Preparatory work,party-day,1,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Mobilization and demobilization,party-day,2,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Planimetric control,RM/metre,7,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Missing boundary marks,RM/mark,400,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Height control - Ordinary,km/party-day,1.3,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Height control - Precise,km/party-day,0.4,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Setting out of pipeline (Along Existing Road),party-day/km,3.75,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Setting out of pipeline (Other areas),party-day/km,5,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Longitudinal profiling (Along Existing Road),party-day/km,2,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Longitudinal profiling (Other areas),party-day/km,2.5,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Survey of site with 0.5m contour and detail,ha/party-day,0.75,Spot level at 20m interval
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Cross-sectioning,sections/party-day,5,
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Survey of strip with spot level and detail,ha/party-day,0.75,Spot level at 20m interval
+TABLE I - GENERAL ENGINEERING SURVEY,PIPELINE SURVEY,Setting of reserve boundaries,party-day/km,3,
+,,,,,
+TABLE II - DRAINAGE AND IRRIGATION,SITE SURVEY,Preparatory work,party-day,1,
+TABLE II - DRAINAGE AND IRRIGATION,SITE SURVEY,Mobilization and demobilization,party-day,2,
+TABLE II - DRAINAGE AND IRRIGATION,SITE SURVEY,Planimetric control,RM/metre,7,
+TABLE II - DRAINAGE AND IRRIGATION,SITE SURVEY,Height control - Ordinary,km/party-day,1.3,
+TABLE II - DRAINAGE AND IRRIGATION,SITE SURVEY,Contour and Detail (1m),ha/party-day,1,
+TABLE II - DRAINAGE AND IRRIGATION,SITE SURVEY,Grid Survey (25m),party-day/km,3.5,
+TABLE II - DRAINAGE AND IRRIGATION,WATERWAYS SURVEY,Survey of strip with detail,ha/party-day,1,
+TABLE II - DRAINAGE AND IRRIGATION,WATERWAYS SURVEY,Setting out (50m Cross Sec),party-day/km,2.75,
+TABLE II - DRAINAGE AND IRRIGATION,WATERWAYS SURVEY,Longitudinal Section (50m),party-day/km,2.75,
+TABLE II - DRAINAGE AND IRRIGATION,WATERWAYS SURVEY,Depth of water (<= 1m),party-day/km,8,
+TABLE II - DRAINAGE AND IRRIGATION,WATERWAYS SURVEY,Depth of water (> 1m),party-day/km,12,
+,,,,,
+TABLE III - TRANSMISSION LINE,TRANSMISSION LINE SURVEY,Setting out of centre line,party-day/km,4.25,
+TABLE III - TRANSMISSION LINE,TRANSMISSION LINE SURVEY,Longitudinal profiling,party-day/km,2.75,
+TABLE III - TRANSMISSION LINE,TRANSMISSION LINE SURVEY,Cross-sectioning,sections/party-day,10,
+TABLE III - TRANSMISSION LINE,TRANSMISSION LINE SURVEY,Setting out of tower/pylon positions,tower/party-day,1,
+,,,,,
+TABLE IV - MAPPING,DRONE OR UAS,Data acquisition (Less than 5cm/pixel),RM/ha,200,
+TABLE IV - MAPPING,DRONE OR UAS,Data acquisition (LiDAR),RM/ha,400,
+TABLE IV - MAPPING,MANNED AIRCRAFT,Data acquisition (Image capture),party-day/km2,10,Minimum charge
+TABLE IV - MAPPING,MANNED AIRCRAFT,Data acquisition (LiDAR),RM/ha,400,Minimum charge
+,,,,,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Topographical Onshore Profiling,party-day/km,4.5,Base Line and Height Control
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Bathymetric SBES (25m interval),party-day/km,0.3,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Bathymetric MBES (25m interval),party-day/km,0.15,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Tidal Observation (Tide Pole),RM/hour,525,Subject to min 1 party-day/job
+,,,,,
+TABLE VI - UNDERGROUND UTILITY,UNDERGROUND UTILITY SURVEYS,Up to 3 metre depth,RM/m2,9.7,
+TABLE VI - UNDERGROUND UTILITY,UNDERGROUND UTILITY SURVEYS,From 3 metre to 5 metre depth,RM/m2,12.15,
+TABLE VI - UNDERGROUND UTILITY,UNDERGROUND UTILITY SURVEYS,As-built survey of exposed utility standby,party-day/km/day,1.3,
+TABLE VI - UNDERGROUND UTILITY,UNDERGROUND UTILITY SURVEYS,Feasibility Study Report,party-day/km,21,Subject to minimum fee of 10 party-days/job
+,,,,,
+TABLE VII - BIM,BUILDING INFORMATION MODELLING SURVEY,Spatial survey and data processing,RM/m3,20,Building
+TABLE VII - BIM,BUILDING INFORMATION MODELLING SURVEY,Semantic modelling,RM/m3,20,Building
+,,,,,
+TABLE VIII - MISCELLANEOUS,EARTHWORK SURVEY,Volume calculation (Less than 10 Ha),party-day,3,
+TABLE VIII - MISCELLANEOUS,VERTICALITY SURVEY,Verticality survey points,RM/point,175,Minimum 1 party-day
+TABLE VIII - MISCELLANEOUS,PILING POINT SURVEY,Setting out points,RM/point,50,
+TABLE VIII - MISCELLANEOUS,PILING POINT SURVEY,As-built points,RM/point,35,
+TABLE VIII - MISCELLANEOUS,MONITORING SURVEY,Observation of structure monitoring points,RM/point/observation,1000,Minimum 1.5 party-days
+,,,,,
+TABLE X - MONUMENTING,MONUMENTING,With concreting (Accessible),marks/party-day,4,
+TABLE X - MONUMENTING,MONUMENTING,Without concreting (Accessible),marks/party-day,5,
+,,,,,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Land acquisition plans,TABLE XII,,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Supply of plan and documents,TABLE XIII,,
+TABLE I - GENERAL ENGINEERING SURVEY,SITE SURVEY,Reimbursable,TABLE XI,,
+,,,,,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Bathymetric DUAL FREQ SBES (25m interval),party-day/km,0.25,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Bathymetric DUAL HEAD MBES (25m interval),party-day/km,0.1,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Bathymetric SBES (50m interval),party-day/km,0.35,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Bathymetric MBES (50m interval),party-day/km,0.2,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Bathymetric SBES (75m interval),party-day/km,0.4,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Bathymetric MBES (75m interval),party-day/km,0.25,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Bathymetric SBES (100m interval),party-day/km,0.45,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Bathymetric MBES (100m interval),party-day/km,0.3,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Self-Recording Current (14 days or less),party-days,37,10 installation + 27 processing per location/instrument
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Self-Recording Current (30 days),party-days,64,10 installation + 54 processing per location/instrument
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Direct Reading Current Measurement (Setup),party-days,2.5,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Direct Reading Current Measurement (Observation),RM/hour,875,Min 5.25 party-days/job
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Seawater temp/salinity (Tide pole installation),party-days,2.5,
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Seawater temp/salinity (Observation),RM/hour,700,Min 5.3 party-days/job
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Seabed (grab) soil sampling,RM/hour,700,Min 2.0 party-days/job
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Seawater sampling,RM/hour,700,Min 2.0 party-days/job
+TABLE V - HYDROGRAPHICAL SURVEY,HYDROGRAPHICAL SURVEY,Preparation of report and submission,%,5,Min fee 3.5 party-days/job
+,,,,,
+TABLE VI - UNDERGROUND UTILITY,UNDERGROUND UTILITY SURVEYS,Preparatory work,party-days,6,Minimum fee per job
+TABLE VI - UNDERGROUND UTILITY,UNDERGROUND UTILITY SURVEYS,More than 5 metre depth,Actual Cost,,Subject to special equipment
+,,,,,
+TABLE VII - BIM,BUILDING INFORMATION MODELLING SURVEY,Semantic modelling (Linear features/structure),RM/m2,3.5,Min charge 3 party-days/job
+TABLE VII - BIM,BUILDING INFORMATION MODELLING SURVEY,Preparation of report,party-days,3,Per report
+,,,,,
+TABLE VIII - MISCELLANEOUS,EARTHWORK SURVEY,Volume calculation (10-50 Ha),party-days,4,
+TABLE VIII - MISCELLANEOUS,EARTHWORK SURVEY,Preparation of report and submission,%,5,Min fee 3.5 party-days/job
+TABLE VIII - MISCELLANEOUS,PILING POINT SURVEY,Setting-out rate for Block pegging,party-days,1,Per block
+TABLE VIII - MISCELLANEOUS,PILING POINT SURVEY,Setting-out of grid line,RM/metre,7,Min charge 1.5 party-days/job
+TABLE VIII - MISCELLANEOUS,MONITORING SURVEY,Establishment of monitoring station/point,party-days/point,0.6,Min charge 1.5 party-days
+TABLE VIII - MISCELLANEOUS,MONITORING SURVEY,Settlement survey observation,RM/point,1000,Min charge 1.5 party-days
+TABLE VIII - MISCELLANEOUS,MONITORING SURVEY,Deformation survey observation,RM/point,1000,Min charge 1.5 party-days
+TABLE VIII - MISCELLANEOUS,MONITORING SURVEY,Dilapidation survey,party-days/building,2,Minimum charge
+TABLE VIII - MISCELLANEOUS,MONITORING SURVEY,Forensic survey,party-days,8,Minimum charge per job
+,,,,,
+TABLE IX - SATELLITE SOLAR STAR,POINT POSITIONING BY SATELLITE,Basic charge,party-days,1.5,
+TABLE IX - SATELLITE SOLAR STAR,POINT POSITIONING BY SATELLITE,Mob/Demob (Up to 150km),party-days,3,For 3 Field Parties
+TABLE IX - SATELLITE SOLAR STAR,POINT POSITIONING BY SATELLITE,Mob/Demob (150 - 300km),party-days,7,For 3 Field Parties
+TABLE IX - SATELLITE SOLAR STAR,POINT POSITIONING BY SATELLITE,Mob/Demob (> 300km),party-days,10,For 3 Field Parties
+TABLE IX - SATELLITE SOLAR STAR,POINT POSITIONING BY SATELLITE,Point positioning,party-days/point,2,
+TABLE IX - SATELLITE SOLAR STAR,POINT POSITIONING BY SATELLITE,GNSS monument construction,RM/monument,800,
+TABLE IX - SATELLITE SOLAR STAR,POINT POSITIONING BY SATELLITE,Site clearance,RM/point,1200,
+TABLE IX - SATELLITE SOLAR STAR,FIRST ORDER GEODETIC SURVEY,Basic charge,party-days,1.5,
+TABLE IX - SATELLITE SOLAR STAR,FIRST ORDER GEODETIC SURVEY,Site assessment,party-days,3,
+TABLE IX - SATELLITE SOLAR STAR,FIELD ASTRONOMY,Qibla Direction (Preparatory),party-days,2,
+TABLE IX - SATELLITE SOLAR STAR,FIELD ASTRONOMY,Qibla Direction,RM/point,175,
+,,,,,
+TABLE XII - LAND ACQUISITION PLANS,PREPARATION OF LAND ACQUISITION PLANS,Preparatory work,party-days,1,
+TABLE XII - LAND ACQUISITION PLANS,PREPARATION OF LAND ACQUISITION PLANS,Search at land office,RM/hour,25,Plus traveling expenses
+TABLE XII - LAND ACQUISITION PLANS,PREPARATION OF LAND ACQUISITION PLANS,Computation and plan drawing,RM/job,3000,Minimum charge (up to 30 lots)
+TABLE XII - LAND ACQUISITION PLANS,PREPARATION OF LAND ACQUISITION PLANS,Computation and plan drawing (>30 lots),RM/lot,100,Additional per lot
+,,,,,
+TABLE XIV - ADDITIONAL PLANS AND PRINTS,ADDITIONAL PLANS,Replotting drawing,RM/copy,280,
+TABLE XIV - ADDITIONAL PLANS AND PRINTS,ADDITIONAL PLANS,Transparent film A1,RM/copy,50,
+TABLE XIV - ADDITIONAL PLANS AND PRINTS,ADDITIONAL PLANS,Transparent tracing paper A1,RM/copy,30,
+TABLE XIV - ADDITIONAL PLANS AND PRINTS,ADDITIONAL PLANS,Transparent tracing paper A2 or smaller,RM/copy,25,
+TABLE XIV - ADDITIONAL PLANS AND PRINTS,ADDITIONAL PLANS,Paper A1 with linen backing,RM/copy,100,
+TABLE XIV - ADDITIONAL PLANS AND PRINTS,ADDITIONAL PLANS,Paper A2 with linen backing,RM/copy,50,
+TABLE XIV - ADDITIONAL PLANS AND PRINTS,ADDITIONAL PLANS,Paper print A1 or smaller,RM/copy,30,

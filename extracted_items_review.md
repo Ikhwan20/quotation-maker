@@ -1,0 +1,834 @@
+<h1>Laporan Semakan Data BQ (Sg. Rinching) - VERSI 2 (DIPERBAIKI)</h1>
+<p>Hierarki / Sub-kategori telah diperbetulkan mengikut pemerhatian anda.</p>
+<table>
+<thead>
+<tr>
+<th>Bil</th>
+<th>Kategori / Peringkat</th>
+<th>Penerangan Item (Description)</th>
+<th>Unit</th>
+<th>Kadar (RM)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>STAGE 1: DESCRIPTION OF WORKS</td>
+<td>DESCRIPTION OF WORKS</td>
+<td>UNIT</td>
+<td>RATE</td>
+</tr>
+<tr>
+<td>2</td>
+<td>STAGE 1: PREPARATORY WORK</td>
+<td>PREPARATORY WORK</td>
+<td>PD</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>3</td>
+<td>STAGE 1: MOBILIZATION AND DEMOBILIZATION</td>
+<td>a. More than 50km but not exceeding 150km</td>
+<td>PD</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>4</td>
+<td>STAGE 1: MOBILIZATION AND DEMOBILIZATION</td>
+<td>b. More than 150km but not exceeding 300km</td>
+<td>PD</td>
+<td>1,486.00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>STAGE 1: MOBILIZATION AND DEMOBILIZATION</td>
+<td>c. Exceeding 300km</td>
+<td>PD</td>
+<td>2,229.00</td>
+</tr>
+<tr>
+<td>6</td>
+<td>STAGE 1: PLANIMETRIC CONTROL AND CONNECTION</td>
+<td>a. Flat and undulating area</td>
+<td>km</td>
+<td>2,000.00</td>
+</tr>
+<tr>
+<td>7</td>
+<td>STAGE 1: PLANIMETRIC CONTROL AND CONNECTION</td>
+<td>b. Hilly area / Swampy area / Built up area</td>
+<td>km</td>
+<td>2,500.00</td>
+</tr>
+<tr>
+<td>8</td>
+<td>STAGE 1: HEIGHT CONTROL AND CONNECTION</td>
+<td>a. Flat and undulating area (ordinary)</td>
+<td>km</td>
+<td>464.38</td>
+</tr>
+<tr>
+<td>9</td>
+<td>STAGE 1: HEIGHT CONTROL AND CONNECTION</td>
+<td>b. Hilly area / Swampy area / Built up area (ordinary)</td>
+<td>km</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>10</td>
+<td>STAGE 1: POINT POSITIONING BY SATELLITE</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(GPS)</td>
+<td>i. More than 50km but not exceeding 150km</td>
+<td>nos</td>
+<td>2,700.00</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>STAGE 1: POINT POSITIONING BY SATELLITE</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(GPS)</td>
+<td>ii. More than 150 km but not exceeding 300km</td>
+<td>nos</td>
+<td>5,400.00</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>STAGE 1: POINT POSITIONING BY SATELLITE</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(GPS)</td>
+<td>iii. Exceeding 300km</td>
+<td>nos</td>
+<td>8,100.00</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>STAGE 1: POINT POSITIONING BY SATELLITE</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(GPS)</td>
+<td>b. Basic Charge</td>
+<td>nos</td>
+<td>4,660.00</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>STAGE 1: POINT POSITIONING BY SATELLITE</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(GPS)</td>
+<td>c. Point Positioning</td>
+<td>nos</td>
+<td>1,970.00</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>STAGE 1: MONUMENTING (concreting)</td>
+<td>a. Accessible</td>
+<td>nos</td>
+<td>185.75</td>
+</tr>
+<tr>
+<td>16</td>
+<td>STAGE 1: MONUMENTING (concreting)</td>
+<td>b. Inaccessible</td>
+<td>nos</td>
+<td>371.50</td>
+</tr>
+<tr>
+<td>17</td>
+<td>STAGE 1: SURVEY IN SECURITY AREAS</td>
+<td>a. Security pass or permit has to be obtained</td>
+<td>PD</td>
+<td>928.75</td>
+</tr>
+<tr>
+<td>18</td>
+<td>STAGE 1: SURVEY IN SECURITY AREAS</td>
+<td>b. Armed escort is required and working hours are dictated by relevant authority</td>
+<td>PD</td>
+<td>1,114.50</td>
+</tr>
+<tr>
+<td>19</td>
+<td>STAGE 1: SURVEY IN SECURITY AREAS</td>
+<td>c. When there is a waiting time after mobilization</td>
+<td>PD</td>
+<td>900.00</td>
+</tr>
+<tr>
+<td>20</td>
+<td>STAGE 1: SURVEY IN INACCESSIBLE AREAS</td>
+<td>a. More than 2 kilometres</td>
+<td>PD</td>
+<td>891.60</td>
+</tr>
+<tr>
+<td>21</td>
+<td>STAGE 1: TRANSFORMATION FOR COORDINATES</td>
+<td>a. Transformation of Coordinates</td>
+<td>nos</td>
+<td>400.00</td>
+</tr>
+<tr>
+<td>22</td>
+<td>STAGE 1: MARKING OF TREES WITHIN THE RESERVE BOUNDARIES</td>
+<td>a. Flat and Undulating area / Built up area</td>
+<td>km</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>23</td>
+<td>STAGE 1: MARKING OF TREES WITHIN THE RESERVE BOUNDARIES</td>
+<td>b. Hilly area / Swampy area</td>
+<td>km</td>
+<td>928.75</td>
+</tr>
+<tr>
+<td>24</td>
+<td>STAGE 1: SURVEY OF STRIP WITH SPOT LEVEL AND DETAIL</td>
+<td>a. Developed area / Flat and Undulating area</td>
+<td>ha</td>
+<td>371.50</td>
+</tr>
+<tr>
+<td>25</td>
+<td>STAGE 1: SURVEY OF STRIP WITH SPOT LEVEL AND DETAIL</td>
+<td>b. Built up area / Undeveloped area / Hilly area</td>
+<td>ha</td>
+<td>495.33</td>
+</tr>
+<tr>
+<td>26</td>
+<td>STAGE 1: SURVEY OF STRIP WITH SPOT LEVEL AND DETAIL</td>
+<td>c. Swampy area</td>
+<td>ha</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>27</td>
+<td>STAGE 1: UNDERGROUND UTILITY SURVEY WORKS</td>
+<td>UNDERGROUND UTILITY SURVEY WORKS</td>
+<td>m2</td>
+<td>3.50</td>
+</tr>
+<tr>
+<td>28</td>
+<td>STAGE 1: Contour and Detail</td>
+<td>i. 1m</td>
+<td>ha</td>
+<td>594.40</td>
+</tr>
+<tr>
+<td>29</td>
+<td>STAGE 1: Contour and Detail</td>
+<td>ii. 2m</td>
+<td>ha</td>
+<td>495.33</td>
+</tr>
+<tr>
+<td>30</td>
+<td>STAGE 1: Contour and Detail</td>
+<td>iii. 3m</td>
+<td>ha</td>
+<td>424.57</td>
+</tr>
+<tr>
+<td>31</td>
+<td>STAGE 1: Contour and Detail</td>
+<td>i. 2m</td>
+<td>ha</td>
+<td>990.67</td>
+</tr>
+<tr>
+<td>32</td>
+<td>STAGE 1: Contour and Detail</td>
+<td>ii. 3m</td>
+<td>ha</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>33</td>
+<td>STAGE 1: Contour and Detail</td>
+<td>i. 1m</td>
+<td>ha</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>34</td>
+<td>STAGE 1: Contour and Detail</td>
+<td>ii. 2m</td>
+<td>ha</td>
+<td>594.40</td>
+</tr>
+<tr>
+<td>35</td>
+<td>STAGE 1: Contour and Detail</td>
+<td>iii. 3m</td>
+<td>ha</td>
+<td>495.33</td>
+</tr>
+<tr>
+<td>36</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>10m</td>
+<td>km</td>
+<td>3,715.00</td>
+</tr>
+<tr>
+<td>37</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>20m</td>
+<td>km</td>
+<td>1,857.50</td>
+</tr>
+<tr>
+<td>38</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>10m</td>
+<td>km</td>
+<td>1,857.50</td>
+</tr>
+<tr>
+<td>39</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>20m</td>
+<td>km</td>
+<td>928.75</td>
+</tr>
+<tr>
+<td>40</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>10m</td>
+<td>km</td>
+<td>4,458.00</td>
+</tr>
+<tr>
+<td>41</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>20m</td>
+<td>km</td>
+<td>2,229.00</td>
+</tr>
+<tr>
+<td>42</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>10m</td>
+<td>km</td>
+<td>2,229.00</td>
+</tr>
+<tr>
+<td>43</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>20m</td>
+<td>km</td>
+<td>1,114.50</td>
+</tr>
+<tr>
+<td>44</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>10m</td>
+<td>km</td>
+<td>2,972.00</td>
+</tr>
+<tr>
+<td>45</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>20m</td>
+<td>km</td>
+<td>1,486.00</td>
+</tr>
+<tr>
+<td>46</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>10m</td>
+<td>km</td>
+<td>1,486.00</td>
+</tr>
+<tr>
+<td>47</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>20m</td>
+<td>km</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>48</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>10m</td>
+<td>km</td>
+<td>4,086.50</td>
+</tr>
+<tr>
+<td>49</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>20m</td>
+<td>km</td>
+<td>2,043.25</td>
+</tr>
+<tr>
+<td>50</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>10m</td>
+<td>km</td>
+<td>2,043.25</td>
+</tr>
+<tr>
+<td>51</td>
+<td>STAGE 1: Grid Heighing</td>
+<td>20m</td>
+<td>km</td>
+<td>1,040.20</td>
+</tr>
+<tr>
+<td>52</td>
+<td>STAGE 1: SURVEY OF BRIDGE SITES</td>
+<td>SURVEY OF BRIDGE SITES</td>
+<td>ha</td>
+<td>4,086.50</td>
+</tr>
+<tr>
+<td>53</td>
+<td>STAGE 1: CROSS SECTION WITH SOUNDING</td>
+<td>a. Depth of water less than 1m</td>
+<td>km</td>
+<td>5,944.00</td>
+</tr>
+<tr>
+<td>54</td>
+<td>STAGE 1: CROSS SECTION WITH SOUNDING</td>
+<td>i. Mobilization and Demobilization of boat</td>
+<td>nos</td>
+<td>600.00</td>
+</tr>
+<tr>
+<td>55</td>
+<td>STAGE 1: CROSS SECTION WITH SOUNDING</td>
+<td>ii. Boat rental</td>
+<td>day</td>
+<td>300.00</td>
+</tr>
+<tr>
+<td>56</td>
+<td>STAGE 1: CROSS SECTION WITH SOUNDING</td>
+<td>iii. Work rate (10m interval)</td>
+<td>km</td>
+<td>5,944.00</td>
+</tr>
+<tr>
+<td>57</td>
+<td>STAGE 1: LONGITUDINAL PROFILING ALONG ESTABLISH CHAINAGE PEGS</td>
+<td>a. Flat and Undulating area</td>
+<td>km</td>
+<td>1,300.25</td>
+</tr>
+<tr>
+<td>58</td>
+<td>STAGE 1: LONGITUDINAL PROFILING ALONG ESTABLISH CHAINAGE PEGS</td>
+<td>b. Hilly area / Swampy area / Built up area</td>
+<td>km</td>
+<td>2,229.00</td>
+</tr>
+<tr>
+<td>59</td>
+<td>STAGE 1: CROSS SECTIONING</td>
+<td>a. Flat</td>
+<td>Section</td>
+<td>106.14</td>
+</tr>
+<tr>
+<td>60</td>
+<td>STAGE 1: CROSS SECTIONING</td>
+<td>b. Hilly / Built Up / Swampy</td>
+<td>Section</td>
+<td>185.75</td>
+</tr>
+<tr>
+<td>61</td>
+<td>STAGE 1: SURVEY OF STRIP WITH DETAIL</td>
+<td>a. Developed area / Flat and Undulating area</td>
+<td>ha</td>
+<td>371.50</td>
+</tr>
+<tr>
+<td>62</td>
+<td>STAGE 1: SURVEY OF STRIP WITH DETAIL</td>
+<td>b. Built up area / Undeveloped area / Hilly area</td>
+<td>ha</td>
+<td>495.33</td>
+</tr>
+<tr>
+<td>63</td>
+<td>STAGE 1: SURVEY OF STRIP WITH DETAIL</td>
+<td>c. Swampy area</td>
+<td>ha</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>64</td>
+<td>STAGE 1: SURVEY OF STRIP WITH DETAIL</td>
+<td>d. Tidal area</td>
+<td>ha</td>
+<td>990.67</td>
+</tr>
+<tr>
+<td>65</td>
+<td>STAGE 1: Bathhymatric (Offshore) Profiling</td>
+<td>a. Profile at interval : 25</td>
+<td>km</td>
+<td>2,476.67</td>
+</tr>
+<tr>
+<td>66</td>
+<td>STAGE 1: Bathhymatric (Offshore) Profiling</td>
+<td>b. Profile at interval : 50 / 75</td>
+<td>km</td>
+<td>1,857.50</td>
+</tr>
+<tr>
+<td>67</td>
+<td>STAGE 1: Bathhymatric (Offshore) Profiling</td>
+<td>c. Profile at interval : 100 or more</td>
+<td>km</td>
+<td>1,486.00</td>
+</tr>
+<tr>
+<td>68</td>
+<td>STAGE 1: Automatic Water Level Recording</td>
+<td>Installation</td>
+<td>nos</td>
+<td>3,600.00</td>
+</tr>
+<tr>
+<td>69</td>
+<td>STAGE 1: Automatic Water Level Recording</td>
+<td>Measurement data processing</td>
+<td>nos</td>
+<td>5,000.00</td>
+</tr>
+<tr>
+<td>70</td>
+<td>STAGE 1: Automatic Water Level Recording</td>
+<td>Installation</td>
+<td>nos</td>
+<td>3,600.00</td>
+</tr>
+<tr>
+<td>71</td>
+<td>STAGE 1: Automatic Water Level Recording</td>
+<td>Measurement data processing</td>
+<td>nos</td>
+<td>12,200.00</td>
+</tr>
+<tr>
+<td>72</td>
+<td>STAGE 1: Direct Reading</td>
+<td>Installation</td>
+<td>nos</td>
+<td>900.00</td>
+</tr>
+<tr>
+<td>73</td>
+<td>STAGE 1: Direct Reading</td>
+<td>Tidal observation</td>
+<td>hour</td>
+<td>20.00</td>
+</tr>
+<tr>
+<td>74</td>
+<td>STAGE 1: Self Recording Current Measurement</td>
+<td>a. Installation</td>
+<td>days</td>
+<td>7,000.00</td>
+</tr>
+<tr>
+<td>75</td>
+<td>STAGE 1: Self Recording Current Measurement</td>
+<td>b. Measurement and data processing</td>
+<td>days</td>
+<td>19,600.00</td>
+</tr>
+<tr>
+<td>76</td>
+<td>STAGE 1: Self Recording Current Measurement</td>
+<td>a. Installation</td>
+<td>days</td>
+<td>7,000.00</td>
+</tr>
+<tr>
+<td>77</td>
+<td>STAGE 1: Self Recording Current Measurement</td>
+<td>b. Measurement and data processing</td>
+<td>days</td>
+<td>39,500.00</td>
+</tr>
+<tr>
+<td>78</td>
+<td>STAGE 1: Direct Reading</td>
+<td>a. Preparation and set up</td>
+<td>Location</td>
+<td>1,800.00</td>
+</tr>
+<tr>
+<td>79</td>
+<td>STAGE 1: Direct Reading</td>
+<td>b. Direct observation Current speed and direction</td>
+<td>hour / job</td>
+<td>300.00</td>
+</tr>
+<tr>
+<td>80</td>
+<td>STAGE 1: SEAWATER TEMPERATURE AND SALINITY MEASUREMENT</td>
+<td>a. Installation</td>
+<td>Location</td>
+<td>1,800.00</td>
+</tr>
+<tr>
+<td>81</td>
+<td>STAGE 1: SEAWATER TEMPERATURE AND SALINITY MEASUREMENT</td>
+<td>b. In situ (direct)</td>
+<td>hour / job</td>
+<td>300.00</td>
+</tr>
+<tr>
+<td>82</td>
+<td>STAGE 1: SEABED (GRAB) SOIL SAMPLING</td>
+<td>a. Installation</td>
+<td>sample</td>
+<td>250.00</td>
+</tr>
+<tr>
+<td>83</td>
+<td>STAGE 1: SEAWATER SAMPLING</td>
+<td>SEAWATER SAMPLING</td>
+<td>sample</td>
+<td>250.00</td>
+</tr>
+<tr>
+<td>84</td>
+<td>STAGE 1: DESCRIPTION OF WORKS</td>
+<td>DESCRIPTION OF WORKS</td>
+<td>UNIT</td>
+<td>RATE</td>
+</tr>
+<tr>
+<td>85</td>
+<td>STAGE 1: PREPARATORY WORK</td>
+<td>PREPARATORY WORK</td>
+<td>PD</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>86</td>
+<td>STAGE 1: MOBILIZATION AND DEMOBILIZATION</td>
+<td>a. More than 50km but not exceeding 150km</td>
+<td>PD</td>
+<td>743.00</td>
+</tr>
+<tr>
+<td>87</td>
+<td>STAGE 1: MOBILIZATION AND DEMOBILIZATION</td>
+<td>b. More than 150km but not exceeding 300km</td>
+<td>PD</td>
+<td>1,486.00</td>
+</tr>
+<tr>
+<td>88</td>
+<td>STAGE 1: MOBILIZATION AND DEMOBILIZATION</td>
+<td>c. Exceeding 300km</td>
+<td>PD</td>
+<td>2,229.00</td>
+</tr>
+<tr>
+<td>89</td>
+<td>STAGE 1: MONUMENTING (concreting)</td>
+<td>a. Accessible</td>
+<td>nos</td>
+<td>185.75</td>
+</tr>
+<tr>
+<td>90</td>
+<td>STAGE 1: MONUMENTING (concreting)</td>
+<td>b. Inaccessible</td>
+<td>nos</td>
+<td>371.50</td>
+</tr>
+<tr>
+<td>91</td>
+<td>STAGE 1: SURVEY IN SECURITY AREAS</td>
+<td>a. Security pass or permit has to be obtained</td>
+<td>PD</td>
+<td>928.75</td>
+</tr>
+<tr>
+<td>92</td>
+<td>STAGE 1: SURVEY IN SECURITY AREAS</td>
+<td>b. Armed escort is required and working hours are dictated by relevant authority</td>
+<td>PD</td>
+<td>1,114.50</td>
+</tr>
+<tr>
+<td>93</td>
+<td>STAGE 1: SURVEY IN SECURITY AREAS</td>
+<td>c. When there is a waiting time after mobilization</td>
+<td>PD</td>
+<td>900.00</td>
+</tr>
+<tr>
+<td>94</td>
+<td>STAGE 1: SURVEY IN INACCESSIBLE AREAS</td>
+<td>a. More than 2 kilometres</td>
+<td>PD</td>
+<td>891.60</td>
+</tr>
+<tr>
+<td>95</td>
+<td>STAGE 1: SETTING OUT CENTRELINE OF ROAD AND RAILWAY (20m interval)</td>
+<td>a. Flat and Undulating area</td>
+<td>km</td>
+<td>2,786.25</td>
+</tr>
+<tr>
+<td>96</td>
+<td>STAGE 1: SETTING OUT CENTRELINE OF ROAD AND RAILWAY (20m interval)</td>
+<td>b. Hilly area / Swampy area / Built up area</td>
+<td>km</td>
+<td>4,086.50</td>
+</tr>
+<tr>
+<td>97</td>
+<td>STAGE 1: SETTING OUT RESERVE BOUNDARIES</td>
+<td>i. Flat and undulating area</td>
+<td>km</td>
+<td>1,857.50</td>
+</tr>
+<tr>
+<td>98</td>
+<td>STAGE 1: SETTING OUT RESERVE BOUNDARIES</td>
+<td>ii. Hilly area / Swampy area / Built up area</td>
+<td>km</td>
+<td>2,229.00</td>
+</tr>
+<tr>
+<td>99</td>
+<td>STAGE 1: SETTING OUT RESERVE BOUNDARIES</td>
+<td>i. Flat and undulating area</td>
+<td>km</td>
+<td>2,000.00</td>
+</tr>
+<tr>
+<td>100</td>
+<td>STAGE 1: SETTING OUT RESERVE BOUNDARIES</td>
+<td>ii. Hilly area / Swampy area / Built up area</td>
+<td>km</td>
+<td>2,500.00</td>
+</tr>
+<tr>
+<td>101</td>
+<td>STAGE 2: DESCRIPTION OF WORKS</td>
+<td>DESCRIPTION OF WORKS</td>
+<td>UNIT</td>
+<td>RATE</td>
+</tr>
+<tr>
+<td>102</td>
+<td>REIMBURSABLES: DESCRIPTION OF WORKS</td>
+<td>a. Time involved for search at Land Office and PTG</td>
+<td>per hour</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>103</td>
+<td>REIMBURSABLES: Printing Of Section 4 (Peninsular Malaysia) / Section 4 and 5, Section 3 (5) of cap 69 or Section 3 of cap 69 (Sabah only) LA Plan for submission to authority</td>
+<td>Printing Of Section 4 (Peninsular Malaysia) / Section 4 and 5, Section 3 (5) of cap 69 or Section 3 of cap 69 (Sabah only) LA Plan for submission to authority</td>
+<td>lot</td>
+<td>20.00</td>
+</tr>
+<tr>
+<td>104</td>
+<td>REIMBURSABLES: Replotting A1 Size</td>
+<td>Replotting A1 Size</td>
+<td>sheet</td>
+<td>280.00</td>
+</tr>
+<tr>
+<td>105</td>
+<td>REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)</td>
+<td>(40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)</td>
+<td>sheet</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>106</td>
+<td>REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)</td>
+<td>Milage</td>
+<td>km</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td>107</td>
+<td>REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)</td>
+<td>iii. Subsistence allowance</td>
+<td>day</td>
+<td>85.00</td>
+</tr>
+<tr>
+<td>108</td>
+<td>REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)</td>
+<td>a. Time involved for search at Land Office and PTG</td>
+<td>per hour</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>109</td>
+<td>REIMBURSABLES: Printing Of Section 8 LA Plan for submission to authority</td>
+<td>Printing Of Section 8 LA Plan for submission to authority</td>
+<td>lot</td>
+<td>20.00</td>
+</tr>
+<tr>
+<td>110</td>
+<td>REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)</td>
+<td>(40 set JKPTG + 10 set JKR Record)</td>
+<td>sheet</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>111</td>
+<td>REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)</td>
+<td>Milage</td>
+<td>km</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td>112</td>
+<td>REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)</td>
+<td>iii. Subsistence allowance</td>
+<td>day</td>
+<td>85.00</td>
+</tr>
+</tbody>
+</table>

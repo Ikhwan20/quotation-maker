@@ -1,0 +1,581 @@
+Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10
+ANGGARAN KOS PERKHIDMATAN PERUNDING (UKUR TANAH),,,,,,,,,,
+,,,,,,,,,,
+STAGE 1,,,,,PENINSULAR MALAYSIA,,SABAH/SARAWAK,,DESCRIPTION,
+ITEM,DESCRIPTION OF WORKS,REFERENCE,QTY,UNIT,RATE,AMOUNT,RATE,AMOUNT,,
+NO.,,TREASURY RATE,,,(RM),(RM),(RM),(RM),,
+1,SITE SURVEY,,,,,,,,,
+,PREPARATORY WORK,2.2,,PD,743,0,966,0,"- Persediaan masuk ke tapak (bilangan team, resouces, peralatan, method / kaedah kerja dll yang berkaitan)",
+,MOBILIZATION & DEMOBILIZATION,2.3,,,,,,,"- Jarak pejabat Juruukur ke tapak
+- Telah mengambilkira kos peralatan, kenderaan dan tenaga kerja
+- Pertambahan PD bagi jarak yang sama tetapi bergantung kepada kompleksiti kerja, keluasan corridor, dan tempoh masa kerja yang singkat 
+- Contoh : Lokasi 200km dari pejabat Juruukur, melibatkan kerja ukur di dalam hutan simpan, sepanjang 10km dalam tempoh 1 bulan perlukan 2 team atau lebih. Kiraan = 2 team * 2 PD = 4 PD",
+,a. More than 50km but not exceeding 150km,1.3,,PD,743,0,966,0,,
+,b. More than 150km but not exceeding 300km,1.3,,PD,1486,0,1932,0,,
+,c. Exceeding 300km,1.3,,PD,2229,0,2898,0,,
+,"DEMARCATION OF BOUNDRIES, PLANIMETRIC CONTROL AND CONNECTION",2.4,,,,,,,"- Di dalam TOR JKR - Closed Method digunakan
+- Contoh projek: 10km 
+- Jumlah km = 10km + 1km (sblm TBM / Control Point ) + 1km (selepas TBM / Control Point ) = 12km
+- Jika tiada item GPS, item Planemetric Control dikira sebagai Close Loop (Pergi dan balik) 
+- Oleh itu, jumlah km perlu didarab 2. Kiraan = 12km * 2 = 24km
+- Kesimpulannya, close loop tidak diperlukan sekiranya keperluan GPS telah diambilkira",Close loop tak payah di laksanakan jika Traverse dpt close ke mana2 batu sempadan dengan syarat  kodinet batu sempadan / GPS GCP yg di close itu masuk menepati tikian lurus 1: 4000 or better
+,a. Flat & undulating area,1.5.1,,km,2000,0,2600,0,"- RM2.00@RM2.60/m x 1000m (peninsular) 
+",
+,b. Hilly area/ Swampy area/ Built up area,1.5.1,,km,2500,0,3250,0,"- RM2.50@RM3.25/m x 1000m (peninsular) 
+",
+,HEIGHT CONTROL AND CONNECTIONS,2.5,,,,,,,,
+,a. Flat & undulating area (ordinary),1.6.2,,km,464.375,0,603.75,0,"- RM743.00@RM966.00/1.6km
+- Jumlah jarak sama dengan item 2.4",
+,b. Hilly area/ Swampy area/ Built up area (ordinary),1.6.2,,km,743,0,966,0,- RM743.00@RM966.00/1km,
+,MONUMENTING (pipe in concrete),2.6,,,,,,,,
+,i. Accessible,1.7.1; 1.7.2,,nos,185.75,0,241.5,0,"RM743.00@RM966.00/4 (4 marks/PD)
+- Nos i + ii perlu sama dengan nos item 4c
+- Tapak yang boleh diakses dengan kenderaan",
+,ii. Inaccessible,1.7.1; 1.7.2,,nos,371.5,0,483,0,"- RM743/2 (2 marks/PD)
+- Tapak yang tidak boleh diakses dengan kenderaan
+- Nos i + ii perlu sama dengan nos item 4c",
+,SURVEY IN SECURITY AREA,2.7,,,,,,,"- % kadar harga adalah berbeza mengikut kesusahan / kerumitan / kesukaran akses seperti port, military, airport, berserta keperluan Permit dikawasan Rezab Hutan termasuk keselamatan binatang buas, jika penduduk kampung tidak membenarkan jurukur masuk
+- Oleh itu, memerlukan kawalan keselamatan (armed escort)
+- Kebenaran masa bekerja yang terhad",
+,i. Security pass or permit has to be obtained,1.8.1,,PD,928.75,0,1207.5,0,- RM743.00@RM966.00 x 1.25 (caj tambahan 25% dibenarkan),
+,ii. Armed escort is required and working hours are dictated by relevant authority,1.8.2,,PD,1114.5,0,1449,0,- RM743.00@RM966.00 x 1.50 (caj tambahan 50% dibenarkan),
+,iii. When there is a waiting time after mobilization,1.8.3,,PD,900,0,900,0,#NAME?,
+,SURVEY IN INACCESSIBLE AREAS,2.8,,,,,,,,
+,a) More than 2 kilometres,1.9,,PD,891.6,0,1159.2,0,- RM743.00@RM966.00 x 1.20 (caj tambahan 20% dibenarkan),
+,TOPOGRAPHICAL SURVEY,2.1,,,,,,,"- Junction Detail Survey
+- Contoh simpang tiga, keluasan = 1km * 2km = 2km2 = 200 ha",
+,,,,,,,,,"Contoh Topo Survey adalah seperti Site Survey Tapak Sekolah, Hospital, Tapak Reservoir, Treatment Plan dll. Topo Survey bagi Tapak sedemikian digalakkan menjalankan ukuran secara Grid Heighting supaya data-data ketinggian dan detail adalah lebih tepat",
+,Contour and Detail,2.10.1,,,,,,,,
+,a. Flat & undulating area (ordinary),,,,,,,,,
+,    i) 1m,,,ha,594.4,0,772.8,0,Work rates per party-days in hectare,
+,    ii) 2m,,,ha,495.3333333333333,0,644,0,- usually in contour interval in 2 meter,
+,    iii) 3m,,,ha,424.57142857142856,0,552,0,,
+,b. Hilly area,,,,,,,,,
+,    i) 2m,,,ha,990.6666666666666,0,1288,0,Work rates per party-days in hectare,
+,    ii) 3m,,,ha,743,0,966,0,,
+,c. Swampy area and Built up area (ordinary),,,,,,,,,
+,    i) 1m,,,ha,743,0,966,0,Work rates per party-days in hectare,
+,    ii) 2m,,,ha,594.4,0,772.8,0,,
+,    iii) 3m,,,ha,495.3333333333333,0,644,0,,
+,Grid Heighing,2.10.2,,,,,,,,
+,a. Develop Area,,,,,,,,,
+,i) Grid Interval (With Detail),,,,,,,,,
+,   10m,,,km,3715,0,4830,0,Work rates per km in party-days,
+,   20m,,,km,1857.5,0,2415,0,,
+,ii) Grid Interval (Without Detail),,,,,,,,,
+,   10m,,,km,1857.5,0,2415,0,,
+,   20m,,,km,928.75,0,1207.5,0,,
+,b. Built up area ,,,,,,,,,
+,i) Grid Interval (With Detail),,,,,,,,,
+,   10m,,,km,4458,0,5796,0,Work rates per km in party-days,
+,   20m,,,km,2229,0,2898,0,,
+,ii) Grid Interval (Without Detail),,,,,,,,,
+,10m,,,km,2229,0,2898,0,,
+,20m,,,km,1114.5,0,1449,0,,
+,c. Undevelop Area,,,,,,,,,
+,i) Grid Interval (With Detail),,,,,,,,,
+,10m,,,km,2972,0,3864,0,Work rates per km in party-days,
+,20m,,,km,1486,0,1932,0,,
+,ii) Grid Interval (Without Detail),,,,,,,,,
+,10m,,,km,1486,0,1932,0,,
+,20m,,,km,743,0,966,0,,
+,d. Swampy Area,,,,,,,,,
+,i) Grid Interval (With Detail),,,,,,,,,
+,10m,,,km,4086.5,0,5313,0,Work rates per km in party-days,
+,20m,,,km,2043.25,0,2656.5,0,,
+,ii) Grid Interval (Without Detail),,,,,,,,,
+,10m,,,km,2043.25,0,2656.5,0,,
+,20m,,,km,1040.2,0,1352.3999999999999,0,,
+,MINIMUM FEE,2.11,,PD,743,0,966,0,Minimum Fee shall be 2 party-days which is inclusive of 1 party-days,
+,TRANSFORMATION FOR COORDINATES,3.13,,,,,,,#NAME?,
+,a) Transformation of Coordinates,1.13,,nos,20,0,20,0,,
+,TOTAL OF ITEM 1,,,,,0,,0,,
+,,,,,,,,,,
+2,BRIDGE SITE SURVEY,,,,,,,,,
+,PREPARATORY WORK,3.1,,PD,743,0,966,0,"- Persediaan masuk ke tapak (bilangan team, resouces, peralatan, method / kaedah kerja dll yang berkaitan)",
+,MOBILIZATION & DEMOBILIZATION,3.2,,,,,,,"- Jarak pejabat Juruukur ke tapak
+- Telah mengambilkira kos peralatan, kenderaan dan tenaga kerja
+- Pertambahan PD bagi jarak yang sama tetapi bergantung kepada kompleksiti kerja, keluasan corridor, dan tempoh masa kerja yang singkat 
+- Contoh : Lokasi 200km dari pejabat Juruukur, melibatkan kerja ukur di dalam hutan yang bergaung, sepanjang 1km dalam tempoh 1 bulan perlukan 2 team. Kiraan = 2 team * 2 PD = 4 PD",
+,a. More than 50km but not exceeding 150km,1.3,,PD,743,0,966,0,,
+,b. More than 150km but not exceeding 300km,1.3,,PD,1486,0,1932,0,,
+,c. Exceeding 300km,1.3,,PD,2229,0,2898,0,,
+,PLANIMETRIC CONTROL & CONNECTION,3.3,,,,,,,"- Di dalam TOR JKR - Closed Method digunakan
+- Contoh projek: 10km 
+- Jumlah km = 10km + 1km (sblm TBM / Control Point ) + 1km (selepas TBM / Control Point ) = 12km
+- Jika tiada item GPS, item Planemetric Control dikira sebagai Close Loop (Pergi dan balik) 
+- Oleh itu, jumlah km perlu didarab 2. Kiraan = 12km * 2 = 24km
+- Kesimpulannya, close loop tidak diperlukan sekiranya keperluan GPS telah diambilkira",Close loop tak payah di laksanakan jika Traverse dpt close ke mana2 batu sempadan dengan syarat  kodinet batu sempadan / GPS GCP yg di close itu masuk menepati tikian lurus 1: 4000 or better
+,a. Flat & undulating area,1.5.1,,km,2000,0,2600,0,"- RM2.00@RM2.60/m x 1000m (peninsular) 
+",
+,b. Hilly area/ Swampy area/ Built up area,1.5.1,,km,2500,0,3250,0,"- RM2.50@RM3.25/m x 1000m (peninsular) 
+",
+,HEIGHT CONTROL AND CONNECTIONS,3.4,,,,,,,,
+,a. Flat & undulating area (ordinary),1.6.2,,km,464.375,0,603.75,0,"- RM743.00@RM966.00/1.6km
+- Jumlah jarak sama dengan item 3.3",
+,b. Hilly area/ Swampy area/ Built up area (ordinary),1.6.2,,km,743,0,966,0,- RM743.00@RM966.00/1km,
+,MONUMENTING (pipe in concrete),3.5,,,,,,,,
+,i. Accessible,1.7.1; 1.7.2,,nos,185.75,0,241.5,0,"RM743.00@RM966.00/4 (4 marks/PD)
+- Nos i + ii perlu sama dengan nos item 4c
+- Tapak yang boleh diakses dengan kenderaan",
+,ii. Inaccessible,1.7.1; 1.7.2,,nos,371.5,0,483,0,"- RM743/2 (2 marks/PD)
+- Tapak yang tidak boleh diakses dengan kenderaan
+- Nos i + ii perlu sama dengan nos item 4c",
+,SURVEY IN SECURITY AREA,3.6,,,,,,,"- % kadar harga adalah berbeza mengikut kesusahan / kerumitan / kesukaran akses seperti port, military, airport, berserta keperluan Permit dikawasan Rezab Hutan termasuk keselamatan binatang buas, jika penduduk kampung tidak membenarkan jurukur masuk
+- Oleh itu, memerlukan kawalan keselamatan (armed escort)
+- Kebenaran masa bekerja yang terhad",
+,i. Security pass or permit has to be obtained,1.8.1,,PD,928.75,0,1207.5,0,- RM743.00@RM966.00 x 1.25 (caj tambahan 25% dibenarkan),
+,ii. Armed escort is required and working hours are dictated by relevant authority,1.8.2,,PD,1114.5,0,1449,0,- RM743.00@RM966.00 x 1.50 (caj tambahan 50% dibenarkan),
+,iii. When there is a waiting time after mobilization,1.8.3,,PD,900,0,900,0,#NAME?,
+,SURVEY IN INACCESSIBLE AREAS,3.7,,,,,,,,
+,a) More than 2 kilometres,1.9,,PD,891.6,0,1159.2,0,- RM743.00@RM966.00 x 1.20 (caj tambahan 20% dibenarkan),
+,SURVEY OF BRIDGE SITE,3.9,,ha,4086.5,0,5313,0,- Work rate for the survey bridge 5.5 party day/ per hectare excluding the generally wetted area,
+,CROSS SECTION WITH SOUNDING,3.1,,,,,,,,
+,i. Depth of water less than 1m,3.10.1,,km,5944,0,7728,0,"- RM743.00@RM966.00 x 8 PD/km
+- Iaitu lebar koridor x sela (panjang / 10m (seperti dalam TOR JKR))",
+,ii. Depth of water greater than 1m,3.10.2,,km,5944,0,7728,0,"- RM743.00@RM966.00 x 8 PD/km
+- Lebar koridor x sela (panjang / 10m (seperti dalam TOR JKR))
+- BRJambatan akan assume depth >1m",
+,a. Mobilization and Demobilization of boat,3.10.2.1,,nos,600,0,600,0," - Keperluan bagi setiap projek adalah 1 no
+",
+,b. Boat rental ,3.10.2.2,,day,300,0,300,0,"- Anggapan jurukur biasanya 30km/day/river (lapang dan tiada halangan di dalam sungai)
+- Bergantung juga pada cuaca dan keadaan sungai",
+,c. Work rate (10m interval),3.10.2.3,,km,5944,0,7728,0,- Workrate adalah 8PD / km of cross sectioning with spot level taken at 10metres intervals.,
+,TRANSFORMATION FOR COORDINATES,3.13,,,,,,,#NAME?,
+,a) Transformation of Coordinates,1.13,,nos,20,0,20,0,,
+,TOTAL OF ITEM 2,,,,,0,,0,,
+,,,,,,,,,,
+3,ROAD AND RAILWAY SURVEY,,,,,,,,,
+,PREPARATORY WORK,4.1,,PD,743,0,966,0,"- Persediaan masuk ke tapak (bilangan team, resouces, peralatan, method / kaedah kerja dll yang berkaitan)",
+,MOBILIZATION & DEMOBILIZATION,4.2,,,,,,,"- Jarak pejabat Juruukur ke tapak
+- Telah mengambilkira kos peralatan, kenderaan dan tenaga kerja
+- Pertambahan PD bagi jarak yang sama tetapi bergantung kepada kompleksiti kerja, keluasan corridor, dan tempoh masa kerja yang singkat 
+- Contoh : Lokasi 200km dari pejabat Juruukur, melibatkan kerja ukur di dalam hutan simpan, sepanjang 10km dalam tempoh 1 bulan perlukan 2 team atau lebih. Kiraan = 2 team * 2 PD = 4 PD",
+,a. More than 50km but not exceeding 150km,1.3,,PD,743,0,966,0,,
+,b. More than 150km but not exceeding 300km,1.3,,PD,1486,0,1932,0,,
+,c. Exceeding 300km,1.3,,PD,2229,0,2898,0,,
+,GPS OBSERVATION,1.4,,,,,,," - Tujuan adalah untuk memberikan coordinate XYZ pada satu tempat 
+- Projek luar bandar lebih memerlukan kerana range GPS lebih panjang 
+- Terdapat 3 kaedah yang biasa dilaksanakan, iaitu:
+- Static - 30 minit (minima) - biasa digunakan
+- rapid static - 15 minit (minima)
+- RTK (Real Time Kinematic) 1-30 saat
+- Dicadangkan bila jauh dari permulaan atau akhir traverse, dan tiada BM lebih dari 5km
+- Perlu tulis assume height
+- Untuk water supply perlu actual height ",
+,a. Mobilization ,1.4.1,,,,,,,,
+,i. More than 50km but not exceeding 150km,1.4.1,,nos,900,0,900,0,"- 1 no (Lump sum Fixed sum /Prescribed Sum)
+- Melibatkan pengunaan peralatan GPS",
+,ii. More than 150 km but not exceeding 300km,1.4.1,,nos,1800,0,1800,0,,
+,iii. Exceeding 300km,1.4.1,,nos,2700,0,2700,0,,
+,b. Basic Charge,1.4.2,,nos,4660,0,4660,0,1 no ( Lump sum Fixed Sum / Prescribed Sum ),
+,c. Point Positioning ,1.4.3,,nos,1970,0,1970,0,"- Bergantung pada panjang jalan dalam TOR JKR (Contoh: 1 km = 1 point)
+- Minimum 2 points",
+,c1. Monumenting Of Type 'C' Mark Of Survey Department,1.4.4,,mark,300,0,300,0,#NAME?,
+,PLANIMETRIC CONTROL & CONNECTION,4.3,,,,,,,"- Di dalam TOR JKR - Closed Method digunakan
+- Contoh projek: 10km 
+- Jumlah km = 10km + 1km (sblm TBM / Control Point ) + 1km (selepas TBM / Control Point ) = 12km
+- Jika tiada item GPS, item Planemetric Control dikira sebagai Close Loop (Pergi dan balik) 
+- Oleh itu, jumlah km perlu didarab 2. Kiraan = 12km * 2 = 24km
+- Kesimpulannya, close loop tidak diperlukan sekiranya keperluan GPS telah diambilkira",Close loop tak payah di laksanakan jika Traverse dpt close ke mana2 batu sempadan dengan syarat  kodinet batu sempadan / GPS GCP yg di close itu masuk menepati tikian lurus 1: 4000 or better
+,a. Flat & undulating area,1.5.1,,km,2000,0,2600,0,"- RM2.00@RM2.60/m x 1000m (peninsular / sabah & sarawak) 
+",
+,b. Hilly area/ Swampy area/ Built up area,1.5.1,,km,2500,0,3250,0,"- RM2.50@RM3.25/m x 1000m (peninsular / sabah & sarawak) 
+",
+,HEIGHT CONTROL AND CONNECTIONS,4.4,,,,,,,,
+,a. Flat & undulating area (ordinary),1.6.2,,km,464.375,0,603.75,0,"- RM743.00@RM966.00/1.6km
+- Jumlah jarak sama dengan item 4.3",
+,b. Hilly area/ Swampy area/ Built up area (ordinary),1.6.2,,km,743,0,966,0,- RM743.00@RM966.00/1km,
+,Monumenting (pipe in concrete),4.5 ; 1.7,,,,,,,,
+,i. Accessible,1.7.1; 1.7.2,,nos,185.75,0,241.5,0,"RM743.00@RM966.00/4 (4 marks/PD)
+- Nos i + ii perlu sama dengan nos item 4c
+- Tapak yang boleh diakses dengan kenderaan",
+,ii. Inaccessible,1.7.1; 1.7.2,,nos,371.5,0,483,0,"- RM743/2 (2 marks/PD)
+- Tapak yang tidak boleh diakses dengan kenderaan
+- Nos i + ii perlu sama dengan nos item 4c",
+,e. Transformation of Coordinates,1.13,,nos,20,0,20,0,#NAME?,
+,,,,,,,,,,
+,,,,,,,,,,
+,SURVEY IN SECURITY AREA,4.6,,,,,,,"- % kadar harga adalah berbeza mengikut kesusahan / kerumitan / kesukaran akses seperti port, military, airport, berserta keperluan Permit dikawasan Rezab Hutan termasuk keselamatan binatang buas, jika penduduk kampung tidak membenarkan jurukur masuk
+- Oleh itu, memerlukan kawalan keselamatan (armed escort)
+- Kebenaran masa bekerja yang terhad",
+,i. Security pass or permit has to be obtained,1.8.1,,PD,928.75,0,1207.5,0,- RM743.00@RM966.00 x 1.25 (caj tambahan 25% dibenarkan),
+,ii. Armed escort is required and working hours are dictated by relevant authority,1.8.2,,PD,1114.5,0,1449,0,- RM743.00@RM966.00 x 1.50 (caj tambahan 50% dibenarkan),
+,iii. When there is a waiting time after mobilization,1.8.3,,PD,900,0,900,0,#NAME?,
+,SURVEY IN INACCESSIBLE AREAS,4.7,,,,,,,,
+,a) More than 2 kilometres,1.9,,PD,891.6,0,1159.2,0,- RM743.00@RM966.00 x 1.20 (caj tambahan 20% dibenarkan),
+,STRIP SURVEYS (To produce 2m contour) ,4.9,,,,,,,#NAME?,
+,a. i. Developed area/ Flat & Undulating area,4.9,,ha,371.5,0,483,0,- RM743.00@RM966.00/2.00 ha/PD,
+,a. ii. Built up area/ Undeveloped area/ Hilly area,4.9,,ha,495.3333333333333,0,644,0,- RM743.00@RM966.00/1.50 ha/PD,
+,a. iii. Swampy area,4.9,,ha,743,0,966,0,- RM743.00@RM966.00/1.00 ha/PD,
+,PRELIMINARY SETTING OUT @ 20m interval,4.1,,,,,,,,
+,Flat & Undulating area,4.10.1,,km,2043.25,0,2656.5,0,"- RM743.00@RM966.00 x 2.75 PD/km
+- Panjang jajaran projek",
+,Hilly area,4.10.1,,km,3529.25,0,4588.5,0,- RM743.00@RM966.00 x 4.75 PD/km,
+,Swampy area/ Built up area,4.10.1,,km,3157.75,0,4105.5,0,- RM743.00@RM966.00 x 4.25 PD/km,
+,CONNECTION AND REFFERENCES MARKER,4.11,,,,,,,,
+,PLANIMETRIC CONTROL & CONNECTION,4.11.1,,,,,,,"- Di dalam TOR JKR - Closed Method digunakan
+- Contoh projek: 10km 
+- Jumlah km = 10km + 1km (sblm TBM / Control Point ) + 1km (selepas TBM / Control Point ) = 12km
+- Jika tiada item GPS, item Planemetric Control dikira sebagai Close Loop (Pergi dan balik) 
+- Oleh itu, jumlah km perlu didarab 2. Kiraan = 12km * 2 = 24km
+- Kesimpulannya, close loop tidak diperlukan sekiranya keperluan GPS telah diambilkira",Close loop tak payah di laksanakan jika Traverse dpt close ke mana2 batu sempadan dengan syarat  kodinet batu sempadan / GPS GCP yg di close itu masuk menepati tikian lurus 1: 4000 or better
+,a. Flat & undulating area,1.5.1,,km,2000,0,2600,0,"- RM2.00@RM2.60/m x 1000m (peninsular) 
+",
+,b. Hilly area/ Swampy area/ Built up area,1.5.1,,km,2500,0,3250,0,"- RM2.50@RM3.25/m x 1000m (peninsular) 
+",
+,HEIGHT CONTROL AND CONNECTIONS,4.11.2,,,,,,,,
+,a. Flat & undulating area (ordinary),1.6.2,,km,464.375,0,603.75,0,"- RM743.00@RM966.00/1.6km
+- Jumlah jarak sama dengan item 4.11.1",
+,b. Hilly area/ Swampy area/ Built up area (ordinary),1.6.2,,km,743,0,966,0,- RM743.00@RM966.00/1km,
+,LONGITUDINAL PROFILING ALONG ESTABLISH CHAINAGE PEGS,4.12,,,,,,,#NAME?,
+,Flat & Undulating area,4.12,,km,1300.25,0,2656.5,0,- 1.75 party day/km,
+,Hilly area/ Swampy area/ Built up area,4.12,,km,2229,0,4588.5,0,- 3.0 party day/km,
+,CROSS SECTIONING,4.13,,,,,,,#NAME?,
+,Flat & Undulating area,4.13,,nos,106.14285714285714,0,138,0,"- 7 section/PD , example 1km = 40+1 section (every 25m) as per TOR 1.3.8.4",
+,Hilly area/ Swampy area/ Built up area,4.13,,nos,185.75,0,241.5,0,"- 4 section/PD , example 1km = 40+1 section (every 25m) as per TOR 1.3.8.4",
+,TRANSFORMATION FOR COORDINATES,4.17,,,,,,,#NAME?,
+,a) Transformation of Coordinates,1.13,,nos,20,0,20,0,,
+,Underground Utilities Mapping,,,m2,3.5,0,3.5,0,#NAME?,
+,TOTAL OF ITEM 3,,,,,0,,0,,
+,,,,,,,,,,
+4,ENGINEERING SURVEY FOR DRAINAGE AND IRRIGATION,,,,,,,,#NAME?,
+,PREPARATORY WORK,7.1,,PD,743,0,966,0,"- Persediaan masuk ke tapak (bilangan team, resouces, peralatan, method / kaedah kerja dll yang berkaitan)",
+,MOBILIZATION & DEMOBILIZATION,7.2,,,,,,,#NAME?,
+,a. More than 50km but not exceeding 150km,1.3,,PD,743,0,966,0,,
+,b. More than 150km but not exceeding 300km,1.3,,PD,1486,0,1932,0,,
+,c. Exceeding 300km,1.3,,PD,2229,0,2898,0,,
+,PLANIMETRIC CONTROL & CONNECTION,7.3,,,,,,,"- Di dalam TOR JKR - Closed Method digunakan
+- Contoh projek: 10km 
+- Jumlah km = 10km + 1km (sblm TBM / Control Point ) + 1km (selepas TBM / Control Point ) = 12km
+- Jika tiada item GPS, item Planemetric Control dikira sebagai Close Loop (Pergi dan balik) 
+- Oleh itu, jumlah km perlu didarab 2. Kiraan = 12km * 2 = 24km
+- Kesimpulannya, close loop tidak diperlukan sekiranya keperluan GPS telah diambilkira",Close loop tak payah di laksanakan jika Traverse dpt close ke mana2 batu sempadan dengan syarat  kodinet batu sempadan / GPS GCP yg di close itu masuk menepati tikian lurus 1: 4000 or better
+,a. Flat & undulating area,1.5.1,,km,2000,0,2600,0,"- RM2.00@RM2.60/m x 1000m (peninsular) 
+",
+,b. Hilly area/ Swampy area/ Built up area,1.5.1,,km,2500,0,3250,0,"- RM2.50@RM3.25/m x 1000m (peninsular) 
+",
+,HEIGHT CONTROL AND CONNECTIONS,7.4,,,,,,,,
+,a. Flat & undulating area (ordinary),1.6.2,,km,464.375,0,603.75,0,"- RM743.00@RM966.00/1.6km
+- Jumlah jarak sama dengan item 7.3",
+,b. Hilly area/ Swampy area/ Built up area (ordinary),1.6.2,,km,743,0,966,0,- RM743.00@RM966.00/1km,
+,MONUMENTING (pipe in concrete),7.5,,,,,,,,
+,i. Accessible,1.7.1; 1.7.2,,nos,185.75,0,241.5,0,"RM743.00@RM966.00/4 (4 marks/PD)
+- Nos i + ii perlu sama dengan nos item 4c
+- Tapak yang boleh diakses dengan kenderaan",
+,ii. Inaccessible,1.7.1; 1.7.2,,nos,371.5,0,483,0,"- RM743/2 (2 marks/PD)
+- Tapak yang tidak boleh diakses dengan kenderaan
+- Nos i + ii perlu sama dengan nos item 4c",
+,SURVEY IN SECURITY AREA,7.6,,,,,,,"- % kadar harga adalah berbeza mengikut kesusahan / kerumitan / kesukaran akses seperti port, military, airport, berserta keperluan Permit dikawasan Rezab Hutan termasuk keselamatan binatang buas, jika penduduk kampung tidak membenarkan jurukur masuk
+- Oleh itu, memerlukan kawalan keselamatan (armed escort)
+- Kebenaran masa bekerja yang terhad",
+,i. Security pass or permit has to be obtained,1.8.1,,PD,928.75,0,1207.5,0,- RM743.00@RM966.00 x 1.25 (caj tambahan 25% dibenarkan),
+,ii. Armed escort is required and working hours are dictated by relevant authority,1.8.2,,PD,1114.5,0,1449,0,- RM743.00@RM966.00 x 1.50 (caj tambahan 50% dibenarkan),
+,iii. When there is a waiting time after mobilization,1.8.3,,PD,900,0,900,0,#NAME?,
+,SURVEY IN INACCESSIBLE AREAS,7.7,,,,,,,,
+,a) More than 2 kilometres,1.9,,PD,891.6,0,1159.2,0,- RM743.00@RM966.00 x 1.20 (caj tambahan 20% dibenarkan),
+,TOPOGRAPHICAL SURVEY,7.9,,,,,,,,
+,Contour and Detail,7.9.1,,,,,,,#NAME?,
+,a) Flat and undulating area/develop,,,,,,,,- usually in contourl interval in 2 meter,
+,1m,,,PD,594.4,0,772.8,0,,
+,2m,,,PD,495.3333333333333,0,644,0,,
+,3m,,,PD,424.57142857142856,0,552,0,,
+,b) Hilly area/ undevelop,,,,,,,,,
+,2m,,,PD,990.6666666666666,0,1288,0,,
+,3m,,,PD,743,0,966,0,,
+,c) Swamp area / Built up area,,,,,,,,,
+,1m,,,PD,743,0,966,0,,
+,2m,,,PD,594.4,0,772.8,0,,
+,3m,,,PD,495.3333333333333,0,644,0,,
+,Grid Survey,7.9.2,,,,,,,#NAME?,
+,a) Develop,,,,,,,,,
+,i) Baseline and height control,,,km,297.2,0,386.4,0,,
+,ii) grid line with spot level at interval of:,,,,,,,,,
+,25m,,,km,371.5,0,483,0,,
+,50m,,,km,424.57142857142856,0,552,0,,
+,100m and above,,,km,495.3333333333333,0,644,0,,
+,b) Built up area,,,,,,,,,
+,i) Baseline and height control,,,km,247.66666666666666,0,322,0,,
+,ii) grid line with spot level at interval of:,,,,,,,,,
+,25m,,,km,247.66666666666666,0,322,0,,
+,50m,,,km,270.1818181818182,0,351.27272727272725,0,,
+,100m and above,,,km,297.2,0,386.4,0,,
+,c) Undevelop Area,,,,,,,,,
+,i) Baseline and height control,,,km,228.6153846153846,0,297.2307692307692,0,,
+,ii) grid line with spot level at interval of:,,,,,,,,,
+,25m,,,km,297.2,0,386.4,0,,
+,50m,,,km,330.22222222222223,0,429.3333333333333,0,,
+,100m and above,,,km,371.5,0,483,0,,
+,d) Swampy Area,,,,,,,,,
+,i) Baseline and height control,,,km,185.75,0,241.5,0,,
+,ii) grid line with spot level at interval of:,,,,,,,,,
+,25m,,,km,212.28571428571428,0,276,0,,
+,50m,,,km,228.6153846153846,0,297.2307692307692,0,,
+,100m and above,,,km,247.66666666666666,0,322,0,,
+,e) Tidal Area,,,,,,,,,
+,i) Baseline and heigh control,,,km,165.11111111111111,0,214.66666666666666,0,,
+,ii) grid line with spot level at interval of:,,,,,,,,,
+,25m,,,km,185.75,0,241.5,0,,
+,50m,,,km,198.13333333333333,0,257.6,0,,
+,100m and above,,,km,212.28571428571428,0,276,0,,
+,MINIMUM FEE,7.1,,PD,743,0,966,0,- Minimum Fee shall be 2 party-days which is inclusive of 1 party-days,
+,TRANSFORMATION FOR COORDINATES,7.13,,,,,,,#NAME?,
+,a) Transformation of Coordinates,1.13,,nos,20,0,20,0,,
+,TOTAL OF ITEM 4,,,,,0,,0,,
+,,,,,,,,,,
+5,ENGINEERING SURVEY FOR AERIAL MAPPING,11,,,,,,,"where : 
+- A is area in hectare
+- C is the distance in metre = 5A X 10,000
+- D is rate for traversing as provided in terms 1.5
+- H is arte for heighting as provided in 1.6",
+,"Area, A",,1,Ha,,,,,,
+,a) Smaller or equal 1:10000,11.1,,,,,,,,
+,Ground Control Fee,,,Nos,61609375,0,65093750,0,,
+,Compilation Fee,,,Nos,12,0,12,0,,
+,b) Larger than 1:1000 but smaller than or equal 1:4000,11.1,,,,,,,,
+,Ground Control Fee,,,Nos,123218750,0,130187500,0,,
+,Compilation Fee,,,Nos,24,0,24,0,,
+,c) Larger than 1:4000 but smaller than or equal 1:1000,11.1,,,,,,,,
+,Ground Control Fee,,,Nos,184828125,0,195281250,0,,
+,Compilation Fee,,,Nos,36,0,36,0,,
+,d) Larger than 1:10000,11.1,,,,,,,,
+,Ground Control Fee,,,Nos,246437500,0,260375000,0,,
+,Compilation Fee,,,Nos,48,0,48,0,,
+,TOTAL,,,,,0,,0,,
+,Deliverables,11.2,,0.2,,0.002,,0.002,,
+,AERIAL PHOTOGRAPHY,12,,actual,,0,,0,- Actual cost + 25% management fee,
+,TOTAL COST ITEM 5,,,,,0.002,,0.002,,
+,,,,,,,,,,
+6,HYDROGRAPHIC SURVEY FOR TERRITOTIAL WATERS,,,,,,,,#NAME?,
+,MOBILIZATION & DEMOBILIZATION,14.1,,,,,,,#NAME?,
+,a. More than 50km but not exceeding 150km,1.3,,PD,743,0,966,0,,
+,b. More than 150km but not exceeding 300km,1.3,,PD,1486,0,1932,0,,
+,c. Exceeding 300km,1.3,,PD,2229,0,2898,0,,
+,PLANIMETRIC CONTROL & CONNECTION,14.2,,,,,,,"- Di dalam TOR JKR - Closed Method digunakan
+- Contoh projek: 10km 
+- Jumlah km = 10km + 1km (sblm TBM / Control Point ) + 1km (selepas TBM / Control Point ) = 12km
+- Jika tiada item GPS, item Planemetric Control dikira sebagai Close Loop (Pergi dan balik) 
+- Oleh itu, jumlah km perlu didarab 2. Kiraan = 12km * 2 = 24km
+- Kesimpulannya, close loop tidak diperlukan sekiranya keperluan GPS telah diambilkira",Close loop tak payah di laksanakan jika Traverse dpt close ke mana2 batu sempadan dengan syarat  kodinet batu sempadan / GPS GCP yg di close itu masuk menepati tikian lurus 1: 4000 or better
+,a. Flat & undulating area,1.5.1,,km,2000,0,2600,0,"- RM2.00@RM2.60/m x 1000m (peninsular) 
+",
+,b. Hilly area/ Swampy area/ Built up area,1.5.1,,km,2500,0,3250,0,"- RM2.50@RM3.25/m x 1000m (peninsular) 
+",
+,HEIGHT CONTROL AND CONNECTIONS,14.3,,,,,,,,
+,a. Flat & undulating area (ordinary),1.6.2,,km,464.375,0,603.75,0,"- RM743.00@RM966.00/1.6km
+- Jumlah jarak sama dengan item 14.2",
+,b. Hilly area/ Swampy area/ Built up area (ordinary),1.6.2,,km,743,0,966,0,- RM743.00@RM966.00/1km,
+,MONUMENTING (pipe in concrete),14.4,,,,,,,,
+,i. Accessible,1.7.1; 1.7.2,,nos,185.75,0,241.5,0,"RM743.00@RM966.00/4 (4 marks/PD)
+- Nos i + ii perlu sama dengan nos item 4c
+- Tapak yang boleh diakses dengan kenderaan",
+,ii. Inaccessible,1.7.1; 1.7.2,,nos,371.5,0,483,0,"- RM743/2 (2 marks/PD)
+- Tapak yang tidak boleh diakses dengan kenderaan
+- Nos i + ii perlu sama dengan nos item 4c",
+,SURVEY IN SECURITY AREA,14.5,,,,,,,"- % kadar harga adalah berbeza mengikut kesusahan / kerumitan / kesukaran akses seperti port, military, airport, berserta keperluan Permit dikawasan Rezab Hutan termasuk keselamatan binatang buas, jika penduduk kampung tidak membenarkan jurukur masuk
+- Oleh itu, memerlukan kawalan keselamatan (armed escort)
+- Kebenaran masa bekerja yang terhad",
+,i. Security pass or permit has to be obtained,1.8.1,,PD,928.75,0,1207.5,0,- RM743.00@RM966.00 x 1.25 (caj tambahan 25% dibenarkan),
+,ii. Armed escort is required and working hours are dictated by relevant authority,1.8.2,,PD,1114.5,0,1449,0,- RM743.00@RM966.00 x 1.50 (caj tambahan 50% dibenarkan),
+,iii. When there is a waiting time after mobilization,1.8.3,,PD,900,0,900,0,#NAME?,
+,SURVEY IN INACCESSIBLE AREAS,14.6,,,,,,,,
+,a) More than 2 kilometres,1.9,,,891.6,0,1159.2,0,- RM743.00@RM966.00 x 1.20 (caj tambahan 20% dibenarkan),
+,SURVEY STRIP WITH DETAIL,14.8,,,,,,,#NAME?,
+,a) Developed area/ Flat & Undulating area,14.8.1,,ha,371.5,0,483,0,- 2.0 Ha/PD,
+,b) Built up area/ Undeveloped area/ Hilly area,"14.8.2, 14.8.3",,ha,495.3333333333333,0,644,0,- 1.5 Ha/PD,
+,c) Swampy area,14.8.4,,ha,743,0,966,0,- 1.0 Ha/PD,
+,d) Tidal area,14.8.5,,ha,990.6666666666666,0,1288,0,- 0.75 Ha/PD,
+,BATHYMETRIC (OFFSHORE) PROFILING,14.9.2,,,,,,,#NAME?,
+,a) Profile at interval : 25,,,km,2476.666666666667,0,3220,0,- 0.3 PD/KM,
+,b) Profile at interval : 50 / 75,,,km,1857.5,0,2415,0,- 0.4 PD/KM,
+,c) Profile at interval : 100 or more,,,km,1486,0,1932,0,- 0.5 PD/KM,
+,TIDAL OBSERVATION,14.1,,,,,,,"- Where the duration less than 30 days but more than 14, the fees shall be computed proportionately. Where duration is more than 30 days, then the fees shall be increase proportionately",
+,Automatic Water level recording,14.10.1,,,,,,,,
+,a) 14 days or less,14.10.1,,,,,,,,
+,Installation,,,days,3600,0,3600,0,,
+,Measurement data processing,,,days,5000,0,5000,0,,
+,b) 15-30 days,14.10.1,,,,,,,,
+,Installation,,,days,3600,0,3600,0,,
+,Measurement data processing,,,days,12200,0,12200,0,,
+,DIRECT READING,14.10.2,,,,,,,#NAME?,
+,Installation,,,nos,900,0,900,0,- Installation of tide pole RM 900,
+,Tidal observation,,,hour,20,0,20,0,- Tidal observation RM20/hr subject to minimum 1 party day per job,
+,CURRENT MEASUREMENT,14.11,,,,,,,,
+,Self Recording,14.11.1,,,,,,,#NAME?,
+,14 days or less,,,,,,,,"- Where the duration less than 30 days but more than 14, the fees shall be computed proportionately. Where duration is more than 30 days, then the fees shall be increase proportionately",
+,a) Installation,,,days,7000,0,7000,0,,
+,b) Measurement data processing,,,days,19600,0,19600,0,,
+,15-30 days,,,,,,,,,
+,a) Installation,,,days,7000,0,7000,0,,
+,b) Measurement data processing,,,days,39500,0,39500,0,,
+,Direct Reading,14.11.2,,,,,,,#NAME?,
+,a) Preparation and set up,,,Location,1800,0,1800,0,#NAME?,
+,b) Direct observation Current speed and direction,,,hour / job,300,0,300,0,#NAME?,
+,SEAWATER TEMPERATURE AND SALINITY,14.12,,,,,,,,
+,a) Installation,,,Location,1800,0,1800,0,,
+,b) In situ (direct),,,hour / job,300,0,300,0,"- In-situ (direct) observation of seawater temperature and salinity
+- RM 300/hr subject to a minimum RM3900 per job",
+,SEABED (GRAB),14.13,,,,,,,,
+,a) Installation,,,sample,250,0,250,0,,
+,SEAWATER SAMPLING,14.14,,sample,250,0,250,0,,
+,TOTAL,,,,,0,,0,,
+,PREPARATION OF REPORT,14.16,,0.05,,0,,0,5% of survey fees,
+,TOTAL OF ITEM 7,,,,,0,,0,,
+,,,,,,,,,,
+7,TOTAL COST ITEM 1-6,,,,,0.002,,0.002,,
+8,"PROCESSING,CONVERSION & TRANSLATION DIGITAL DATA IN MOSS GENIO /3D AUTOCAD",1.12,,0.2,,0.0004,,0.0004,- The survey result is required to be submitted in a designated format. A change of 20% of total survey fees is applicable,
+9,TOTAL COST OF STAGE 1,,,,,0.0024,,0.0024,,
+,,,,,,,,,,
+STAGE 2,,,,,PENINSULAR MALAYSIA,,SABAH/SARAWAK,,DESCRIPTION,
+ITEM,DESCRIPTION OF WORKS,REFERENCE,QTY,UNIT,RATE,AMOUNT,RATE,AMOUNT,,
+NO.,,,,,(RM),(RM),(RM),(RM),,
+10,PREPARATORY WORK,4.1,,PD,743,0,966,0,"- Persediaan masuk ke tapak (bilangan team, resouces, peralatan, method / kaedah kerja dll yang berkaitan)",
+11,MOBILIZATION & DEMOBILIZATION ,4.2,,,,,,,"- Jarak pejabat Juruukur ke tapak
+- Telah mengambilkira kos peralatan, kenderaan dan tenaga kerja
+- Pertambahan PD bagi jarak yang sama tetapi bergantung kepada kompleksiti kerja, keluasan corridor, dan tempoh masa kerja yang singkat 
+- Contoh : Lokasi 200km dari pejabat Juruukur, melibatkan kerja ukur di dalam hutan simpan, sepanjang 10km dalam tempoh 1 bulan perlukan 2 team. Kiraan = 2 team * 2 PD = 4 PD",
+,a. More than 50 km but not exceeding 150 km,1.3,,PD,743,0,966,0,,
+,b. More than 150km but not exceeding 300km,1.3,,PD,1486,0,1932,0,,
+,c. Exceeding 300km,1.3,,PD,2229,0,2898,0,,
+12,PLANIMETRIC CONTROL & CONNECTION,4.3,,,,,,,"- Di dalam TOR JKR - Closed Method digunakan
+- Contoh projek: 10km 
+- Jumlah km = 10km + 1km (sblm TBM / Control Point ) + 1km (selepas TBM / Control Point ) = 12km
+- Jika tiada item GPS, item Planemetric Control dikira sebagai Close Loop (Pergi dan balik) 
+- Oleh itu, jumlah km perlu didarab 2. Kiraan = 12km * 2 = 24km
+- Kesimpulannya, close loop tidak diperlukan sekiranya keperluan GPS telah diambilkira",Close loop tak payah di laksanakan jika Traverse dpt close ke mana2 batu sempadan dengan syarat  kodinet batu sempadan / GPS GCP yg di close itu masuk menepati tikian lurus 1: 4000 or better
+,a. Flat & undulating area,1.5.1,,km,2000,0,2600,0,"- RM2.00@RM2.60/m x 1000m (peninsular) 
+",
+,b. Hilly area/ Swampy area/ Built up area,1.5.1,,km,2500,0,3250,0,"- RM2.50@RM3.25/m x 1000m (peninsular) 
+",
+,HEIGHT CONTROL AND CONNECTIONS,4.4,,,,,,,,
+,a. Flat & undulating area (ordinary),1.6.2,,km,464.375,0,603.75,0,"- RM743.00@RM966.00/1.6km
+- Jumlah jarak sama dengan item 4.3",
+,b. Hilly area/ Swampy area/ Built up area (ordinary),1.6.2,,km,743,0,966,0,- RM743.00@RM966.00/1km,
+,d. Monumenting (pipe in concrete),1.7.1,,,,,,,,
+,i. Accessible,1.7.1; 1.7.2,,nos,185.75,0,241.5,0,,
+,ii. Inaccessible,1.7.1; 1.7.2,,nos,371.5,0,483,0,,
+,"b. Survey in security area
+
+","4.6;1,8",,,,,,,"- % kadar harga adalah berbeza mengikut kesusahan / kerumitan / kesukaran akses seperti port, military, airport, berserta keperluan Permit dikawasan Rezab Hutan termasuk keselamatan binatang buas, jika penduduk kampung tidak membenarkan jurukur masuk
+- Oleh itu, memerlukan kawalan keselamatan (armed escort)
+- Kebenaran masa bekerja yang terhad",
+,i. Security pass or permit has to be obtained,1.8.1,,PD,928.75,0,1207.5,0,- RM743.00@RM966.00 x 1.25 (caj tambahan 25% dibenarkan),
+,ii. Armed escort is required and working hours are dictated by relevant authority,1.8.2,,PD,1114.5,0,1449,0,- RM743.00@RM966.00 x 1.50 (caj tambahan 50% dibenarkan),
+,iii. When there is a waiting time after mobilization,1.8.3,,PD,900,0,900,0,#NAME?,
+,SURVEY IN INACCESSIBLE AREAS,1.9,,,,,,,,
+,a) More than 2 kilometres,1.9,,,891.6,0,1159.2,0,- RM743.00@RM966.00 x 1.20 (caj tambahan 20% dibenarkan),
+13,SETTING OUT RESERVE BOUNDARIES ,4.14; 4.10,,,,,,,,
+,a. For Reserve less than 60m,,,,,,,,#NAME?,
+,i. Flat & undulating area,4.14,,km,1857.5,0,2415,0,"- RM743.00@RM966.00 x 2.50 PD/km
+
+",
+,ii. Hilly area/ Swampy area /Built up area,4.14,,km,2229,0,2898,0,- RM743.00RM966.00 x 3.00 PD/km,
+,b. For reserve more than 60m,,,,,0,,0,#NAME?,
+,i. Flat & undulating area,1.5.1; 4.1.4(iv),,km,2000,0,2600,0,"- RM2.00@RM2.60/m x 1000m (peninsular) 
+",
+,ii. Hilly area / Swampy area / Built up area,1.5.1; 4.1.4(iv),,km,2500,0,3250,0,"- RM2.50@RM3.25/m x 1000m (peninsular) 
+",
+14,FINAL SETTING OUT CENTRELINE @ 20m interval,,,,,,,,#NAME?,
+,Flat & Undulating area,4.10.2,,km,2786.25,0,3622.5,0,- RM743.00@RM966.00 x 3.75 PD/km,
+,Hilly area/ Swampy area/ Built up area,4.10.2,,km,4086.5,0,5313,0,- RM743.00@RM966.00 x 5.50 PD/km,
+15,SURVEY FOR SI BORE HOLES,,,,,,,,#NAME?,
+,a. Mobilization and Demobilization (if required),,,,,,,,,
+,i. More than 50km but not exceeding 150km,1.3.0,,PD,743,0,966,0,,
+,ii.More than 150km but not exceeding 300km,1.3.0,,PD,1486,0,1932,0,,
+,iii. Exceeding 300km,1.3.0,,PD,2229,0,2898,0,,
+,"b. Transfer X,Y,Z Values of Borehole Positions",,,,,,,,,
+,i. Flat & undulating area,1.5.1 & 1.6.2,,km,2464.375,0,3203.75,0,- (RM2.00@RM2.60/m x 1000m) + (RM743.00/1.6km),
+,ii. Hilly area / Swampy area / Built up area,1.5.1 & 1.6.2,,km,3243,0,4216,0,- (RM2.50@RM3.25/m x 1000m) + (RM743.00/1km),
+16,Marking Of Trees Within The Reserve Boundaries,10.15,,,,,,,#NAME?,
+,Flat & Undulating area / Built up area,10.15,,ha,92.88,0,92.88,0,#NAME?,
+,Hilly area,10.15,,ha,139.31,0,139.31,0,#NAME?,
+,Swampy,10.15,,ha,139.31,0,139.31,0,#NAME?,
+,TOTAL OF ITEM 16,,,,,0,,0,,
+17,TOTAL COST FROM ITEMS 10 TO 16,,,,,0,,0,,
+18,"PROCESSING,CONVERSION & TRANS DIGITAL DATA IN MOSS GENIO /3D AUTOCAD",4.16; 1.12,,20% of 17,,0,,0,,
+19,TOTAL COST OF STAGE 2,,,,,0,,0,,
+,,,,,,,,,,
+REIMBURSIBLES,,,,,PENINSULAR MALAYSIA,,SABAH/SARAWAK,,DESCRIPTION,
+20,REIMBURSIBLES,,,,,,,,,
+,Preparation of Land Acquistion Plans,,,,,,,,,
+,"Section 4 (Peninsular Malaysia) / Section 4 & 5, Section 3 (5) of cap 69 or Section 3 of cap 69 (Sabah only)",,,,,,,,,
+,a. Preparatory work,"4.15 ; 4.1 ;
+1.11.1 ; 1.2",,PD,743,0,966,0,- CTK JKR juga perlu merujuk kepada 1.11.1,
+,b. Time involved for search at Land Office and PTG,1.11.3; 1.10.3.4,,per hour,10,0,10,0,"- CTK JKR juga perlu merujuk kepada 1.10.1.4
+- Title
+- Carian rasmi
+- Carian persendirian
+- Pewartaan
+- Salinan sah hak milik 
+- Paling lama 1 lot 5 jam
+- Paling cepat 1 lot 30 minit
+- Jadi, ambil 5 jam/lot",
+,c. Computation and plan drawing,1.11.4,,,,,,,#NAME?,
+,"Printing Of Section 4 (Peninsular Malaysia) / Section 4 & 5, Section 3 (5) of cap 69 or Section 3 of cap 69 (Sabah only) LA Plan for submission to authority
+- XX sheet  x XX sets",1.11.4,,lot,20,0,20,0,"- Caj minima RM400
+'- Anggaran jumlah salinan pelan mengikut garis panduan KKR/Kementerian berkenaan",
+,Replotting A1 Size,1.14.2,,sheet,280,0,280,0,,
+,(XX set JKPTG / PTG / PDT + min 10 set JKR & KKR),1.14.3,,sheet,10,0,10,0,"- Contoh untuk jalan lurus, 2km/sheet A1 size
+- Contoh untuk jalan selekoh, 1km/sheet A1 size
+- Salinan lukisan semak dengan JKPTG / PTG / PDT masing-masing ",
+,a. i. Purchase of Cadastral Digital Data (JUPEM),1.11.2; 1.10.1.1,,as per bill,,0,,0,#NAME?,
+,a. ii.  Purchase of Certified Plans (JUPEM),1.11.2; 1.10.1.1,,as per bill,,0,,0,"- Anggaran 1 CP/lot (minima) @  1 CP/500m
+- Diperlukan untuk pengambilan balik tanah/datum
+- Kadar harga : RM4 (bergantung kepada harga semasa JUPEM)",
+,"a. iii. Relevant documents, plans, maps, record and etc.",1.10.1.1,,as per bill,,0,,0,,
+,b. Cabutan Hak milik/ Carian Rasmi ,,,,,,,,,
+,i. Land Office base on actual receipt,1.11.2; 1.10.1.1,,as per bill,,0,,0,#NAME?,
+,ii. Registry Titles PTG base on actual receipt,1.11.2; 1.10.1.1,,as per bill,,0,,0,#NAME?,
+,c. Attending weekly Progress meeting and Site meeting,1.10.1.4,,nos,720,0,720,0,"- Kadar harga untuk perjalanan:
+- Kapal terbang = as per bill
+- Perbatuan = RM0.50/km
+- 1 Kick Off Meeting
+- 1 Progress Meeting 
+- 2 Site Meeting
+= 4 nos (for 2 month Survey Works)",
+,i. Transport charges,1.10.1.4,,meeting,450,0,450,0,,
+,    Air Fare,,,as per bill,,0,,0,,
+,    Milage,,,km,0.5,0,0.5,0,,
+,ii. Accommodation,1.10.1.4,,per day,180,0,180,0,,
+,iii. Subsistence allowance,1.10.1.4,,day,85,0,85,0,,
+,"d.  Telegrams, fax telex, telephone calls and etc.",1.10.1.2,,as per bill,,0,,0,,
+,e. Hiring charge of special equipments and software packages as agreed with the client,1.10.1.3,,as per bill,,0,,0,,
+,"f. Expenses incurred in the use of special transportation e.g. helicopter, boat etc. as agreed with the client.",1.10.1.5,,as per bill,,0,,0,,
+,Printing and Binding of Agreement,1.10.1.1,,as per bill,,0,,0,"Tambahan salinan MOA, Supplementary Agreement dan laporan yang diperlukan untuk edaran atas arahan semasa",
+,,,,,,,,,,
+,Section 8 (Peninsular Malaysia),,,,,,,,,
+,a. Preparatory work,"4.15 ; 4.1 ;
+1.11.1 ; 1.2",,PD,743,0,,,,
+,b. Time involved for search at Land Office and PTG,1.11.3; 1.10.3.4,,per hour,10,0,,,,
+,c. Computation and plan drawing,,,,,,,,,
+,Printing Of Section 8 LA Plan for submission to authority - XX sheet  x XX sets,1.11.4,,lot,20,0,,,"- Caj minima RM400
+'- Anggaran jumlah salinan pelan mengikut garis panduan KKR/Kementerian berkenaan",
+,(XX set JKPTG + 1 set JKR Record),1.14.3,,sheet,10,0,,,,
+,a. i. Purchase of Cadastral Digital Data (JUPEM),1.11.2; 1.10.1.1,,as per bill,,0,,,,
+,a. ii. Purchase of Certified Plans (JUPEM),1.11.2; 1.10.1.1,,as per bill,,0,,,,
+,b. Cabutan Hak milik/ Carian Rasmi ,,,,,,,,,
+,i. Land Office base on actual receipt,1.11.2; 1.10.1.1,,as per bill,,0,,,"- Perlu jika ada lapse (lebih 3 bulan tempoh sah )
+",
+,ii. Registry Titles PTG base on actual receipt,1.11.2; 1.10.1.1,,as per bill,,0,,,#NAME?,
+,c. Attending Progress meeting and Site meeting where required ,1.10.1.4,,as per bill,,0,,,"- Kadar harga untuk perjalanan:
+- Kapal terbang = as per bill
+- Perbatuan = RM0.50/km
+- Allow 1 meeting
+- Contoh RM720/meeting",
+,i. Transport charges,,,,,,,,,
+,ii. Accommodation,1.10.1.4,,per day,180,0,,,,
+,iii. Subsistence allowance,1.10.1.4,,day,85,0,,,,
+21,TOTAL COST FOR REIMBURSIBLES,,,,,0,,0,,
+,,,,,,,,,,
+,,,,,,,,,,
+COST SUMMARY,,"AMOUNT
+(RM) (PENINSULAR MALAYSIA)","AMOUNT (RM)
+(SABAH / SARAWAK)",,,,,,,
+Stage 1- Preliminary Survey,,0.0024,0.0024,,,,,,,
+Stage 2 - Setting Out reserve etc,,0,0,,,,,,,
+Reimbursible,,0,0,,,,,,,
+Total Cost,,0.0024,0.0024,,,,,,,
+6%Service Tax,,0.000144,0.000144,,,,,,,
+GRAND TOTAL,,0.002544,0.002544,,,,,,,
+,DRONE OR UAS - Data acquisition (LiDAR),2023 LiDAR Rate,,RM/ha,,400,,,,Minimum fee applies
+,MANNED AIRCRAFT - Data acquisition (LiDAR),2023 LiDAR Rate,,RM/ha,,400,,,,Minimum charge
