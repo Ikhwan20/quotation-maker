@@ -1,0 +1,26 @@
+# Web / Node
+node_modules/
+npm-debug.log
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temp and Data files (Uncomment if you don't want to track these in the future)
+# *.pdf
+# *.xlsx
+# *.csv
+# *.json
+# search_out.txt
