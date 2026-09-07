@@ -16,21 +16,6 @@ const STORAGE_KEY = "MALAYSIA_LLS_QUOTATION_DRAFT_2026";
 
 const DEFAULT_FIRMS_DIRECTORY = [
     {
-        id: "firm_sjk_kl",
-        firmName: "Syarikat Jurukur Konsultant (SJK)",
-        letterhead: "sjk",
-        firmLjtNo: "LJT/F/1234",
-        surveyorName: "Ir. Sr. Ahmad Zaki bin Haron",
-        surveyorLjtNo: "8872",
-        practiceYear: "2026",
-        piiCoverage: "RM 1,000,000 (Aktif)",
-        phone: "+603-2274 5566",
-        email: "admin@sjk.com.my",
-        address: "No. 45A, Jalan Tun Sambanthan, Brickfields, 50470 Kuala Lumpur",
-        logoDataUrl: null,
-        signatureDataUrl: null
-    },
-    {
         id: "firm_sjk_geomap",
         firmName: "Syarikat Jurukur Konsult Geomap (SJK Geomap)",
         letterhead: "sjk_geomap",
@@ -42,6 +27,21 @@ const DEFAULT_FIRMS_DIRECTORY = [
         phone: "+603-7984 8899",
         email: "contact@sjkgeomap.com.my",
         address: "Suite 9.02, Level 9, Plaza Pantai, Jalan Pantai Baru, 59200 Kuala Lumpur",
+        logoDataUrl: null,
+        signatureDataUrl: null
+    },
+    {
+        id: "firm_sjk_kl",
+        firmName: "Syarikat Jurukur Konsultant (SJK)",
+        letterhead: "sjk",
+        firmLjtNo: "LJT/F/1234",
+        surveyorName: "Ir. Sr. Ahmad Zaki bin Haron",
+        surveyorLjtNo: "8872",
+        practiceYear: "2026",
+        piiCoverage: "RM 1,000,000 (Aktif)",
+        phone: "+603-2274 5566",
+        email: "admin@sjk.com.my",
+        address: "No. 45A, Jalan Tun Sambanthan, Brickfields, 50470 Kuala Lumpur",
         logoDataUrl: null,
         signatureDataUrl: null
     }
@@ -140,2050 +140,13 @@ const DISTANCE_ZONES = {
 };
 
 // ==========================================
-// 3. MASTER BQ DATABASE (DUAL-FORMAT READY)
-// ==========================================
-
-const ALL_BQ_ITEMS = [
-    {
-        code: "SR1",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: PREPARATORY WORK",
-        categoryEn: "STAGE 1: PREPARATORY WORK",
-        name: "PREPARATORY WORK",
-        nameEn: "PREPARATORY WORK",
-        unit: "PD",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.2, 2.2, 3.1, 4.1",
-        descriptionEn: "Ref: 1.2, 2.2, 3.1, 4.1"
-    },
-    {
-        code: "SR2",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: MOBILIZATION AND DEMOBILIZATION",
-        categoryEn: "STAGE 1: MOBILIZATION AND DEMOBILIZATION",
-        name: "a. More than 50km but not exceeding 150km",
-        nameEn: "a. More than 50km but not exceeding 150km",
-        unit: "PD",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.3",
-        descriptionEn: "Ref: 1.3"
-    },
-    {
-        code: "SR3",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: MOBILIZATION AND DEMOBILIZATION",
-        categoryEn: "STAGE 1: MOBILIZATION AND DEMOBILIZATION",
-        name: "b. More than 150km but not exceeding 300km",
-        nameEn: "b. More than 150km but not exceeding 300km",
-        unit: "PD",
-        defaultRate: 1486,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.3",
-        descriptionEn: "Ref: 1.3"
-    },
-    {
-        code: "SR4",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: MOBILIZATION AND DEMOBILIZATION",
-        categoryEn: "STAGE 1: MOBILIZATION AND DEMOBILIZATION",
-        name: "c. Exceeding 300km",
-        nameEn: "c. Exceeding 300km",
-        unit: "PD",
-        defaultRate: 2229,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.3",
-        descriptionEn: "Ref: 1.3"
-    },
-    {
-        code: "SR5",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: PLANIMETRIC CONTROL AND CONNECTION",
-        categoryEn: "STAGE 1: PLANIMETRIC CONTROL AND CONNECTION",
-        name: "a. Flat and undulating area",
-        nameEn: "a. Flat and undulating area",
-        unit: "km",
-        defaultRate: 2000,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: 1.5.1",
-        descriptionEn: "Ref: 1.5.1"
-    },
-    {
-        code: "SR6",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: PLANIMETRIC CONTROL AND CONNECTION",
-        categoryEn: "STAGE 1: PLANIMETRIC CONTROL AND CONNECTION",
-        name: "b. Hilly area / Swampy area / Built up area",
-        nameEn: "b. Hilly area / Swampy area / Built up area",
-        unit: "km",
-        defaultRate: 2500,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 1.5.1",
-        descriptionEn: "Ref: 1.5.1"
-    },
-    {
-        code: "SR7",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: HEIGHT CONTROL AND CONNECTION",
-        categoryEn: "STAGE 1: HEIGHT CONTROL AND CONNECTION",
-        name: "a. Flat and undulating area (ordinary)",
-        nameEn: "a. Flat and undulating area (ordinary)",
-        unit: "km",
-        defaultRate: 464.38,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: 1.6.2",
-        descriptionEn: "Ref: 1.6.2"
-    },
-    {
-        code: "SR8",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: HEIGHT CONTROL AND CONNECTION",
-        categoryEn: "STAGE 1: HEIGHT CONTROL AND CONNECTION",
-        name: "b. Hilly area / Swampy area / Built up area (ordinary)",
-        nameEn: "b. Hilly area / Swampy area / Built up area (ordinary)",
-        unit: "km",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 1.6.2",
-        descriptionEn: "Ref: 1.6.2"
-    },
-    {
-        code: "SR9",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: POINT POSITIONING BY SATELLITE\n(GPS)",
-        categoryEn: "STAGE 1: POINT POSITIONING BY SATELLITE\n(GPS)",
-        name: "i. More than 50km but not exceeding 150km",
-        nameEn: "i. More than 50km but not exceeding 150km",
-        unit: "nos",
-        defaultRate: 2700,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.4.1",
-        descriptionEn: "Ref: 1.4.1"
-    },
-    {
-        code: "SR10",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: POINT POSITIONING BY SATELLITE\n(GPS)",
-        categoryEn: "STAGE 1: POINT POSITIONING BY SATELLITE\n(GPS)",
-        name: "ii. More than 150 km but not exceeding 300km",
-        nameEn: "ii. More than 150 km but not exceeding 300km",
-        unit: "nos",
-        defaultRate: 5400,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.4.1",
-        descriptionEn: "Ref: 1.4.1"
-    },
-    {
-        code: "SR11",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: POINT POSITIONING BY SATELLITE\n(GPS)",
-        categoryEn: "STAGE 1: POINT POSITIONING BY SATELLITE\n(GPS)",
-        name: "iii. Exceeding 300km",
-        nameEn: "iii. Exceeding 300km",
-        unit: "nos",
-        defaultRate: 8100,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.4.1",
-        descriptionEn: "Ref: 1.4.1"
-    },
-    {
-        code: "SR12",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: POINT POSITIONING BY SATELLITE\n(GPS)",
-        categoryEn: "STAGE 1: POINT POSITIONING BY SATELLITE\n(GPS)",
-        name: "b. Basic Charge",
-        nameEn: "b. Basic Charge",
-        unit: "nos",
-        defaultRate: 4660,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.4.2",
-        descriptionEn: "Ref: 1.4.2"
-    },
-    {
-        code: "SR13",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: POINT POSITIONING BY SATELLITE\n(GPS)",
-        categoryEn: "STAGE 1: POINT POSITIONING BY SATELLITE\n(GPS)",
-        name: "c. Point Positioning",
-        nameEn: "c. Point Positioning",
-        unit: "nos",
-        defaultRate: 1970,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.4.3",
-        descriptionEn: "Ref: 1.4.3"
-    },
-    {
-        code: "SR14",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: MONUMENTING (concreting)",
-        categoryEn: "STAGE 1: MONUMENTING (concreting)",
-        name: "a. Accessible",
-        nameEn: "a. Accessible",
-        unit: "nos",
-        defaultRate: 185.75,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.7.1",
-        descriptionEn: "Ref: 1.7.1"
-    },
-    {
-        code: "SR15",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: MONUMENTING (concreting)",
-        categoryEn: "STAGE 1: MONUMENTING (concreting)",
-        name: "b. Inaccessible",
-        nameEn: "b. Inaccessible",
-        unit: "nos",
-        defaultRate: 371.5,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.7.1",
-        descriptionEn: "Ref: 1.7.1"
-    },
-    {
-        code: "SR16",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY IN SECURITY AREAS",
-        categoryEn: "STAGE 1: SURVEY IN SECURITY AREAS",
-        name: "a. Security pass or permit has to be obtained",
-        nameEn: "a. Security pass or permit has to be obtained",
-        unit: "PD",
-        defaultRate: 928.75,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.8.1",
-        descriptionEn: "Ref: 1.8.1"
-    },
-    {
-        code: "SR17",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY IN SECURITY AREAS",
-        categoryEn: "STAGE 1: SURVEY IN SECURITY AREAS",
-        name: "b. Armed escort is required and working hours are dictated by relevant authority",
-        nameEn: "b. Armed escort is required and working hours are dictated by relevant authority",
-        unit: "PD",
-        defaultRate: 1114.5,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.8.2",
-        descriptionEn: "Ref: 1.8.2"
-    },
-    {
-        code: "SR18",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY IN SECURITY AREAS",
-        categoryEn: "STAGE 1: SURVEY IN SECURITY AREAS",
-        name: "c. When there is a waiting time after mobilization",
-        nameEn: "c. When there is a waiting time after mobilization",
-        unit: "PD",
-        defaultRate: 900,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.8.3",
-        descriptionEn: "Ref: 1.8.3"
-    },
-    {
-        code: "SR19",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY IN INACCESSIBLE AREAS",
-        categoryEn: "STAGE 1: SURVEY IN INACCESSIBLE AREAS",
-        name: "a. More than 2 kilometres",
-        nameEn: "a. More than 2 kilometres",
-        unit: "PD",
-        defaultRate: 891.6,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.9",
-        descriptionEn: "Ref: 1.9"
-    },
-    {
-        code: "SR20",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: TRANSFORMATION FOR COORDINATES",
-        categoryEn: "STAGE 1: TRANSFORMATION FOR COORDINATES",
-        name: "a. Transformation of Coordinates",
-        nameEn: "a. Transformation of Coordinates",
-        unit: "nos",
-        defaultRate: 400,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.13",
-        descriptionEn: "Ref: 1.13"
-    },
-    {
-        code: "SR21",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: MARKING OF TREES WITHIN THE RESERVE BOUNDARIES",
-        categoryEn: "STAGE 1: MARKING OF TREES WITHIN THE RESERVE BOUNDARIES",
-        name: "a. Flat and Undulating area / Built up area",
-        nameEn: "a. Flat and Undulating area / Built up area",
-        unit: "km",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: 10.15",
-        descriptionEn: "Ref: 10.15"
-    },
-    {
-        code: "SR22",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: MARKING OF TREES WITHIN THE RESERVE BOUNDARIES",
-        categoryEn: "STAGE 1: MARKING OF TREES WITHIN THE RESERVE BOUNDARIES",
-        name: "b. Hilly area / Swampy area",
-        nameEn: "b. Hilly area / Swampy area",
-        unit: "km",
-        defaultRate: 928.75,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 10.15",
-        descriptionEn: "Ref: 10.15"
-    },
-    {
-        code: "SR23",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY OF STRIP WITH SPOT LEVEL AND DETAIL",
-        categoryEn: "STAGE 1: SURVEY OF STRIP WITH SPOT LEVEL AND DETAIL",
-        name: "a. Developed area / Flat and Undulating area",
-        nameEn: "a. Developed area / Flat and Undulating area",
-        unit: "ha",
-        defaultRate: 371.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: 4.9",
-        descriptionEn: "Ref: 4.9"
-    },
-    {
-        code: "SR24",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY OF STRIP WITH SPOT LEVEL AND DETAIL",
-        categoryEn: "STAGE 1: SURVEY OF STRIP WITH SPOT LEVEL AND DETAIL",
-        name: "b. Built up area / Undeveloped area / Hilly area",
-        nameEn: "b. Built up area / Undeveloped area / Hilly area",
-        unit: "ha",
-        defaultRate: 495.33,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 4.9",
-        descriptionEn: "Ref: 4.9"
-    },
-    {
-        code: "SR25",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY OF STRIP WITH SPOT LEVEL AND DETAIL",
-        categoryEn: "STAGE 1: SURVEY OF STRIP WITH SPOT LEVEL AND DETAIL",
-        name: "c. Swampy area",
-        nameEn: "c. Swampy area",
-        unit: "ha",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 4.9",
-        descriptionEn: "Ref: 4.9"
-    },
-    {
-        code: "SR26",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: UNDERGROUND UTILITY SURVEY WORKS",
-        categoryEn: "STAGE 1: UNDERGROUND UTILITY SURVEY WORKS",
-        name: "UNDERGROUND UTILITY SURVEY WORKS",
-        nameEn: "UNDERGROUND UTILITY SURVEY WORKS",
-        unit: "m2",
-        defaultRate: 3.5,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR27",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Contour and Detail",
-        categoryEn: "STAGE 1: Contour and Detail",
-        subCategory: "a. Flat and undulating area (ordinary)",
-        subCategoryEn: "a. Flat and undulating area (ordinary)",
-        name: "i. 1m",
-        nameEn: "i. 1m",
-        unit: "ha",
-        defaultRate: 594.4,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR28",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Contour and Detail",
-        categoryEn: "STAGE 1: Contour and Detail",
-        subCategory: "a. Flat and undulating area (ordinary)",
-        subCategoryEn: "a. Flat and undulating area (ordinary)",
-        name: "ii. 2m",
-        nameEn: "ii. 2m",
-        unit: "ha",
-        defaultRate: 495.33,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR29",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Contour and Detail",
-        categoryEn: "STAGE 1: Contour and Detail",
-        subCategory: "a. Flat and undulating area (ordinary)",
-        subCategoryEn: "a. Flat and undulating area (ordinary)",
-        name: "iii. 3m",
-        nameEn: "iii. 3m",
-        unit: "ha",
-        defaultRate: 424.57,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR30",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Contour and Detail",
-        categoryEn: "STAGE 1: Contour and Detail",
-        subCategory: "b. Hilly area",
-        subCategoryEn: "b. Hilly area",
-        name: "i. 2m",
-        nameEn: "i. 2m",
-        unit: "ha",
-        defaultRate: 990.67,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR31",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Contour and Detail",
-        categoryEn: "STAGE 1: Contour and Detail",
-        subCategory: "b. Hilly area",
-        subCategoryEn: "b. Hilly area",
-        name: "ii. 3m",
-        nameEn: "ii. 3m",
-        unit: "ha",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR32",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Contour and Detail",
-        categoryEn: "STAGE 1: Contour and Detail",
-        subCategory: "c. Swampy area and Built up area (ordinary)",
-        subCategoryEn: "c. Swampy area and Built up area (ordinary)",
-        name: "i. 1m",
-        nameEn: "i. 1m",
-        unit: "ha",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR33",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Contour and Detail",
-        categoryEn: "STAGE 1: Contour and Detail",
-        subCategory: "c. Swampy area and Built up area (ordinary)",
-        subCategoryEn: "c. Swampy area and Built up area (ordinary)",
-        name: "ii. 2m",
-        nameEn: "ii. 2m",
-        unit: "ha",
-        defaultRate: 594.4,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR34",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Contour and Detail",
-        categoryEn: "STAGE 1: Contour and Detail",
-        subCategory: "c. Swampy area and Built up area (ordinary)",
-        subCategoryEn: "c. Swampy area and Built up area (ordinary)",
-        name: "iii. 3m",
-        nameEn: "iii. 3m",
-        unit: "ha",
-        defaultRate: 495.33,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR35",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "a. Developed Area - i. Grid Interval (With Detail)",
-        subCategoryEn: "a. Developed Area - i. Grid Interval (With Detail)",
-        name: "10m",
-        nameEn: "10m",
-        unit: "km",
-        defaultRate: 3715,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR36",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "a. Developed Area - i. Grid Interval (With Detail)",
-        subCategoryEn: "a. Developed Area - i. Grid Interval (With Detail)",
-        name: "20m",
-        nameEn: "20m",
-        unit: "km",
-        defaultRate: 1857.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR37",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "a. Developed Area - ii. Grid Interval (Without Detail)",
-        subCategoryEn: "a. Developed Area - ii. Grid Interval (Without Detail)",
-        name: "10m",
-        nameEn: "10m",
-        unit: "km",
-        defaultRate: 1857.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR38",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "a. Developed Area - ii. Grid Interval (Without Detail)",
-        subCategoryEn: "a. Developed Area - ii. Grid Interval (Without Detail)",
-        name: "20m",
-        nameEn: "20m",
-        unit: "km",
-        defaultRate: 928.75,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR39",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "b. Built up area - i. Grid Interval (With Detail)",
-        subCategoryEn: "b. Built up area - i. Grid Interval (With Detail)",
-        name: "10m",
-        nameEn: "10m",
-        unit: "km",
-        defaultRate: 4458,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR40",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "b. Built up area - i. Grid Interval (With Detail)",
-        subCategoryEn: "b. Built up area - i. Grid Interval (With Detail)",
-        name: "20m",
-        nameEn: "20m",
-        unit: "km",
-        defaultRate: 2229,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR41",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "b. Built up area - ii. Grid Interval (Without Detail)",
-        subCategoryEn: "b. Built up area - ii. Grid Interval (Without Detail)",
-        name: "10m",
-        nameEn: "10m",
-        unit: "km",
-        defaultRate: 2229,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR42",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "b. Built up area - ii. Grid Interval (Without Detail)",
-        subCategoryEn: "b. Built up area - ii. Grid Interval (Without Detail)",
-        name: "20m",
-        nameEn: "20m",
-        unit: "km",
-        defaultRate: 1114.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR43",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "c. Undeveloped Area - i. Grid Interval (With Detail)",
-        subCategoryEn: "c. Undeveloped Area - i. Grid Interval (With Detail)",
-        name: "10m",
-        nameEn: "10m",
-        unit: "km",
-        defaultRate: 2972,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR44",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "c. Undeveloped Area - i. Grid Interval (With Detail)",
-        subCategoryEn: "c. Undeveloped Area - i. Grid Interval (With Detail)",
-        name: "20m",
-        nameEn: "20m",
-        unit: "km",
-        defaultRate: 1486,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR45",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "c. Undeveloped Area - ii. Grid Interval (Without Detail)",
-        subCategoryEn: "c. Undeveloped Area - ii. Grid Interval (Without Detail)",
-        name: "10m",
-        nameEn: "10m",
-        unit: "km",
-        defaultRate: 1486,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR46",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "c. Undeveloped Area - ii. Grid Interval (Without Detail)",
-        subCategoryEn: "c. Undeveloped Area - ii. Grid Interval (Without Detail)",
-        name: "20m",
-        nameEn: "20m",
-        unit: "km",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR47",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "d. Swampy Area - i. Grid Interval (With Detail)",
-        subCategoryEn: "d. Swampy Area - i. Grid Interval (With Detail)",
-        name: "10m",
-        nameEn: "10m",
-        unit: "km",
-        defaultRate: 4086.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR48",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "d. Swampy Area - i. Grid Interval (With Detail)",
-        subCategoryEn: "d. Swampy Area - i. Grid Interval (With Detail)",
-        name: "20m",
-        nameEn: "20m",
-        unit: "km",
-        defaultRate: 2043.25,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR49",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "d. Swampy Area - ii. Grid Interval (Without Detail)",
-        subCategoryEn: "d. Swampy Area - ii. Grid Interval (Without Detail)",
-        name: "10m",
-        nameEn: "10m",
-        unit: "km",
-        defaultRate: 2043.25,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR50",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Grid Heighing",
-        categoryEn: "STAGE 1: Grid Heighing",
-        subCategory: "d. Swampy Area - ii. Grid Interval (Without Detail)",
-        subCategoryEn: "d. Swampy Area - ii. Grid Interval (Without Detail)",
-        name: "20m",
-        nameEn: "20m",
-        unit: "km",
-        defaultRate: 1040.2,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR51",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY OF BRIDGE SITES",
-        categoryEn: "STAGE 1: SURVEY OF BRIDGE SITES",
-        name: "SURVEY OF BRIDGE SITES",
-        nameEn: "SURVEY OF BRIDGE SITES",
-        unit: "ha",
-        defaultRate: 4086.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: 3.9",
-        descriptionEn: "Ref: 3.9"
-    },
-    {
-        code: "SR52",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: CROSS SECTION WITH SOUNDING",
-        categoryEn: "STAGE 1: CROSS SECTION WITH SOUNDING",
-        name: "a. Depth of water less than 1m",
-        nameEn: "a. Depth of water less than 1m",
-        unit: "km",
-        defaultRate: 5944,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: 3.10.1",
-        descriptionEn: "Ref: 3.10.1"
-    },
-    {
-        code: "SR53",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: CROSS SECTION WITH SOUNDING",
-        categoryEn: "STAGE 1: CROSS SECTION WITH SOUNDING",
-        name: "i. Mobilization and Demobilization of boat",
-        nameEn: "i. Mobilization and Demobilization of boat",
-        unit: "nos",
-        defaultRate: 600,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 3.10.2.1",
-        descriptionEn: "Ref: 3.10.2.1"
-    },
-    {
-        code: "SR54",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: CROSS SECTION WITH SOUNDING",
-        categoryEn: "STAGE 1: CROSS SECTION WITH SOUNDING",
-        name: "ii. Boat rental",
-        nameEn: "ii. Boat rental",
-        unit: "day",
-        defaultRate: 300,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 3.10.2.2",
-        descriptionEn: "Ref: 3.10.2.2"
-    },
-    {
-        code: "SR55",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: CROSS SECTION WITH SOUNDING",
-        categoryEn: "STAGE 1: CROSS SECTION WITH SOUNDING",
-        name: "iii. Work rate (10m interval)",
-        nameEn: "iii. Work rate (10m interval)",
-        unit: "km",
-        defaultRate: 5944,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: 3.10.2.3",
-        descriptionEn: "Ref: 3.10.2.3"
-    },
-    {
-        code: "SR56",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: LONGITUDINAL PROFILING ALONG ESTABLISH CHAINAGE PEGS",
-        categoryEn: "STAGE 1: LONGITUDINAL PROFILING ALONG ESTABLISH CHAINAGE PEGS",
-        name: "a. Flat and Undulating area",
-        nameEn: "a. Flat and Undulating area",
-        unit: "km",
-        defaultRate: 1300.25,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: 4.12",
-        descriptionEn: "Ref: 4.12"
-    },
-    {
-        code: "SR57",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: LONGITUDINAL PROFILING ALONG ESTABLISH CHAINAGE PEGS",
-        categoryEn: "STAGE 1: LONGITUDINAL PROFILING ALONG ESTABLISH CHAINAGE PEGS",
-        name: "b. Hilly area / Swampy area / Built up area",
-        nameEn: "b. Hilly area / Swampy area / Built up area",
-        unit: "km",
-        defaultRate: 2229,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 4.12",
-        descriptionEn: "Ref: 4.12"
-    },
-    {
-        code: "SR58",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: CROSS SECTIONING",
-        categoryEn: "STAGE 1: CROSS SECTIONING",
-        name: "a. Flat",
-        nameEn: "a. Flat",
-        unit: "Section",
-        defaultRate: 106.14,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: 4.13",
-        descriptionEn: "Ref: 4.13"
-    },
-    {
-        code: "SR59",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: CROSS SECTIONING",
-        categoryEn: "STAGE 1: CROSS SECTIONING",
-        name: "b. Hilly / Built Up / Swampy",
-        nameEn: "b. Hilly / Built Up / Swampy",
-        unit: "Section",
-        defaultRate: 185.75,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 4.13",
-        descriptionEn: "Ref: 4.13"
-    },
-    {
-        code: "SR60",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY OF STRIP WITH DETAIL",
-        categoryEn: "STAGE 1: SURVEY OF STRIP WITH DETAIL",
-        name: "a. Developed area / Flat and Undulating area",
-        nameEn: "a. Developed area / Flat and Undulating area",
-        unit: "ha",
-        defaultRate: 371.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: 14.8.1",
-        descriptionEn: "Ref: 14.8.1"
-    },
-    {
-        code: "SR61",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY OF STRIP WITH DETAIL",
-        categoryEn: "STAGE 1: SURVEY OF STRIP WITH DETAIL",
-        name: "b. Built up area / Undeveloped area / Hilly area",
-        nameEn: "b. Built up area / Undeveloped area / Hilly area",
-        unit: "ha",
-        defaultRate: 495.33,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 14.8.2, 14.8.3",
-        descriptionEn: "Ref: 14.8.2, 14.8.3"
-    },
-    {
-        code: "SR62",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY OF STRIP WITH DETAIL",
-        categoryEn: "STAGE 1: SURVEY OF STRIP WITH DETAIL",
-        name: "c. Swampy area",
-        nameEn: "c. Swampy area",
-        unit: "ha",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 14.8.4",
-        descriptionEn: "Ref: 14.8.4"
-    },
-    {
-        code: "SR63",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SURVEY OF STRIP WITH DETAIL",
-        categoryEn: "STAGE 1: SURVEY OF STRIP WITH DETAIL",
-        name: "d. Tidal area",
-        nameEn: "d. Tidal area",
-        unit: "ha",
-        defaultRate: 990.67,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: 14.8.5",
-        descriptionEn: "Ref: 14.8.5"
-    },
-    {
-        code: "SR64",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Bathhymatric (Offshore) Profiling",
-        categoryEn: "STAGE 1: Bathhymatric (Offshore) Profiling",
-        name: "a. Profile at interval : 25",
-        nameEn: "a. Profile at interval : 25",
-        unit: "km",
-        defaultRate: 2476.67,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: 14.9.2",
-        descriptionEn: "Ref: 14.9.2"
-    },
-    {
-        code: "SR65",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Bathhymatric (Offshore) Profiling",
-        categoryEn: "STAGE 1: Bathhymatric (Offshore) Profiling",
-        name: "b. Profile at interval : 50 / 75",
-        nameEn: "b. Profile at interval : 50 / 75",
-        unit: "km",
-        defaultRate: 1857.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: 14.9.2",
-        descriptionEn: "Ref: 14.9.2"
-    },
-    {
-        code: "SR66",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Bathhymatric (Offshore) Profiling",
-        categoryEn: "STAGE 1: Bathhymatric (Offshore) Profiling",
-        name: "c. Profile at interval : 100 or more",
-        nameEn: "c. Profile at interval : 100 or more",
-        unit: "km",
-        defaultRate: 1486,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: 14.9.2",
-        descriptionEn: "Ref: 14.9.2"
-    },
-    {
-        code: "SR67",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Automatic Water Level Recording",
-        categoryEn: "STAGE 1: Automatic Water Level Recording",
-        name: "Installation",
-        nameEn: "Installation",
-        unit: "nos",
-        defaultRate: 3600,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR68",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Automatic Water Level Recording",
-        categoryEn: "STAGE 1: Automatic Water Level Recording",
-        name: "Measurement data processing",
-        nameEn: "Measurement data processing",
-        unit: "nos",
-        defaultRate: 5000,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR69",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Automatic Water Level Recording",
-        categoryEn: "STAGE 1: Automatic Water Level Recording",
-        name: "Installation",
-        nameEn: "Installation",
-        unit: "nos",
-        defaultRate: 3600,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR70",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Automatic Water Level Recording",
-        categoryEn: "STAGE 1: Automatic Water Level Recording",
-        name: "Measurement data processing",
-        nameEn: "Measurement data processing",
-        unit: "nos",
-        defaultRate: 12200,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR71",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Direct Reading",
-        categoryEn: "STAGE 1: Direct Reading",
-        name: "Installation",
-        nameEn: "Installation",
-        unit: "nos",
-        defaultRate: 900,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR72",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Direct Reading",
-        categoryEn: "STAGE 1: Direct Reading",
-        name: "Tidal observation",
-        nameEn: "Tidal observation",
-        unit: "hour",
-        defaultRate: 20,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR73",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Self Recording Current Measurement",
-        categoryEn: "STAGE 1: Self Recording Current Measurement",
-        name: "a. Installation",
-        nameEn: "a. Installation",
-        unit: "days",
-        defaultRate: 7000,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR74",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Self Recording Current Measurement",
-        categoryEn: "STAGE 1: Self Recording Current Measurement",
-        name: "b. Measurement and data processing",
-        nameEn: "b. Measurement and data processing",
-        unit: "days",
-        defaultRate: 19600,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR75",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Self Recording Current Measurement",
-        categoryEn: "STAGE 1: Self Recording Current Measurement",
-        name: "a. Installation",
-        nameEn: "a. Installation",
-        unit: "days",
-        defaultRate: 7000,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR76",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Self Recording Current Measurement",
-        categoryEn: "STAGE 1: Self Recording Current Measurement",
-        name: "b. Measurement and data processing",
-        nameEn: "b. Measurement and data processing",
-        unit: "days",
-        defaultRate: 39500,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR77",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Direct Reading",
-        categoryEn: "STAGE 1: Direct Reading",
-        name: "a. Preparation and set up",
-        nameEn: "a. Preparation and set up",
-        unit: "Location",
-        defaultRate: 1800,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR78",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: Direct Reading",
-        categoryEn: "STAGE 1: Direct Reading",
-        name: "b. Direct observation Current speed and direction",
-        nameEn: "b. Direct observation Current speed and direction",
-        unit: "hour / job",
-        defaultRate: 300,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR79",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SEAWATER TEMPERATURE AND SALINITY MEASUREMENT",
-        categoryEn: "STAGE 1: SEAWATER TEMPERATURE AND SALINITY MEASUREMENT",
-        name: "a. Installation",
-        nameEn: "a. Installation",
-        unit: "Location",
-        defaultRate: 1800,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR80",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SEAWATER TEMPERATURE AND SALINITY MEASUREMENT",
-        categoryEn: "STAGE 1: SEAWATER TEMPERATURE AND SALINITY MEASUREMENT",
-        name: "b. In situ (direct)",
-        nameEn: "b. In situ (direct)",
-        unit: "hour / job",
-        defaultRate: 300,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR81",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SEABED (GRAB) SOIL SAMPLING",
-        categoryEn: "STAGE 1: SEABED (GRAB) SOIL SAMPLING",
-        name: "a. Installation",
-        nameEn: "a. Installation",
-        unit: "sample",
-        defaultRate: 250,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR82",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: SEAWATER SAMPLING",
-        categoryEn: "STAGE 1: SEAWATER SAMPLING",
-        name: "SEAWATER SAMPLING",
-        nameEn: "SEAWATER SAMPLING",
-        unit: "sample",
-        defaultRate: 250,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 14.14",
-        descriptionEn: "Ref: 14.14"
-    },
-    {
-        code: "SR83",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: PREPARATORY WORK",
-        categoryEn: "STAGE 2: PREPARATORY WORK",
-        name: "PREPARATORY WORK",
-        nameEn: "PREPARATORY WORK",
-        unit: "PD",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.2, 2.2, 3.1, 4.1",
-        descriptionEn: "Ref: 1.2, 2.2, 3.1, 4.1"
-    },
-    {
-        code: "SR84",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: MOBILIZATION AND DEMOBILIZATION",
-        categoryEn: "STAGE 2: MOBILIZATION AND DEMOBILIZATION",
-        name: "a. More than 50km but not exceeding 150km",
-        nameEn: "a. More than 50km but not exceeding 150km",
-        unit: "PD",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.3",
-        descriptionEn: "Ref: 1.3"
-    },
-    {
-        code: "SR85",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: MOBILIZATION AND DEMOBILIZATION",
-        categoryEn: "STAGE 2: MOBILIZATION AND DEMOBILIZATION",
-        name: "b. More than 150km but not exceeding 300km",
-        nameEn: "b. More than 150km but not exceeding 300km",
-        unit: "PD",
-        defaultRate: 1486,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.3",
-        descriptionEn: "Ref: 1.3"
-    },
-    {
-        code: "SR86",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: MOBILIZATION AND DEMOBILIZATION",
-        categoryEn: "STAGE 2: MOBILIZATION AND DEMOBILIZATION",
-        name: "c. Exceeding 300km",
-        nameEn: "c. Exceeding 300km",
-        unit: "PD",
-        defaultRate: 2229,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.3",
-        descriptionEn: "Ref: 1.3"
-    },
-    {
-        code: "SR87",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: MONUMENTING (concreting)",
-        categoryEn: "STAGE 2: MONUMENTING (concreting)",
-        name: "a. Accessible",
-        nameEn: "a. Accessible",
-        unit: "nos",
-        defaultRate: 185.75,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.7.1",
-        descriptionEn: "Ref: 1.7.1"
-    },
-    {
-        code: "SR88",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: MONUMENTING (concreting)",
-        categoryEn: "STAGE 2: MONUMENTING (concreting)",
-        name: "b. Inaccessible",
-        nameEn: "b. Inaccessible",
-        unit: "nos",
-        defaultRate: 371.5,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.7.1",
-        descriptionEn: "Ref: 1.7.1"
-    },
-    {
-        code: "SR89",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: SURVEY IN SECURITY AREAS",
-        categoryEn: "STAGE 2: SURVEY IN SECURITY AREAS",
-        name: "a. Security pass or permit has to be obtained",
-        nameEn: "a. Security pass or permit has to be obtained",
-        unit: "PD",
-        defaultRate: 928.75,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.8.1",
-        descriptionEn: "Ref: 1.8.1"
-    },
-    {
-        code: "SR90",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: SURVEY IN SECURITY AREAS",
-        categoryEn: "STAGE 2: SURVEY IN SECURITY AREAS",
-        name: "b. Armed escort is required and working hours are dictated by relevant authority",
-        nameEn: "b. Armed escort is required and working hours are dictated by relevant authority",
-        unit: "PD",
-        defaultRate: 1114.5,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.8.2",
-        descriptionEn: "Ref: 1.8.2"
-    },
-    {
-        code: "SR91",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: SURVEY IN SECURITY AREAS",
-        categoryEn: "STAGE 2: SURVEY IN SECURITY AREAS",
-        name: "c. When there is a waiting time after mobilization",
-        nameEn: "c. When there is a waiting time after mobilization",
-        unit: "PD",
-        defaultRate: 900,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.8.3",
-        descriptionEn: "Ref: 1.8.3"
-    },
-    {
-        code: "SR92",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: SURVEY IN INACCESSIBLE AREAS",
-        categoryEn: "STAGE 2: SURVEY IN INACCESSIBLE AREAS",
-        name: "a. More than 2 kilometres",
-        nameEn: "a. More than 2 kilometres",
-        unit: "PD",
-        defaultRate: 891.6,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: 1.9",
-        descriptionEn: "Ref: 1.9"
-    },
-    {
-        code: "SR93",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: SETTING OUT CENTRELINE OF ROAD AND RAILWAY (20m interval)",
-        categoryEn: "STAGE 2: SETTING OUT CENTRELINE OF ROAD AND RAILWAY (20m interval)",
-        name: "a. Flat and Undulating area",
-        nameEn: "a. Flat and Undulating area",
-        unit: "km",
-        defaultRate: 2786.25,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: 4.10.2",
-        descriptionEn: "Ref: 4.10.2"
-    },
-    {
-        code: "SR94",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: SETTING OUT CENTRELINE OF ROAD AND RAILWAY (20m interval)",
-        categoryEn: "STAGE 2: SETTING OUT CENTRELINE OF ROAD AND RAILWAY (20m interval)",
-        name: "b. Hilly area / Swampy area / Built up area",
-        nameEn: "b. Hilly area / Swampy area / Built up area",
-        unit: "km",
-        defaultRate: 4086.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 4.10.2",
-        descriptionEn: "Ref: 4.10.2"
-    },
-    {
-        code: "SR95",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: SETTING OUT RESERVE BOUNDARIES",
-        categoryEn: "STAGE 2: SETTING OUT RESERVE BOUNDARIES",
-        name: "i. Flat and undulating area",
-        nameEn: "i. Flat and undulating area",
-        unit: "km",
-        defaultRate: 1857.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: 4.14",
-        descriptionEn: "Ref: 4.14"
-    },
-    {
-        code: "SR96",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: SETTING OUT RESERVE BOUNDARIES",
-        categoryEn: "STAGE 2: SETTING OUT RESERVE BOUNDARIES",
-        name: "ii. Hilly area / Swampy area / Built up area",
-        nameEn: "ii. Hilly area / Swampy area / Built up area",
-        unit: "km",
-        defaultRate: 2229,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 4.14",
-        descriptionEn: "Ref: 4.14"
-    },
-    {
-        code: "SR97",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: SETTING OUT RESERVE BOUNDARIES",
-        categoryEn: "STAGE 2: SETTING OUT RESERVE BOUNDARIES",
-        name: "i. Flat and undulating area",
-        nameEn: "i. Flat and undulating area",
-        unit: "km",
-        defaultRate: 2000,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "flat",
-        description: "Ref: 4.14",
-        descriptionEn: "Ref: 4.14"
-    },
-    {
-        code: "SR98",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: SETTING OUT RESERVE BOUNDARIES",
-        categoryEn: "STAGE 2: SETTING OUT RESERVE BOUNDARIES",
-        name: "ii. Hilly area / Swampy area / Built up area",
-        nameEn: "ii. Hilly area / Swampy area / Built up area",
-        unit: "km",
-        defaultRate: 2500,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        terrainTag: "hilly",
-        description: "Ref: 4.14",
-        descriptionEn: "Ref: 4.14"
-    },
-    {
-        code: "SR99",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: DESCRIPTION OF WORKS",
-        categoryEn: "REIMBURSABLES: DESCRIPTION OF WORKS",
-        name: "a. Time involved for search at Land Office and PTG",
-        nameEn: "a. Time involved for search at Land Office and PTG",
-        unit: "per hour",
-        defaultRate: 10,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.11.3",
-        descriptionEn: "Ref: 1.11.3"
-    },
-    {
-        code: "SR100",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: Printing Of Section 4 (Peninsular Malaysia) / Section 4 and 5, Section 3 (5) of cap 69 or Section 3 of cap 69 (Sabah only) LA Plan for submission to authority",
-        categoryEn: "REIMBURSABLES: Printing Of Section 4 (Peninsular Malaysia) / Section 4 and 5, Section 3 (5) of cap 69 or Section 3 of cap 69 (Sabah only) LA Plan for submission to authority",
-        name: "Printing Of Section 4 (Peninsular Malaysia) / Section 4 and 5, Section 3 (5) of cap 69 or Section 3 of cap 69 (Sabah only) LA Plan for submission to authority",
-        nameEn: "Printing Of Section 4 (Peninsular Malaysia) / Section 4 and 5, Section 3 (5) of cap 69 or Section 3 of cap 69 (Sabah only) LA Plan for submission to authority",
-        unit: "lot",
-        defaultRate: 20,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.11.4",
-        descriptionEn: "Ref: 1.11.4"
-    },
-    {
-        code: "SR101",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: Replotting A1 Size",
-        categoryEn: "REIMBURSABLES: Replotting A1 Size",
-        name: "Replotting A1 Size",
-        nameEn: "Replotting A1 Size",
-        unit: "sheet",
-        defaultRate: 280,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.14.2",
-        descriptionEn: "Ref: 1.14.2"
-    },
-    {
-        code: "SR102",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
-        categoryEn: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
-        name: "(40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
-        nameEn: "(40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
-        unit: "sheet",
-        defaultRate: 10,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.14.3",
-        descriptionEn: "Ref: 1.14.3"
-    },
-    {
-        code: "SR103",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
-        categoryEn: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
-        name: "Milage",
-        nameEn: "Milage",
-        unit: "km",
-        defaultRate: 0.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR104",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
-        categoryEn: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
-        name: "iii. Subsistence allowance",
-        nameEn: "iii. Subsistence allowance",
-        unit: "day",
-        defaultRate: 85,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.10.1.4",
-        descriptionEn: "Ref: 1.10.1.4"
-    },
-    {
-        code: "SR105",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
-        categoryEn: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
-        name: "a. Time involved for search at Land Office and PTG",
-        nameEn: "a. Time involved for search at Land Office and PTG",
-        unit: "per hour",
-        defaultRate: 10,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.11.3",
-        descriptionEn: "Ref: 1.11.3"
-    },
-    {
-        code: "SR106",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: Printing Of Section 8 LA Plan for submission to authority",
-        categoryEn: "REIMBURSABLES: Printing Of Section 8 LA Plan for submission to authority",
-        name: "Printing Of Section 8 LA Plan for submission to authority",
-        nameEn: "Printing Of Section 8 LA Plan for submission to authority",
-        unit: "lot",
-        defaultRate: 20,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.11.4",
-        descriptionEn: "Ref: 1.11.4"
-    },
-    {
-        code: "SR107",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)",
-        categoryEn: "REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)",
-        name: "(40 set JKPTG + 10 set JKR Record)",
-        nameEn: "(40 set JKPTG + 10 set JKR Record)",
-        unit: "sheet",
-        defaultRate: 10,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.14.3",
-        descriptionEn: "Ref: 1.14.3"
-    },
-    {
-        code: "SR108",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)",
-        categoryEn: "REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)",
-        name: "Milage",
-        nameEn: "Milage",
-        unit: "km",
-        defaultRate: 0.5,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: ",
-        descriptionEn: "Ref: "
-    },
-    {
-        code: "SR109",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)",
-        categoryEn: "REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)",
-        name: "iii. Subsistence allowance",
-        nameEn: "iii. Subsistence allowance",
-        unit: "day",
-        defaultRate: 85,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: 1.10.1.4",
-        descriptionEn: "Ref: 1.10.1.4"
-    },
-    {
-        code: "SR110",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
-        categoryEn: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
-        name: "Preparatory Works (Drone / UAS) (Min. 2 PD)",
-        nameEn: "Preparatory Works (Drone / UAS) (Min. 2 PD)",
-        unit: "PD",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: PEJUTA 2023",
-        descriptionEn: "Ref: PEJUTA 2023"
-    },
-    {
-        code: "SR111",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
-        categoryEn: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
-        name: "Preparatory Works (Manned Aircraft) (Min. 5 PD)",
-        nameEn: "Preparatory Works (Manned Aircraft) (Min. 5 PD)",
-        unit: "PD",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: PEJUTA 2023",
-        descriptionEn: "Ref: PEJUTA 2023"
-    },
-    {
-        code: "SR112",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
-        categoryEn: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
-        name: "Mobilization & Demobilization (Excl. Reimbursables) (Min. 2 PD)",
-        nameEn: "Mobilization & Demobilization (Excl. Reimbursables) (Min. 2 PD)",
-        unit: "PD",
-        defaultRate: 743,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: true,
-        description: "Ref: PEJUTA 2023",
-        descriptionEn: "Ref: PEJUTA 2023"
-    },
-    {
-        code: "SR113",
-        section: "A",
-        jkrStage: "stage1",
-        category: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
-        categoryEn: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
-        name: "Ground Control Points (GCPs) by Satellite (Min. 5 GCPs)",
-        nameEn: "Ground Control Points (GCPs) by Satellite (Min. 5 GCPs)",
-        unit: "nos",
-        defaultRate: 400,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: PEJUTA 2023",
-        descriptionEn: "Ref: PEJUTA 2023"
-    },
-    {
-        code: "SR114",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION",
-        categoryEn: "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION",
-        name: "Drone or Unmanned Aircraft System (UAS) LiDAR (Min. 8 PD equivalent)",
-        nameEn: "Drone or Unmanned Aircraft System (UAS) LiDAR (Min. 8 PD equivalent)",
-        unit: "ha",
-        defaultRate: 400,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: PEJUTA 2023",
-        descriptionEn: "Ref: PEJUTA 2023"
-    },
-    {
-        code: "SR115",
-        section: "A",
-        jkrStage: "stage2",
-        category: "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION",
-        categoryEn: "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION",
-        name: "Manned Aircraft LiDAR",
-        nameEn: "Manned Aircraft LiDAR",
-        unit: "ha",
-        defaultRate: 400,
-        isStatutory: false,
-        applyMultiplier: true,
-        isPartyDayLinked: false,
-        description: "Ref: PEJUTA 2023",
-        descriptionEn: "Ref: PEJUTA 2023"
-    },
-    {
-        code: "SR116",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
-        categoryEn: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
-        name: "Data Processing & Report Generation (20% of acquisition)",
-        nameEn: "Data Processing & Report Generation (20% of acquisition)",
-        unit: "%",
-        defaultRate: 20,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: PEJUTA 2023",
-        descriptionEn: "Ref: PEJUTA 2023"
-    },
-    {
-        code: "SR117",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
-        categoryEn: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
-        name: "Feature Extractions: Digital Surface Model (DSM) (15%)",
-        nameEn: "Feature Extractions: Digital Surface Model (DSM) (15%)",
-        unit: "%",
-        defaultRate: 15,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: PEJUTA 2023",
-        descriptionEn: "Ref: PEJUTA 2023"
-    },
-    {
-        code: "SR118",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
-        categoryEn: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
-        name: "Feature Extractions: Digital Terrain Model (DTM) (15%)",
-        nameEn: "Feature Extractions: Digital Terrain Model (DTM) (15%)",
-        unit: "%",
-        defaultRate: 15,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: PEJUTA 2023",
-        descriptionEn: "Ref: PEJUTA 2023"
-    },
-    {
-        code: "SR119",
-        section: "C",
-        jkrStage: "reimbursable",
-        category: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
-        categoryEn: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
-        name: "Contour generation (5%)",
-        nameEn: "Contour generation (5%)",
-        unit: "%",
-        defaultRate: 5,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        description: "Ref: PEJUTA 2023",
-        descriptionEn: "Ref: PEJUTA 2023"
-    },
-    {
-        code: "SR_DRAWING",
-        section: "B",
-        jkrStage: "stage2",
-        category: "STAGE 2: PROCESSING & PREPARATION OF DRAWINGS",
-        categoryEn: "STAGE 2: PROCESSING & PREPARATION OF DRAWINGS",
-        name: "Processing & Preparation of Drawings",
-        nameEn: "Processing & Preparation of Drawings",
-        unit: "%",
-        defaultRate: 20,
-        isStatutory: false,
-        applyMultiplier: false,
-        isPartyDayLinked: false,
-        terrainTag: null,
-        description: "",
-        descriptionEn: ""
-    },
-];
-
-// ==========================================
-// 4. DAYWORK & DELIVERABLES MASTER ARRAYS
-// ==========================================
-
-const DAYWORK_ITEMS = [
-    { code: "DW-1", name: "Juruukur Tanah Berlesen (Principal / Senior Licensed Surveyor)", nameEn: "Principal Licensed Land Surveyor (LJT)", unit: "Day", rate: 1500.00 },
-    { code: "DW-2", name: "Pegawai Geomatik / Ketua Pasukan Lapangan (Party Chief)", nameEn: "Geomatics Engineer / Field Party Chief", unit: "Party-Day", rate: 850.00 },
-    { code: "DW-3", name: "Pembantu Luar / Krew Ukur Tapak (Survey Technician / Chainman)", nameEn: "Survey Technician / Field Assistant", unit: "Man-Day", rate: 350.00 },
-    { code: "DW-4", name: "Sewa Set Alat GNSS RTK Dual-Frequency + Tripod & Controller", nameEn: "GNSS RTK Dual Frequency Rover & Base Receiver Set", unit: "Day", rate: 500.00 },
-    { code: "DW-5", name: "Sewa Set Total Station Berketepatan Tinggi 1-Saat (1-Second Accuracy)", nameEn: "High Precision 1-Sec Electronic Total Station Set", unit: "Day", rate: 400.00 },
-    { code: "DW-6", name: "Sewa Peralatan Pengesanan Utiliti EML & Pengimbas GPR", nameEn: "Underground Utility EML Detection & GPR Radar Scanner Set", unit: "Day", rate: 1200.00 }
-];
-
-const DELIVERABLES_OPTIONS = [
-    { id: "del_dwg", label: "AutoCAD Drawing Files (.DWG / .DXF Format)", labelEn: "AutoCAD Digital Drawing Files (.DWG / .DXF)", defaultChecked: true },
-    { id: "del_pdf", label: "Pelan Berformat PDF Beresolusi Tinggi (A1 / A0)", labelEn: "High-Resolution PDF Electronic Plans (A1 / A0 Scale)", defaultChecked: true },
-    { id: "del_ms1759", label: "Pangkalan Data Geospatial Piawaian Kebangsaan MS 1759", labelEn: "Malaysian Geospatial Standard Feature Code MS 1759", defaultChecked: true },
-    { id: "del_csv", label: "Fail Koordinat Digital & Data Aras Ketinggian (CSV / ASCII XYZ)", labelEn: "Digital Coordinates & Survey Point List (CSV / ASCII XYZ)", defaultChecked: true },
-    { id: "del_hardcopy", label: "3 Set Salinan Pelan Bercetak Berwarna Berskala Rasmi (A1)", labelEn: "3 Sets of Official Scaled Hardcopy Color Prints (A1)", defaultChecked: true },
-    { id: "del_report", label: "Laporan Teknikal, Sijil Penentukuran Alat EDM & Metadata GNSS", labelEn: "Survey Technical Report, EDM Calibration & GNSS Metadata", defaultChecked: true },
-    { id: "del_pointcloud", label: "Data Awan Titik 3D / Point Cloud (.LAS / .LAZ) [Dron/LiDAR]", labelEn: "3D Point Cloud Raw & Classified Data (.LAS / .LAZ)", defaultChecked: false },
-    { id: "del_jupem_cp", label: "Pelan Akui JUPEM Rasmi Berdaftar (Certified Plan PA)", labelEn: "Official Registered JUPEM Certified Plan (PA)", defaultChecked: false }
-];
-
-// ==========================================
 // 5. 1-CLICK PROJECT PRESET TEMPLATES
 // ==========================================
 
 const PROJECT_TEMPLATES = {
     tpl_jkr_bridge: {
         bqType: "jkr",
-        firmId: "firm_sjk_kl",
+        firmId: "firm_sjk_geomap",
         clientId: "cli_jkr_hq",
         title: "CADANGAN KERJA-KERJA UKUR KEJURUTERAAN DAN PENGAMBILAN TANAH BAGI PROJEK JALAN/JAMBATAN (TENDER JKR)",
         titleEn: "PROPOSED DETAILED ENGINEERING SURVEY AND LAND ACQUISITION FOR ROAD/BRIDGE PROJECT (JKR TENDER)",
@@ -2191,7 +154,7 @@ const PROJECT_TEMPLATES = {
         subtitleEn: "DISTRICT OF [Insert District], STATE OF [Insert State]",
         clientCompany: "Cawangan Jalan, Ibu Pejabat JKR Malaysia",
         clientRef: "JKR/IP/CJ/JMB/2026/04",
-        ourRef: "SJK/2026/Q-4102-Rev01",
+        ourRef: "GEOMAP/2026/Q-4102-Rev01",
         clientName: "Ir. Ts. Mohd Ridzuan bin Ahmad (Jurutera Awam Penguasa)",
         clientPhone: "+603-2610 8888",
         clientEmail: "ridzuan@jkr.gov.my",
@@ -2589,16 +552,16 @@ const state = {
     bqType: "jkr",
 
     // Active Firm Profile State
-    selectedFirmId: "firm_sjk_kl",
-    firmName: "Syarikat Jurukur Konsultant (SJK)",
-    letterhead: "sjk",
-    firmLjtNo: "LJT/F/1234",
-    surveyorLjtNo: "8872",
+    selectedFirmId: "firm_sjk_geomap",
+    firmName: "Syarikat Jurukur Konsult Geomap (SJK Geomap)",
+    letterhead: "sjk_geomap",
+    firmLjtNo: "LJT/F/5678",
+    surveyorLjtNo: "6721",
     practiceYear: "2026",
-    piiCoverage: "RM 1,000,000 (Aktif)",
-    firmPhone: "+603-2274 5566",
-    firmEmail: "admin@sjk.com.my",
-    firmAddress: "No. 45A, Jalan Tun Sambanthan, Brickfields, 50470 Kuala Lumpur",
+    piiCoverage: "RM 2,000,000 (Aktif)",
+    firmPhone: "+603-7984 8899",
+    firmEmail: "contact@sjkgeomap.com.my",
+    firmAddress: "Suite 9.02, Level 9, Plaza Pantai, Jalan Pantai Baru, 59200 Kuala Lumpur",
     customLogoDataUrl: null,
     customSignatureDataUrl: null,
 
@@ -2754,9 +717,17 @@ function getFirmsDirectory() {
     return DEFAULT_FIRMS_DIRECTORY;
 }
 
-function saveFirmsDirectory(firms) {
+function saveFirmsDirectory(firms, firmToUpsert = null, firmIdToDelete = null) {
     try {
         localStorage.setItem(FIRMS_STORAGE_KEY, JSON.stringify(firms));
+        
+        if (typeof supabaseClient !== 'undefined') {
+            if (firmIdToDelete) {
+                deleteFirmFromDb(firmIdToDelete);
+            } else if (firmToUpsert) {
+                upsertFirmToDb(firmToUpsert);
+            }
+        }
     } catch (e) {
         console.warn("Failed to save firms directory", e);
     }
@@ -2773,9 +744,17 @@ function getClientsDirectory() {
     return DEFAULT_CLIENTS_DIRECTORY;
 }
 
-function saveClientsDirectory(clients) {
+function saveClientsDirectory(clients, clientToUpsert = null, clientIdToDelete = null) {
     try {
         localStorage.setItem(CLIENTS_STORAGE_KEY, JSON.stringify(clients));
+        
+        if (typeof supabaseClient !== 'undefined') {
+            if (clientIdToDelete) {
+                deleteClientFromDb(clientIdToDelete);
+            } else if (clientToUpsert) {
+                upsertClientToDb(clientToUpsert);
+            }
+        }
     } catch (e) {
         console.warn("Failed to save clients directory", e);
     }
@@ -2787,7 +766,7 @@ function populateFirmProfilesDropdown() {
     dropdown.innerHTML = "";
 
     const firms = getFirmsDirectory();
-    
+
     const defaultOpt = document.createElement("option");
     defaultOpt.value = "";
     defaultOpt.textContent = state.currentLang === "en" ? "-- Select Firm Profile --" : "-- Pilih Profil Firma --";
@@ -2883,7 +862,7 @@ function saveCurrentFirmProfile() {
         firms.push(firmObj);
     }
 
-    saveFirmsDirectory(firms);
+    saveFirmsDirectory(firms, firmObj, null);
     populateFirmProfilesDropdown();
     const selectElem = document.getElementById("firmProfileSelect");
     if (selectElem) selectElem.value = state.selectedFirmId;
@@ -2904,7 +883,7 @@ function deleteSelectedFirmProfile() {
 
     let firms = getFirmsDirectory();
     firms = firms.filter(f => f.id !== firmId);
-    saveFirmsDirectory(firms);
+    saveFirmsDirectory(firms, null, firmId);
 
     state.selectedFirmId = firms.length > 0 ? firms[0].id : null;
     populateFirmProfilesDropdown();
@@ -2984,7 +963,7 @@ function saveCurrentClientRecord() {
         clients.push(clientObj);
     }
 
-    saveClientsDirectory(clients);
+    saveClientsDirectory(clients, clientObj, null);
     populateClientsDropdown();
     const selectElem = document.getElementById("clientDirectorySelect");
     if (selectElem) selectElem.value = state.selectedClientId;
@@ -3005,7 +984,7 @@ function deleteSelectedClientRecord() {
 
     let clients = getClientsDirectory();
     clients = clients.filter(c => c.id !== clientId);
-    saveClientsDirectory(clients);
+    saveClientsDirectory(clients, null, clientId);
 
     state.selectedClientId = clients.length > 0 ? clients[0].id : null;
     populateClientsDropdown();
@@ -3033,15 +1012,14 @@ function resetClientForm() {
 }
 
 function resetNewQuotation() {
-    const confirmMsg = state.currentLang === "en" 
-        ? "Create a new blank quotation? This will reset all current item quantities and discounts." 
+    const confirmMsg = state.currentLang === "en"
+        ? "Create a new blank quotation? This will reset all current item quantities and discounts."
         : "Cipta sebut harga baharu? Ini akan mengosongkan semua kuantiti BQ dan diskaun semasa.";
     if (!confirm(confirmMsg)) return;
 
     state.itemQuantities = {};
     state.itemRates = {};
     state.discount = 0;
-    
     initFormValues();
     renderBqTable();
     renderDeliverablesChecklist();
@@ -3068,9 +1046,9 @@ function duplicateQuotation() {
     setVal("ourRef", state.ourRef);
     renderPreview();
     autoSaveState();
-    
-    alert(state.currentLang === "en" 
-        ? `Quotation duplicated! New Ref: ${state.ourRef}` 
+
+    alert(state.currentLang === "en"
+        ? `Quotation duplicated! New Ref: ${state.ourRef}`
         : `Sebut harga berjaya diduplikasi! Rujukan Baharu: ${state.ourRef}`);
 }
 
@@ -3104,7 +1082,7 @@ function getItemEffectiveRate(item) {
     if (baseRate === "" || baseRate === null || isNaN(baseRate)) {
         baseRate = item.defaultRate || 0;
     }
-    
+
     // Dynamic Mob/Demob Rate scaling based on Distance Zone
     if (item.isMobDemobItem) {
         const zone = getDistanceZoneObj();
@@ -3130,7 +1108,7 @@ function updateMultiplierDisplay() {
     const combined = getCombinedMultiplier();
     const formatted = combined.toFixed(2) + "x";
     setText("combinedMultiplierVal", formatted);
-    
+
     const prevElem = document.getElementById("prevCombinedFactor");
     if (prevElem) {
         const factorDesc = combined === 1.0 ? "1.00x (Normal)" : `${combined.toFixed(2)}x (Pengali Tapak)`;
@@ -3286,7 +1264,7 @@ function applyProjectTemplate(templateKey) {
 function incrementRevision() {
     const currentRef = state.ourRef || "SJK/2026/Q-1002-Rev01";
     const revMatch = currentRef.match(/Rev(\d+)/i);
-    
+
     if (revMatch) {
         const nextRevNum = parseInt(revMatch[1], 10) + 1;
         const formattedRev = String(nextRevNum).padStart(2, '0');
@@ -3294,7 +1272,7 @@ function incrementRevision() {
     } else {
         state.ourRef = `${currentRef}-Rev02`;
     }
-    
+
     state.quoteDate = new Date().toISOString().split("T")[0];
     setVal("ourRef", state.ourRef);
     setVal("quoteDate", state.quoteDate);
@@ -3308,7 +1286,7 @@ function incrementRevision() {
 
 function setLanguage(lang) {
     state.currentLang = lang;
-    
+
     const bmBtn = document.getElementById("langBmBtn");
     const enBtn = document.getElementById("langEnBtn");
     if (bmBtn) bmBtn.classList.toggle("active", lang === "bm");
@@ -3401,7 +1379,7 @@ function setLanguage(lang) {
     setText("lblTerrainMultiplier", t.lblTerrainMultiplier);
     setText("lblVegetationMultiplier", t.lblVegetationMultiplier);
     setText("lblMultiplierNote", t.lblMultiplierNote);
-    
+
     const statWarn = document.getElementById("statutoryWarningText");
     if (statWarn) {
         statWarn.innerHTML = `<strong>${lang === 'bm' ? 'Peringatan Pematuhan Akta 458:' : 'Act 458 Compliance Notice:'}</strong> ${t.statutoryWarningText}`;
@@ -3445,17 +1423,21 @@ function renderBqTable() {
     const tableBody = document.getElementById("formBqTableBody");
     if (!tableBody) return;
     tableBody.innerHTML = "";
-    
+
     const lang = state.currentLang;
     const t = TRANSLATIONS[lang];
     const isJkr = state.bqType === "jkr";
     let currentCategory = "";
     let currentSubCategory = "";
+    let currentSubSubCategory = "";
     let currentSection = "";
 
-    ALL_BQ_ITEMS.forEach(item => {
+    const filteredItems = ALL_BQ_ITEMS.filter(it => !isItemFiltered(it));
+
+    filteredItems.forEach(item => {
         item._jkrPrintDesc = "";
-        if (isItemFiltered(item)) return;
+        
+        // Section Filtering logic
         if (isJkr) {
             if (activeFilter === "part_a" && item.jkrStage !== "stage1") return;
             if (activeFilter === "part_b" && item.jkrStage !== "stage2") return;
@@ -3507,6 +1489,7 @@ function renderBqTable() {
         if (categoryName !== currentCategory) {
             currentCategory = categoryName;
             currentSubCategory = "";
+            currentSubSubCategory = "";
             const catRow = document.createElement("tr");
             catRow.className = "category-row";
             const totalFormCols = state.showRefColumn ? 6 : 5;
@@ -3517,6 +1500,7 @@ function renderBqTable() {
         const subCategoryName = (lang === "en" && item.subCategoryEn) ? item.subCategoryEn : item.subCategory;
         if (subCategoryName && subCategoryName !== currentSubCategory) {
             currentSubCategory = subCategoryName;
+            currentSubSubCategory = "";
             const subCatRow = document.createElement("tr");
             subCatRow.className = "sub-category-row";
             const totalFormCols = state.showRefColumn ? 6 : 5;
@@ -3526,12 +1510,24 @@ function renderBqTable() {
             currentSubCategory = "";
         }
 
+        const subSubCategoryName = (lang === "en" && item.subSubCategoryEn) ? item.subSubCategoryEn : item.subSubCategory;
+        if (subSubCategoryName && subSubCategoryName !== currentSubSubCategory) {
+            currentSubSubCategory = subSubCategoryName;
+            const subSubCatRow = document.createElement("tr");
+            subSubCatRow.className = "sub-sub-category-row";
+            const totalFormCols = state.showRefColumn ? 6 : 5;
+            subSubCatRow.innerHTML = `<td colspan="${totalFormCols}" style="font-weight: 600; font-size: 0.7rem; color: #555; padding: 0.35rem 0.65rem; background-color: #fdfdfd; padding-left: 2.2rem; border-bottom: 1px dashed #edf2f7;">${subSubCategoryName}</td>`;
+            tableBody.appendChild(subSubCatRow);
+        } else if (!subSubCategoryName) {
+            currentSubSubCategory = "";
+        }
+
         let itemName = getItemDisplayName(item, lang);
         const itemDesc = (lang === "en" && item.descriptionEn) ? item.descriptionEn : item.description;
         const effectiveRate = getItemEffectiveRate(item);
 
         const tr = document.createElement("tr");
-        
+
         let multiplierBadge = "";
         if (item.applyMultiplier && state.bqType !== "jkr" && getCombinedMultiplier() > 1.0) {
             multiplierBadge = `<span style="background: #edf2f7; color: #2b6cb0; font-size: 0.68rem; font-weight: 700; padding: 1px 4px; border-radius: 3px; margin-left: 4px;">*${getCombinedMultiplier().toFixed(2)}x</span>`;
@@ -3615,7 +1611,7 @@ function renderDeliverablesChecklist() {
 
 function computeFinancialSummary() {
     const isJkr = state.bqType === "jkr";
-    
+
     let subtotalStage1 = 0.0;
     let subtotalStage2 = 0.0;
     let subtotalReimbursables = 0.0;
@@ -3641,7 +1637,7 @@ function computeFinancialSummary() {
     let lidarStage2AcquisitionSubtotal = 0.0;
     ALL_BQ_ITEMS.forEach(item => {
         if (isItemFiltered(item)) return;
-        if (item.category === "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION" || 
+        if (item.category === "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION" ||
             item.categoryEn === "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION") {
             const qty = parseFloat(state.itemQuantities[item.code]) || 0;
             if (qty > 0) {
@@ -3791,7 +1787,7 @@ function applyJkrDynamicNumbering() {
         if (catCounts[cat] === undefined) catCounts[cat] = 0;
 
         let baseDesc = (lang === "en" && item.nameEn) ? item.nameEn : item.name;
-        
+
         if (item._originalCategory && flattenCategories.includes(item._originalCategory.trim())) {
             let parentName = item._originalCategory.replace(/^STAGE \d+:\s*/i, "");
             parentName = parentName.replace(/\(GPS\)/i, "(GPS)");
@@ -3800,7 +1796,7 @@ function applyJkrDynamicNumbering() {
             baseDesc = baseDesc.replace(/^([a-z]|[ivx]+)[\.\)]\s*/i, "");
         }
 
-        
+
         baseDesc = baseDesc.charAt(0).toUpperCase() + baseDesc.slice(1).toLowerCase();
         baseDesc = baseDesc.replace(/\b(gps|jkr|ptg|pdt|lidar|rm)\b/gi, match => {
             if (match.toLowerCase() === 'lidar') return 'LiDAR';
@@ -3877,18 +1873,18 @@ function renderPreview() {
     setText("prevLblTo", t.prevTo);
     setText("prevClientCompany", state.clientCompany || "-");
     setText("prevClientName", state.clientName || "-");
-    
+
     let clientContactDetails = "";
     if (state.clientPhone) clientContactDetails += `Tel: ${state.clientPhone}\n`;
     if (state.clientEmail) clientContactDetails += `Emel: ${state.clientEmail}`;
     setText("prevClientContact", clientContactDetails);
-    
+
     const clientAddressEl = document.getElementById("prevClientAddress");
     if (clientAddressEl) {
         const addressStr = state.clientAddress || "";
         clientAddressEl.innerHTML = addressStr.replace(/\n/g, "<br>");
     }
-    
+
     setText("prevLblOurRef", t.prevOurRef);
     setText("prevOurRef", state.ourRef || "-");
     setText("prevLblClientRef", t.prevClientRef);
@@ -3916,7 +1912,7 @@ function renderPreview() {
     setText("prevLblDatum", t.prevDatum);
     setText("prevVerticalDatum", state.verticalDatum || "-");
     setText("prevLblSiteFactor", t.prevSiteFactor);
-    
+
     const combined = getCombinedMultiplier();
     setText("prevCombinedFactor", combined === 1.0 ? "1.00x (Normal)" : `${combined.toFixed(2)}x (Pengali Tapak)`);
 
@@ -3952,6 +1948,7 @@ function renderPreview() {
 
             let currentCat = "";
             let currentSubCat = "";
+            let currentSubSubCat = "";
             let secSum = 0;
 
             // Compute LiDAR Stage 2 Acquisition subtotal
@@ -3959,7 +1956,7 @@ function renderPreview() {
             ALL_BQ_ITEMS.forEach(it => {
                 if (isItemFiltered(it)) return;
 
-                if (it.category === "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION" || 
+                if (it.category === "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION" ||
                     it.categoryEn === "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION") {
                     const q = parseFloat(state.itemQuantities[it.code]) || 0;
                     if (q > 0) {
@@ -3986,6 +1983,7 @@ function renderPreview() {
                 if (catName !== currentCat) {
                     currentCat = catName;
                     currentSubCat = "";
+                    currentSubSubCat = "";
                     const catRow = document.createElement("tr");
                     catRow.className = "item-stage-row";
                     catRow.innerHTML = `
@@ -3998,6 +1996,7 @@ function renderPreview() {
                 const subCatName = (lang === "en" && item.subCategoryEn) ? item.subCategoryEn : item.subCategory;
                 if (subCatName && subCatName !== currentSubCat) {
                     currentSubCat = subCatName;
+                    currentSubSubCat = "";
                     const subCatRow = document.createElement("tr");
                     subCatRow.className = "item-sub-stage-row";
                     subCatRow.innerHTML = `
@@ -4007,6 +2006,20 @@ function renderPreview() {
                     previewTableBody.appendChild(subCatRow);
                 } else if (!subCatName) {
                     currentSubCat = "";
+                }
+
+                const subSubCatName = (lang === "en" && item.subSubCategoryEn) ? item.subSubCategoryEn : item.subSubCategory;
+                if (subSubCatName && subSubCatName !== currentSubSubCat) {
+                    currentSubSubCat = subSubCatName;
+                    const subSubCatRow = document.createElement("tr");
+                    subSubCatRow.className = "item-sub-sub-stage-row";
+                    subSubCatRow.innerHTML = `
+                        <td class="center"></td>
+                        <td colspan="${totalCols - 1}" style="font-weight: 600; font-size: 0.68rem; color: #555; background-color: #fdfdfd; padding: 0.25rem 0.5rem; text-align: left; padding-left: 1.5rem; border-bottom: 1px dashed #edf2f7; font-style: italic;">${subSubCatName}</td>
+                    `;
+                    previewTableBody.appendChild(subSubCatRow);
+                } else if (!subSubCatName) {
+                    currentSubSubCat = "";
                 }
 
                 const qty = parseFloat(state.itemQuantities[item.code]) || 0;
@@ -4135,7 +2148,7 @@ function renderPreview() {
     setText("prevSurveyorName", state.projectManager);
     setText("prevSurveyorTitle", t.prevSurveyorTitle);
     setText("prevSurveyorLjtReg", `No. Perakuan LJT: ${state.surveyorLjtNo} | PII: ${state.piiCoverage}`);
-    
+
     const signatureContainer = document.getElementById("prevSignatureContainer");
     if (signatureContainer) {
         if (state.customSignatureDataUrl) {
@@ -4157,7 +2170,7 @@ function renderPreview() {
         const cleanName = (state.projectManager || "JURUUKUR").replace(/(Ir\.|Sr\.|Ts\.|bin|binti|Dato'|Datuk)/gi, "").trim();
         const nameWords = cleanName.split(" ").slice(0, 3).join(" ").toUpperCase();
         stampNameElem.textContent = nameWords;
-        
+
         if (nameWords.length > 16) {
             stampNameElem.setAttribute("font-size", "4.2");
         } else if (nameWords.length > 11) {
@@ -4177,23 +2190,23 @@ function renderPreview() {
 // === JKR 1:1 CLONE OVERRIDES ===
 function applyJkrPrintClone() {
     const isJkr = state.bqType === "jkr";
-    
+
     // 1. Header & Address Block
     let jkrHeader = document.getElementById("jkrCloneHeader");
     const docMetaClient = document.querySelector(".doc-meta-client");
     const docMetaDetails = document.querySelector(".doc-meta-details");
-    
+
     if (isJkr) {
         if (docMetaClient) docMetaClient.style.display = "none";
         if (docMetaDetails) docMetaDetails.style.display = "none";
-        
+
         if (!jkrHeader) {
             jkrHeader = document.createElement("div");
             jkrHeader.id = "jkrCloneHeader";
             const docMeta = document.querySelector(".doc-meta");
             if (docMeta) docMeta.appendChild(jkrHeader);
         }
-        
+
         if (jkrHeader) {
             jkrHeader.style.display = "block";
             jkrHeader.innerHTML = `
@@ -4224,7 +2237,7 @@ function applyJkrPrintClone() {
     const termsBlock = document.querySelector(".terms-conditions");
     const dayworkBox = document.getElementById("printDayworkSchedule"); // assuming it exists
     const dayworkSectionBox = document.querySelector(".doc-daywork-section");
-    
+
     const landAdmin = document.getElementById("prevLandAdminBox");
     const docTitle = document.getElementById("prevQuoteTitle");
     const summaryBlock = document.getElementById("prevDuration")?.closest("div");
@@ -4236,7 +2249,7 @@ function applyJkrPrintClone() {
         if (dayworkBox) dayworkBox.style.display = "none";
         if (dayworkSectionBox) dayworkSectionBox.style.display = "none";
         if (summaryBlock) summaryBlock.style.display = "none";
-        
+
         if (landAdmin) landAdmin.style.display = "none";
         if (docTitle) docTitle.style.display = "none";
         if (docSub) docSub.style.display = "none";
@@ -4246,7 +2259,7 @@ function applyJkrPrintClone() {
         if (dayworkBox) dayworkBox.style.display = "";
         if (dayworkSectionBox) dayworkSectionBox.style.display = "";
         if (summaryBlock) summaryBlock.style.display = "";
-        
+
         if (landAdmin) landAdmin.style.display = "";
         if (docTitle) docTitle.style.display = "";
         if (docSub) docSub.style.display = "";
@@ -4259,11 +2272,11 @@ function applyJkrPrintClone() {
             signatureBlock.style.display = "flex";
             signatureBlock.style.justifyContent = "flex-start";
             signatureBlock.style.flexDirection = "row";
-            signatureBlock.style.gap = "4rem"; 
+            signatureBlock.style.gap = "4rem";
             signatureBlock.style.marginTop = "2rem";
         } else {
             signatureBlock.style.display = "flex";
-            signatureBlock.style.justifyContent = "flex-end"; 
+            signatureBlock.style.justifyContent = "flex-end";
             signatureBlock.style.marginTop = "3rem";
         }
     }
@@ -4281,7 +2294,7 @@ function applyJkrPrintClone() {
 
     if (isJkr) {
         if (bqTable) bqTable.classList.add("hide-ref-col"); // Force hide ref col
-        
+
         if (thNo) { thNo.style.display = "none"; }
         if (thRef) { thRef.style.display = "none"; }
         if (thScope) { thScope.innerText = "Descriptions"; thScope.style.width = "50%"; }
@@ -4298,13 +2311,6 @@ function applyJkrPrintClone() {
             // Rename categories and span 5 cols
             const catRows = previewTableBody.querySelectorAll(".item-stage-row td:nth-child(2)");
             catRows.forEach(td => {
-                const txt = td.innerText.toUpperCase();
-                if (txt.includes("PREPARATORY") || txt.includes("MOBILIZATION") || txt.includes("DEMOBILIZATION")) td.innerText = "1. GENERAL ITEM";
-                else if (txt.includes("PLANIMETRIC") || txt.includes("HEIGHT") || txt.includes("GPS") || txt.includes("POSITIONING") || txt.includes("CONTROL")) td.innerText = "2. SURVEY CONTROL";
-                else if (txt.includes("STRIP") || txt.includes("CONTOUR") || txt.includes("DETAIL") || txt.includes("GRID") || txt.includes("MARKING") || txt.includes("UTILITY") || txt.includes("ENGINEERING") || txt.includes("AERIAL")) td.innerText = "3. ENGINEERING SURVEY WORKS";
-                else if (txt.includes("DRAWING") || txt.includes("PROCESSING") || txt.includes("REPORT")) td.innerText = "4. PROCESSING & PREPARATION OF DRAWINGS";
-                else if (txt.includes("REIMBURSABLE") || txt.includes("PTG") || txt.includes("PA") || txt.includes("STATUTORY")) td.innerText = "5. REIMBURSABLE ITEM";
-                
                 td.setAttribute("colspan", "5");
             });
 
@@ -4317,13 +2323,13 @@ function applyJkrPrintClone() {
             // PROJECT Box
             let projRow = document.getElementById("jkrProjectRow");
             if (projRow) projRow.remove();
-            
+
             projRow = document.createElement("tr");
             projRow.id = "jkrProjectRow";
             const qTitle = state.quoteTitle ? state.quoteTitle.toUpperCase() : '';
             const qSub = state.quoteSubtitle ? ` - ${state.quoteSubtitle.toUpperCase()}` : '';
             const lot = state.lotNo ? ` - ${state.lotNo.toUpperCase()}` : '';
-            
+
             projRow.innerHTML = `
                 <td colspan="5" style="border: 2px solid #2d3748; font-weight: bold; padding: 0.75rem 0.5rem; text-align: left; font-size: 0.8rem;">
                     PROJECT: <span style="text-transform: uppercase;">${qTitle}${qSub}${lot}</span>
@@ -4386,7 +2392,7 @@ function exportToCsv() {
     ALL_BQ_ITEMS.forEach(it => {
         if (isItemFiltered(it)) return;
 
-        if (it.category === "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION" || 
+        if (it.category === "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION" ||
             it.categoryEn === "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION") {
             const q = parseFloat(state.itemQuantities[it.code]) || 0;
             if (q > 0) {
@@ -4416,7 +2422,7 @@ function exportToCsv() {
 
         const baseRate = (state.itemRates[item.code] || item.defaultRate).toFixed(2);
         const effectiveRate = getItemEffectiveRate(item).toFixed(2);
-        
+
         let totalVal = 0.0;
         if (item.unit === "%") {
             if (item.code === "SR_DRAWING") {
@@ -4428,7 +2434,7 @@ function exportToCsv() {
             totalVal = qty * parseFloat(effectiveRate);
         }
         const total = totalVal.toFixed(2);
-        
+
         let secLabel = "";
         let taxStatus = "";
 
@@ -4441,15 +2447,15 @@ function exportToCsv() {
         }
 
         let itemName = getItemDisplayName(item, lang);
-                if (state.bqType === 'jkr' && item._jkrPrintDesc) {
-                    itemName = item._jkrPrintDesc;
-                }
+        if (state.bqType === 'jkr' && item._jkrPrintDesc) {
+            itemName = item._jkrPrintDesc;
+        }
 
         csvContent += `"${secLabel}","${item.code}","${itemName.replace(/"/g, '""')}","${item.unit}",${qty},${baseRate},${effectiveRate},${total},"${taxStatus}"\r\n`;
     });
 
     csvContent += `\r\n`;
-        if (isJkr) {
+    if (isJkr) {
         csvContent += `""\r\n`;
         csvContent += `"","","Jumlah Yuran Perunding (Stage 1 + Stage 2)","","","","",${fin.totalConsultantFee.toFixed(2)},""\r\n`;
         if (fin.discountAmount > 0) {
@@ -4570,8 +2576,8 @@ function setupEventListeners() {
         "firmPhone", "firmEmail", "firmAddress",
         "landDistrict", "landMukim", "lotNo", "titleNo", "landCategory",
         "landArea", "landAreaUnit", "coordSystem", "verticalDatum", "distanceZone",
-        "clientCompany", "clientCategory", "clientRef", "ourRef", "quoteDate", 
-        "clientName", "clientPhone", "clientEmail", "clientAddress", 
+        "clientCompany", "clientCategory", "clientRef", "ourRef", "quoteDate",
+        "clientName", "clientPhone", "clientEmail", "clientAddress",
         "quoteTitle", "quoteSubtitle", "projectManager", "duration",
         "deposit", "notes"
     ];
@@ -4666,7 +2672,7 @@ function setupEventListeners() {
         });
     }
 
-        // SST checkbox
+    // SST checkbox
     const sstChk = document.getElementById("enableSst");
     if (sstChk) {
         sstChk.addEventListener("change", (e) => {
@@ -4905,11 +2911,11 @@ function setupEventListeners() {
         // Scroll form content container to top
         const formContent = document.querySelector(".form-content");
         if (formContent) formContent.scrollTop = 0;
-        
+
         // Scroll preview panel to top
         const previewPanel = document.querySelector(".preview-panel");
         if (previewPanel) previewPanel.scrollTop = 0;
-        
+
         // Scroll window for mobile responsive view
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -5011,45 +3017,277 @@ document.addEventListener("DOMContentLoaded", () => {
     renderDeliverablesChecklist();
     renderDayworkTable();
     renderPreview();
+
+    // Async Supabase Sync on Startup
+    if (typeof supabaseClient !== 'undefined') {
+        // Sync BQ
+        if (typeof fetchBqItemsFromDb === 'function') {
+            fetchBqItemsFromDb().then(dbItems => {
+                if (dbItems && dbItems.length > 0) {
+                    ALL_BQ_ITEMS = dbItems;
+                    localStorage.setItem('LLS_CUSTOM_BQ_ITEMS', JSON.stringify(ALL_BQ_ITEMS));
+                    console.log("Berjaya memuat turun BQ dari Supabase:", dbItems.length, "item");
+                    if (typeof renderBqTable === 'function') renderBqTable();
+                    if (typeof updatePreview === 'function') updatePreview();
+                }
+            });
+        }
+        
+        // Sync Firms
+        if (typeof fetchFirmsFromDb === 'function') {
+            fetchFirmsFromDb().then(dbFirms => {
+                if (dbFirms && dbFirms.length > 0) {
+                    localStorage.setItem(FIRMS_STORAGE_KEY, JSON.stringify(dbFirms));
+                    console.log("Berjaya memuat turun Firma dari Supabase:", dbFirms.length);
+                    populateFirmProfilesDropdown();
+                    if (typeof renderPreview === 'function') renderPreview();
+                }
+            });
+        }
+        
+        // Sync Clients
+        if (typeof fetchClientsFromDb === 'function') {
+            fetchClientsFromDb().then(dbClients => {
+                if (dbClients && dbClients.length > 0) {
+                    localStorage.setItem(CLIENTS_STORAGE_KEY, JSON.stringify(dbClients));
+                    console.log("Berjaya memuat turun Klien dari Supabase:", dbClients.length);
+                    populateClientsDropdown();
+                    if (typeof renderPreview === 'function') renderPreview();
+                }
+            });
+        }
+    }
 });
 
 
 // Fix JKR Categories Grouping
 function fixJkrCategoriesGrouping(forceRestore = false) {
-    const isJkr = state.bqType === 'jkr' && !forceRestore;
-    ALL_BQ_ITEMS.forEach(item => {
-        if (!item._originalCategory) item._originalCategory = item.category;
-        if (!item._originalCategoryEn) item._originalCategoryEn = item.categoryEn;
-        
-        if (isJkr) {
-            const txt = item._originalCategory.toUpperCase();
-            if (txt.includes('PREPARATORY') || txt.includes('MOBILIZATION') || txt.includes('DEMOBILIZATION')) {
-                item.category = '1. GENERAL ITEM';
-                item.categoryEn = '1. GENERAL ITEM';
-            } else if (txt.includes('PLANIMETRIC') || txt.includes('HEIGHT') || txt.includes('GPS') || txt.includes('POSITIONING') || txt.includes('CONTROL')) {
-                item.category = '2. SURVEY CONTROL';
-                item.categoryEn = '2. SURVEY CONTROL';
-            } else if (txt.includes('STRIP') || txt.includes('CONTOUR') || txt.includes('DETAIL') || txt.includes('GRID') || txt.includes('MARKING') || txt.includes('UTILITY') || txt.includes('ENGINEERING') || txt.includes('AERIAL') || txt.includes('HYDROGRAPHIC') || txt.includes('SOUNDING') || txt.includes('SETTING OUT') || txt.includes('CROSS SECTION') || txt.includes('RESERVE')) {
-                item.category = '3. ENGINEERING SURVEY WORKS';
-                item.categoryEn = '3. ENGINEERING SURVEY WORKS';
-            } else if (txt.includes('DRAWING') || txt.includes('PROCESSING') || txt.includes('REPORT') || txt.includes('DESCRIPTION OF WORKS') || txt.includes('PRINTING') || txt.includes('REPLOTTING')) {
-                if (txt.includes('DRAWING') || txt.includes('PROCESSING') || txt.includes('REPLOTTING') || (txt.includes('PRINTING') && txt.includes('PLAN'))) {
-                    item.category = '4. PROCESSING & PREPARATION OF DRAWINGS';
-                    item.categoryEn = '4. PROCESSING & PREPARATION OF DRAWINGS';
-                } else {
-                    item.category = '5. REIMBURSABLE ITEM';
-                    item.categoryEn = '5. REIMBURSABLE ITEM';
-                }
-            } else if (txt.includes('REIMBURSABLE') || txt.includes('PTG') || txt.includes('PA') || txt.includes('STATUTORY') || txt.includes('SUBSISTENCE') || txt.includes('MILAGE') || txt.includes('SEARCH')) {
-                item.category = '5. REIMBURSABLE ITEM';
-                item.categoryEn = '5. REIMBURSABLE ITEM';
-            } else {
-                item.category = '3. ENGINEERING SURVEY WORKS';
-                item.categoryEn = '3. ENGINEERING SURVEY WORKS';
-            }
-        } else {
-            item.category = item._originalCategory;
-            item.categoryEn = item._originalCategoryEn;
+    // Disabled so that users can have full control over category names in the BQ Admin UI.
+}
+// ==========================================
+// BQ ITEM MANAGER LOGIC (ADMIN UI)
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('bqManagerModal');
+    const openBtn = document.getElementById('bqManagerBtn');
+    const closeBtn = document.getElementById('closeBqManagerModal');
+    const listBody = document.getElementById('bqManagerList');
+    const searchInput = document.getElementById('bqSearchInput');
+    const form = document.getElementById('bqManagerForm');
+    const addNewBtn = document.getElementById('addNewBqBtn');
+    const deleteBtn = document.getElementById('bqDeleteBtn');
+    const resetBtn = document.getElementById('bqResetDefaultBtn');
+    const clearAllBtn = document.getElementById('bqClearAllBtn');
+    const formTitle = document.getElementById('bqFormTitle');
+
+    // State
+    let currentEditItemCode = null;
+
+    // Keyboard shortcut (Ctrl + Shift + B)
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'b') {
+            e.preventDefault();
+            openModal();
         }
     });
-}
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    function openModal() {
+        modal.style.display = 'flex';
+        renderList();
+        resetForm();
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+        // When closing, re-render the main form in case items changed
+        if (typeof renderBqTable === 'function') renderBqTable();
+        if (typeof computeFinancialSummary === 'function') computeFinancialSummary();
+        if (typeof updatePreview === 'function') updatePreview();
+    }
+
+    function saveBqToStorage(itemToUpsert = null, itemToDeleteCode = null, isBulk = false) {
+        // Simpan ke local sebagai cache / offline-first
+        localStorage.setItem('LLS_CUSTOM_BQ_ITEMS', JSON.stringify(ALL_BQ_ITEMS));
+
+        // Pautkan ke Supabase jika aktif
+        if (typeof supabaseClient !== 'undefined') {
+            if (isBulk) {
+                bulkUpsertBqItems(ALL_BQ_ITEMS);
+            } else if (itemToDeleteCode) {
+                deleteBqItemFromDb(itemToDeleteCode);
+            } else if (itemToUpsert) {
+                upsertBqItemToDb(itemToUpsert);
+            }
+        }
+    }
+
+    function renderList() {
+        const query = searchInput.value.toLowerCase();
+        listBody.innerHTML = '';
+
+        ALL_BQ_ITEMS.filter(it => {
+            return (it.code.toLowerCase().includes(query) ||
+                it.name.toLowerCase().includes(query) ||
+                it.category.toLowerCase().includes(query));
+        }).forEach(item => {
+            const tr = document.createElement('tr');
+            tr.style.cursor = 'pointer';
+            tr.style.borderBottom = '1px solid #eee';
+            tr.innerHTML = `
+                <td style="padding: 8px;"><strong>${item.code}</strong></td>
+                <td style="padding: 8px;">${item.name}</td>
+                <td style="padding: 8px; color: #666; font-size: 11px;">${item.category}</td>
+            `;
+            tr.addEventListener('click', () => loadForm(item));
+
+            // Hover effect
+            tr.addEventListener('mouseover', () => tr.style.backgroundColor = '#f1f1f1');
+            tr.addEventListener('mouseout', () => tr.style.backgroundColor = 'transparent');
+
+            listBody.appendChild(tr);
+        });
+    }
+
+    searchInput.addEventListener('input', renderList);
+
+    function resetForm(keepCategory = false) {
+        currentEditItemCode = null;
+        formTitle.textContent = "Tambah Item Baharu";
+        
+        if (keepCategory) {
+            const tempCat = document.getElementById('bqCategory').value;
+            const tempSubCat = document.getElementById('bqSubCategory').value;
+            const tempSubSubCat = document.getElementById('bqSubSubCategory').value;
+            const tempStage = document.getElementById('bqJkrStage').value;
+            form.reset();
+            document.getElementById('bqCategory').value = tempCat;
+            document.getElementById('bqSubCategory').value = tempSubCat;
+            document.getElementById('bqSubSubCategory').value = tempSubSubCat;
+            document.getElementById('bqJkrStage').value = tempStage;
+        } else {
+            form.reset();
+        }
+
+        document.getElementById('bqOriginalCode').value = '';
+        deleteBtn.style.display = 'none';
+        document.getElementById('bqCode').disabled = false;
+    }
+
+    addNewBtn.addEventListener('click', () => resetForm(false));
+
+    function loadForm(item) {
+        currentEditItemCode = item.code;
+        formTitle.textContent = `Sunting Item: ${item.code}`;
+
+        document.getElementById('bqOriginalCode').value = item.code;
+        document.getElementById('bqCode').value = item.code;
+        document.getElementById('bqCategory').value = item.category;
+        document.getElementById('bqSubCategory').value = item.subCategory || '';
+        document.getElementById('bqSubSubCategory').value = item.subSubCategory || '';
+        document.getElementById('bqJkrStage').value = item.jkrStage || '';
+        document.getElementById('bqName').value = item.name || '';
+        document.getElementById('bqNameEn').value = item.nameEn || '';
+        document.getElementById('bqPrintName').value = item.printName || '';
+        document.getElementById('bqPrintNameEn').value = item.printNameEn || '';
+        document.getElementById('bqUnit').value = item.unit;
+        document.getElementById('bqRate').value = item.defaultRate !== undefined ? item.defaultRate : (item.rate || '');
+        document.getElementById('bqDescription').value = item.description || '';
+
+        document.getElementById('bqCode').disabled = true; // Prevent changing code of existing item for safety
+        deleteBtn.style.display = 'block';
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const newItemUpdate = {
+            code: document.getElementById('bqCode').value.trim(),
+            jkrStage: document.getElementById('bqJkrStage').value,
+            category: document.getElementById('bqCategory').value.trim(),
+            categoryEn: document.getElementById('bqCategory').value.trim(), // Can be improved later
+            subCategory: document.getElementById('bqSubCategory').value.trim(),
+            subCategoryEn: document.getElementById('bqSubCategory').value.trim(),
+            subSubCategory: document.getElementById('bqSubSubCategory').value.trim(),
+            subSubCategoryEn: document.getElementById('bqSubSubCategory').value.trim(),
+            name: document.getElementById('bqName').value.trim(),
+            nameEn: document.getElementById('bqNameEn').value.trim(),
+            printName: document.getElementById('bqPrintName').value.trim(),
+            printNameEn: document.getElementById('bqPrintNameEn').value.trim(),
+            unit: document.getElementById('bqUnit').value.trim(),
+            defaultRate: parseFloat(document.getElementById('bqRate').value),
+            description: document.getElementById('bqDescription').value.trim(),
+            descriptionEn: document.getElementById('bqDescription').value.trim()
+        };
+
+        if (currentEditItemCode) {
+            // Edit existing
+            const idx = ALL_BQ_ITEMS.findIndex(x => x.code === currentEditItemCode);
+            if (idx > -1) {
+                // Merge to avoid losing internal flags like isStatutory, applyMultiplier, etc.
+                ALL_BQ_ITEMS[idx] = { ...ALL_BQ_ITEMS[idx], ...newItemUpdate };
+            }
+        } else {
+            // Add new
+            // Check for duplicate code
+            if (ALL_BQ_ITEMS.find(x => x.code.toLowerCase() === newItemUpdate.code.toLowerCase())) {
+                alert("Kod Item telah wujud! Sila gunakan kod lain.");
+                return;
+            }
+            ALL_BQ_ITEMS.push({ ...newItemUpdate, section: "C" });
+        }
+
+        saveBqToStorage(newItemUpdate, null, false);
+        renderList();
+
+        // Show success briefly
+        const btn = form.querySelector('button[type="submit"]');
+        const origText = btn.textContent;
+        btn.textContent = "Disimpan!";
+        btn.style.backgroundColor = "#28a745";
+        setTimeout(() => {
+            btn.textContent = origText;
+            btn.style.backgroundColor = "";
+            if (!currentEditItemCode) resetForm(true); // Keep category for bulk adding!
+        }, 1000);
+    });
+
+    deleteBtn.addEventListener('click', () => {
+        if (!currentEditItemCode) return;
+        if (confirm(`Padam item ${currentEditItemCode}?`)) {
+            const idx = ALL_BQ_ITEMS.findIndex(x => x.code === currentEditItemCode);
+            if (idx > -1) {
+                const codeToDelete = currentEditItemCode;
+                ALL_BQ_ITEMS.splice(idx, 1);
+                saveBqToStorage(null, codeToDelete, false);
+                renderList();
+                resetForm();
+            }
+        }
+    });
+
+    resetBtn.addEventListener('click', () => {
+        if (confirm("AMARAN: Ini akan memadam semua item BQ tersuai anda dan mengembalikan pangkalan data JKR asal. Anda pasti?")) {
+            localStorage.removeItem('LLS_CUSTOM_BQ_ITEMS');
+            ALL_BQ_ITEMS = JSON.parse(JSON.stringify(DEFAULT_ALL_BQ_ITEMS));
+            renderList();
+            resetForm(false);
+            saveBqToStorage(null, null, true); // Sync reset to DB
+            alert("Pangkalan data BQ telah ditetapkan semula kepada JKR.");
+        }
+    });
+
+    if (clearAllBtn) {
+        clearAllBtn.addEventListener('click', () => {
+            if (confirm("AWAS: Ini akan memadam KESEMUA item dari pangkalan data untuk anda mula dengan borang kosong. Pasti?")) {
+                ALL_BQ_ITEMS = [];
+                saveBqToStorage(null, null, true); // Sync clear to DB
+                renderList();
+                resetForm(false);
+            }
+        });
+    }
+});

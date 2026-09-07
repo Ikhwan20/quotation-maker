@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="styles.css?v=1.0.6">
     <!-- html2pdf.js via CDN for direct browser-to-PDF rendering -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-        integrity="sha512-GsLlZN/3F2ErC5IfS51RRXXC62oGtBro5XM3z51gKQmggkWjDuURCO34NyqiGqQQ1tMh152n5yWD56nyR37cDQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
@@ -23,7 +22,7 @@
         <div class="header-brand">
             <div>
                 <h1 id="uiHeaderTitle">Sistem Penjana Sebut Harga Ukur Tanah</h1>
-                <span id="uiHeaderSubtitle">Malaysian Licensed Land Surveyor Quotation & BQ System</span>
+                <span id="uiHeaderSubtitle">Land Surveyor Quotation & BQ System</span>
             </div>
         </div>
 
@@ -47,7 +46,7 @@
                 <select id="templateSelect" class="template-select">
                     <option value="">-- Pilih Templat Pantas (1-Click Preset) --</option>
                     <option value="tpl_jkr_bridge">Templat 1: Tender JKR (Standard Jalan & Jambatan)</option>
-                    <option value="tpl_drone_50ha">Templat 2: Ukur Dron UAV & LiDAR (50 Hektar)</option>
+                    <!-- <option value="tpl_drone_50ha">Templat 2: Ukur Dron UAV & LiDAR (50 Hektar)</option> -->
                 </select>
                 <button type="button" class="btn btn-primary btn-sm" id="btnApplyTemplate">Muat Templat</button>
             </div>
@@ -130,6 +129,9 @@
             <div class="form-tabs">
                 <button class="tab-btn active" id="tab1Btn" type="button">Langkah 1: Maklumat Am & Tanah</button>
                 <button class="tab-btn" id="tab2Btn" type="button">Langkah 2: Senarai BQ & Pengali</button>
+                <button class="tab-btn" id="bqManagerBtn" type="button"
+                    style="display: none; margin-left: auto; background: transparent; border: 1px dashed #ccc; color: #888;"
+                    title="Urus Item BQ (Ctrl+Shift+B)">⚙️ Urus BQ</button>
             </div>
 
             <!-- Scrollable Form Content -->
@@ -175,198 +177,201 @@
                                     <option value="ljt">Format Piawaian LJT / PEJUTA (3-Bahagian A/B/C)</option>
                                     <option value="custom">Format Komersial (Private Client)</option>
                                 </select>
+                            </div>
+
+                            <!-- LJT Surveyor Credentials -->
+                            <div class="form-grid-2" style="margin-top: 0.65rem;">
+                                <div class="form-group">
+                                    <label for="firmLjtNo" id="lblFirmLjtNo">No. Pendaftaran Firma LJT</label>
+                                    <input type="text" id="firmLjtNo">
                                 </div>
-
-                        <!-- LJT Surveyor Credentials -->
-                        <div class="form-grid-2" style="margin-top: 0.65rem;">
-                            <div class="form-group">
-                                <label for="firmLjtNo" id="lblFirmLjtNo">No. Pendaftaran Firma LJT</label>
-                                <input type="text" id="firmLjtNo">
+                                <div class="form-group">
+                                    <label for="surveyorLjtNo" id="lblSurveyorLjtNo">No. Perakuan Juruukur LJT</label>
+                                    <input type="text" id="surveyorLjtNo">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="surveyorLjtNo" id="lblSurveyorLjtNo">No. Perakuan Juruukur LJT</label>
-                                <input type="text" id="surveyorLjtNo">
+
+                            <div class="form-grid-2" style="margin-top: 0.65rem;">
+                                <div class="form-group">
+                                    <label for="practiceYear" id="lblPracticeYear">Tahun Sijil Amalan</label>
+                                    <input type="text" id="practiceYear">
+                                </div>
+                                <div class="form-group">
+                                    <label for="piiCoverage" id="lblPiiCoverage">Perlindungan Insurans PII (RM)</label>
+                                    <input type="text" id="piiCoverage">
+                                </div>
+                            </div>
+
+                            <div class="form-grid-2" style="margin-top: 0.65rem;">
+                                <div class="form-group">
+                                    <label for="firmPhone" id="lblFirmPhone">No. Telefon Firma</label>
+                                    <input type="text" id="firmPhone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="firmEmail" id="lblFirmEmail">E-mel Rasmi Firma</label>
+                                    <input type="email" id="firmEmail">
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 0.65rem;">
+                                <label for="firmAddress" id="lblFirmAddress">Alamat Pejabat Firma</label>
+                                <input type="text" id="firmAddress">
+                            </div>
+
+                            <!-- Custom Logo & Signature Upload -->
+                            <div class="form-grid-2" style="margin-top: 0.65rem;">
+                                <div class="form-group">
+                                    <label for="customLogo" id="lblCustomLogo">Muat Naik Logo Firma (PNG/JPG)</label>
+                                    <input type="file" id="customLogo" accept="image/*"
+                                        style="font-size: 0.72rem; padding: 0.25rem;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="customSignature" id="lblCustomSignature">Muat Naik T/Tangan Juruukur
+                                        (PNG/JPG)</label>
+                                    <input type="file" id="customSignature" accept="image/*"
+                                        style="font-size: 0.72rem; padding: 0.25rem;">
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-grid-2" style="margin-top: 0.65rem;">
-                            <div class="form-group">
-                                <label for="practiceYear" id="lblPracticeYear">Tahun Sijil Amalan</label>
-                                <input type="text" id="practiceYear">
-                            </div>
-                            <div class="form-group">
-                                <label for="piiCoverage" id="lblPiiCoverage">Perlindungan Insurans PII (RM)</label>
-                                <input type="text" id="piiCoverage">
-                            </div>
-                        </div>
+                        <!-- Section 2: Land Administration & Site Metadata (BA/QA Criteria 1) -->
+                        <div class="form-section">
+                            <h2 id="secTitleLandAdmin">Maklumat Pentadbiran Tanah & Tapak Ukur</h2>
 
-                        <div class="form-grid-2" style="margin-top: 0.65rem;">
-                            <div class="form-group">
-                                <label for="firmPhone" id="lblFirmPhone">No. Telefon Firma</label>
-                                <input type="text" id="firmPhone">
+                            <div class="form-grid-3">
+                                <div class="form-group">
+                                    <label for="landState" id="lblLandState">Negeri (14 Negeri)</label>
+                                    <select id="landState">
+                                        <option value="Selangor">Selangor (Semenanjung RM743/PD)</option>
+                                        <option value="W.P. Kuala Lumpur">W.P. Kuala Lumpur</option>
+                                        <option value="Johor">Johor</option>
+                                        <option value="Kedah">Kedah</option>
+                                        <option value="Kelantan">Kelantan</option>
+                                        <option value="Melaka">Melaka</option>
+                                        <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                        <option value="Pahang">Pahang</option>
+                                        <option value="Perak">Perak</option>
+                                        <option value="Perlis">Perlis</option>
+                                        <option value="Pulau Pinang">Pulau Pinang</option>
+                                        <option value="Sabah">Sabah (Sabah/Sarawak RM966/PD)</option>
+                                        <option value="Sarawak">Sarawak (Sabah/Sarawak RM966/PD)</option>
+                                        <option value="Terengganu">Terengganu</option>
+                                        <option value="W.P. Putrajaya">W.P. Putrajaya</option>
+                                        <option value="W.P. Labuan">W.P. Labuan (RM966/PD)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="landDistrict" id="lblLandDistrict">Daerah</label>
+                                    <input type="text" id="landDistrict">
+                                </div>
+                                <div class="form-group">
+                                    <label for="landMukim" id="lblLandMukim">Mukim / Bandar / Pekan</label>
+                                    <input type="text" id="landMukim">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="firmEmail" id="lblFirmEmail">E-mel Rasmi Firma</label>
-                                <input type="email" id="firmEmail">
-                            </div>
-                        </div>
 
-                        <div class="form-group" style="margin-top: 0.65rem;">
-                            <label for="firmAddress" id="lblFirmAddress">Alamat Pejabat Firma</label>
-                            <input type="text" id="firmAddress">
-                        </div>
+                            <div class="form-grid-2" style="margin-top: 0.65rem;">
+                                <div class="form-group">
+                                    <label for="lotNo" id="lblLotNo">No. Lot / No. PT</label>
+                                    <input type="text" id="lotNo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="titleNo" id="lblTitleNo">No. & Jenis Hakmilik</label>
+                                    <input type="text" id="titleNo">
+                                </div>
+                            </div>
 
-                        <!-- Custom Logo & Signature Upload -->
-                        <div class="form-grid-2" style="margin-top: 0.65rem;">
-                            <div class="form-group">
-                                <label for="customLogo" id="lblCustomLogo">Muat Naik Logo Firma (PNG/JPG)</label>
-                                <input type="file" id="customLogo" accept="image/*"
-                                    style="font-size: 0.72rem; padding: 0.25rem;">
+                            <div class="form-grid-2" style="margin-top: 0.65rem;">
+                                <div class="form-group">
+                                    <label for="landCategory" id="lblLandCategory">Kategori Kegunaan Tanah</label>
+                                    <select id="landCategory">
+                                        <option value="Rizab / Khas">Rizab Jalan / Khas (Government Reserve)</option>
+                                        <option value="Pertanian">Pertanian (Agriculture)</option>
+                                        <option value="Bangunan Kediaman">Bangunan Kediaman (Residential)</option>
+                                        <option value="Bangunan Komersial">Bangunan Komersial (Commercial)</option>
+                                        <option value="Perindustrian">Perindustrian (Industrial)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="landArea" id="lblLandArea">Keluasan Tanah</label>
+                                    <div style="display: flex; gap: 0.4rem;">
+                                        <input type="number" id="landArea" step="any" min="0" style="flex: 2;">
+                                        <select id="landAreaUnit" style="flex: 1.5;">
+                                            <option value="Hektar">Hektar (Ha)</option>
+                                            <option value="Ekar">Ekar (Acres)</option>
+                                            <option value="Meter Persegi">m²</option>
+                                            <option value="Kaki Persegi">sq ft</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="customSignature" id="lblCustomSignature">Muat Naik T/Tangan Juruukur
-                                    (PNG/JPG)</label>
-                                <input type="file" id="customSignature" accept="image/*"
-                                    style="font-size: 0.72rem; padding: 0.25rem;">
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Section 2: Land Administration & Site Metadata (BA/QA Criteria 1) -->
-                    <div class="form-section">
-                        <h2 id="secTitleLandAdmin">Maklumat Pentadbiran Tanah & Tapak Ukur</h2>
-
-                        <div class="form-grid-3">
-                            <div class="form-group">
-                                <label for="landState" id="lblLandState">Negeri (14 Negeri)</label>
-                                <select id="landState">
-                                    <option value="Selangor">Selangor (Semenanjung RM743/PD)</option>
-                                    <option value="W.P. Kuala Lumpur">W.P. Kuala Lumpur</option>
-                                    <option value="Johor">Johor</option>
-                                    <option value="Kedah">Kedah</option>
-                                    <option value="Kelantan">Kelantan</option>
-                                    <option value="Melaka">Melaka</option>
-                                    <option value="Negeri Sembilan">Negeri Sembilan</option>
-                                    <option value="Pahang">Pahang</option>
-                                    <option value="Perak">Perak</option>
-                                    <option value="Perlis">Perlis</option>
-                                    <option value="Pulau Pinang">Pulau Pinang</option>
-                                    <option value="Sabah">Sabah (Sabah/Sarawak RM966/PD)</option>
-                                    <option value="Sarawak">Sarawak (Sabah/Sarawak RM966/PD)</option>
-                                    <option value="Terengganu">Terengganu</option>
-                                    <option value="W.P. Putrajaya">W.P. Putrajaya</option>
-                                    <option value="W.P. Labuan">W.P. Labuan (RM966/PD)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="landDistrict" id="lblLandDistrict">Daerah</label>
-                                <input type="text" id="landDistrict">
-                            </div>
-                            <div class="form-group">
-                                <label for="landMukim" id="lblLandMukim">Mukim / Bandar / Pekan</label>
-                                <input type="text" id="landMukim">
-                            </div>
-                        </div>
-
-                        <div class="form-grid-2" style="margin-top: 0.65rem;">
-                            <div class="form-group">
-                                <label for="lotNo" id="lblLotNo">No. Lot / No. PT</label>
-                                <input type="text" id="lotNo">
-                            </div>
-                            <div class="form-group">
-                                <label for="titleNo" id="lblTitleNo">No. & Jenis Hakmilik</label>
-                                <input type="text" id="titleNo">
-                            </div>
-                        </div>
-
-                        <div class="form-grid-2" style="margin-top: 0.65rem;">
-                            <div class="form-group">
-                                <label for="landCategory" id="lblLandCategory">Kategori Kegunaan Tanah</label>
-                                <select id="landCategory">
-                                    <option value="Rizab / Khas">Rizab Jalan / Khas (Government Reserve)</option>
-                                    <option value="Pertanian">Pertanian (Agriculture)</option>
-                                    <option value="Bangunan Kediaman">Bangunan Kediaman (Residential)</option>
-                                    <option value="Bangunan Komersial">Bangunan Komersial (Commercial)</option>
-                                    <option value="Perindustrian">Perindustrian (Industrial)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="landArea" id="lblLandArea">Keluasan Tanah</label>
-                                <div style="display: flex; gap: 0.4rem;">
-                                    <input type="number" id="landArea" step="any" min="0"
-                                        style="flex: 2;">
-                                    <select id="landAreaUnit" style="flex: 1.5;">
-                                        <option value="Hektar">Hektar (Ha)</option>
-                                        <option value="Ekar">Ekar (Acres)</option>
-                                        <option value="Meter Persegi">m²</option>
-                                        <option value="Kaki Persegi">sq ft</option>
+                            <div class="form-grid-3" style="margin-top: 0.65rem;">
+                                <div class="form-group">
+                                    <label for="coordSystem" id="lblCoordSystem">Sistem Unjuran Koordinat</label>
+                                    <select id="coordSystem">
+                                        <option value="Cassini-Soldner (Negeri)">Cassini-Soldner (Negeri Berkaitan)
+                                        </option>
+                                        <option value="RSO Malayan (m)">RSO Malayan Grid (Meter)</option>
+                                        <option value="GDM2000 Geocentric">GDM2000 Geocentric Datum</option>
+                                        <option value="WGS 84 / UTM">WGS 84 / UTM Grid</option>
+                                        <option value="Cassini Sabah / Sarawak">Cassini Sabah / Sarawak</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="verticalDatum" id="lblVerticalDatum">Datum Aras Ketinggian</label>
+                                    <select id="verticalDatum">
+                                        <option value="LSD JUPEM (Land Survey Datum)">LSD JUPEM (Piawaian Kebangsaan)
+                                        </option>
+                                        <option value="MSL (Mean Sea Level)">MSL (Mean Sea Level / Hidrografi)</option>
+                                        <option value="TBM (Assumed / Arbitrary Datum)">TBM (Assumed Arbitrary Datum)
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="distanceZone" id="lblDistanceZone">Zon Jarak Mobilisasi
+                                        (Mob/Demob)</label>
+                                    <select id="distanceZone">
+                                        <option value="zone_lt50">&lt; 50 km (Zon Tempatan)</option>
+                                        <option value="zone_50_150" selected>&gt; 50 km &amp; &lt; 150 km (Zon
+                                            Sederhana)
+                                        </option>
+                                        <option value="zone_150_300">&gt; 150 km &amp; &lt; 300 km (Luar Stesen)
+                                        </option>
+                                        <option value="zone_gt300">&gt; 300 km (Luar Stesen Jarak Jauh)</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-grid-3" style="margin-top: 0.65rem;">
-                            <div class="form-group">
-                                <label for="coordSystem" id="lblCoordSystem">Sistem Unjuran Koordinat</label>
-                                <select id="coordSystem">
-                                    <option value="Cassini-Soldner (Negeri)">Cassini-Soldner (Negeri Berkaitan)</option>
-                                    <option value="RSO Malayan (m)">RSO Malayan Grid (Meter)</option>
-                                    <option value="GDM2000 Geocentric">GDM2000 Geocentric Datum</option>
-                                    <option value="WGS 84 / UTM">WGS 84 / UTM Grid</option>
-                                    <option value="Cassini Sabah / Sarawak">Cassini Sabah / Sarawak</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="verticalDatum" id="lblVerticalDatum">Datum Aras Ketinggian</label>
-                                <select id="verticalDatum">
-                                    <option value="LSD JUPEM (Land Survey Datum)">LSD JUPEM (Piawaian Kebangsaan)
-                                    </option>
-                                    <option value="MSL (Mean Sea Level)">MSL (Mean Sea Level / Hidrografi)</option>
-                                    <option value="TBM (Assumed / Arbitrary Datum)">TBM (Assumed Arbitrary Datum)
-                                    </option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="distanceZone" id="lblDistanceZone">Zon Jarak Mobilisasi (Mob/Demob)</label>
-                                <select id="distanceZone">
-                                    <option value="zone_lt50">&lt; 50 km (Zon Tempatan)</option>
-                                    <option value="zone_50_150" selected>&gt; 50 km &amp; &lt; 150 km (Zon Sederhana)
-                                    </option>
-                                    <option value="zone_150_300">&gt; 150 km &amp; &lt; 300 km (Luar Stesen)</option>
-                                    <option value="zone_gt300">&gt; 300 km (Luar Stesen Jarak Jauh)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                        <!-- Section 3: Client Details & Smart Reference Generator -->
+                        <div class="form-section">
+                            <h2 id="secTitleClient">Maklumat Pelanggan & Penomboran Rujukan</h2>
 
-                    <!-- Section 3: Client Details & Smart Reference Generator -->
-                    <div class="form-section">
-                        <h2 id="secTitleClient">Maklumat Pelanggan & Penomboran Rujukan</h2>
-
-                        <!-- Client Directory Bar (BA/QA Criteria) -->
-                        <div class="directory-control-bar">
-                            <div style="flex: 2; min-width: 200px;">
-                                <label for="clientDirectorySelect" id="lblClientDirectorySelect"
-                                    style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color);">Pilih
-                                    Pelanggan dari Direktori:</label>
-                                <select id="clientDirectorySelect" style="width: 100%;">
-                                    <!-- Dynamic list of clients -->
-                                </select>
+                            <!-- Client Directory Bar (BA/QA Criteria) -->
+                            <div class="directory-control-bar">
+                                <div style="flex: 2; min-width: 200px;">
+                                    <label for="clientDirectorySelect" id="lblClientDirectorySelect"
+                                        style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color);">Pilih
+                                        Pelanggan dari Direktori:</label>
+                                    <select id="clientDirectorySelect" style="width: 100%;">
+                                        <!-- Dynamic list of clients -->
+                                    </select>
+                                </div>
+                                <div style="display: flex; gap: 0.3rem; flex-wrap: wrap;">
+                                    <button type="button" class="btn btn-secondary btn-sm" id="btnNewClient"
+                                        title="Borang Pelanggan Baharu">+ Pelanggan Baru</button>
+                                    <button type="button" class="btn btn-primary btn-sm" id="btnSaveClient"
+                                        title="Simpan / Kemaskini Pelanggan">Simpan Pelanggan</button>
+                                    <button type="button" class="btn btn-danger btn-sm" id="btnDeleteClient"
+                                        title="Padam Rekod Pelanggan">Padam</button>
+                                </div>
                             </div>
-                            <div style="display: flex; gap: 0.3rem; flex-wrap: wrap;">
-                                <button type="button" class="btn btn-secondary btn-sm" id="btnNewClient"
-                                    title="Borang Pelanggan Baharu">+ Pelanggan Baru</button>
-                                <button type="button" class="btn btn-primary btn-sm" id="btnSaveClient"
-                                    title="Simpan / Kemaskini Pelanggan">Simpan Pelanggan</button>
-                                <button type="button" class="btn btn-danger btn-sm" id="btnDeleteClient"
-                                    title="Padam Rekod Pelanggan">Padam</button>
-                            </div>
-                        </div>
 
-                        <div class="form-grid">
-                            <!-- Removed grid-2 to stack vertically -->
-                            <div class="form-group">
-                                <label for="clientCompany" id="lblClientCompany">Nama Syarikat / Agensi
+                            <div class="form-grid">
+                                <!-- Removed grid-2 to stack vertically -->
+                                <div class="form-group">
+                                    <label for="clientCompany" id="lblClientCompany">Nama Syarikat / Agensi
                                         Pelanggan</label>
                                     <input type="text" id="clientCompany">
                                 </div>
@@ -525,11 +530,15 @@
                     <!-- JKR Terrain Filter Card -->
                     <div class="multiplier-card" id="jkrTerrainCard" style="display: none; margin-bottom: 1rem;">
                         <div class="multiplier-header">
-                            <div class="multiplier-title" id="lblJkrTerrainTitle" style="font-weight: 700;">Klasifikasi Rupa Bumi (Terrain Classification)</div>
+                            <div class="multiplier-title" id="lblJkrTerrainTitle" style="font-weight: 700;">Klasifikasi
+                                Rupa Bumi (Terrain Classification)</div>
                         </div>
                         <div style="margin-top: 0.75rem;">
-                            <label for="jkrTerrainFilter" id="lblJkrTerrainFilter" style="font-size: 0.78rem; font-weight: 600; color: #4a5568;">Pilihan Rupa Bumi untuk Tapisan Item BQ JKR:</label>
-                            <select id="jkrTerrainFilter" class="template-select" style="width: 100%; max-width: 400px; margin-top: 0.25rem;">
+                            <label for="jkrTerrainFilter" id="lblJkrTerrainFilter"
+                                style="font-size: 0.78rem; font-weight: 600; color: #4a5568;">Pilihan Rupa Bumi untuk
+                                Tapisan Item BQ JKR:</label>
+                            <select id="jkrTerrainFilter" class="template-select"
+                                style="width: 100%; max-width: 400px; margin-top: 0.25rem;">
                                 <option value="flat">FLAT AREA</option>
                                 <option value="hilly">BUILT-UP / HILLY / SWAMPY AREA</option>
                                 <option value="mixed" selected>MIXED</option>
@@ -874,8 +883,142 @@
         </div>
     </div>
 
-    <!-- Application Script -->
-    <script src="app.js"></script>
+    <!-- BQ Item Manager Modal -->
+    <div id="bqManagerModal" class="modal">
+        <div class="modal-content" style="max-width: 900px; width: 90%;">
+            <div class="modal-header">
+                <h2>⚙️ Pengurus Pangkalan Data BQ (Admin)</h2>
+                <button type="button" class="close-btn" id="closeBqManagerModal">&times;</button>
+            </div>
+            <div class="modal-body" style="display: flex; gap: 20px; height: 60vh;">
+                <!-- Left: List -->
+                <div
+                    style="flex: 1; display: flex; flex-direction: column; border-right: 1px solid #ddd; padding-right: 15px;">
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                        <input type="text" id="bqSearchInput" class="form-control"
+                            placeholder="Cari kod atau nama item..." style="flex: 1;">
+                        <button type="button" class="btn btn-primary" id="addNewBqBtn">+ Item Baru</button>
+                    </div>
+                    <div style="flex: 1; overflow-y: auto; border: 1px solid #eee; border-radius: 4px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                            <thead style="background: #f8f9fa; position: sticky; top: 0;">
+                                <tr>
+                                    <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ddd;">Kod</th>
+                                    <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ddd;">Nama /
+                                        Sub-item</th>
+                                    <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ddd;">Kategori
+                                        (Title)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bqManagerList">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between;">
+                        <button type="button" class="btn btn-secondary" id="bqClearAllBtn" style="font-size: 12px; background-color: #dc3545; color: white; border-color: #dc3545;">Padam Kesemua Item (Clear All)</button>
+                        <button type="button" class="btn btn-secondary" id="bqResetDefaultBtn" style="font-size: 12px;">Kembalikan Asal (Reset Defaults)</button>
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div style="flex: 1; overflow-y: auto; padding-left: 5px;">
+                    <h3 id="bqFormTitle"
+                        style="margin-top: 0; font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                        Tambah Item Baharu</h3>
+                    <form id="bqManagerForm">
+                        <input type="hidden" id="bqOriginalCode">
+
+                        <div class="form-group">
+                            <label>Kategori Utama (Title):</label>
+                            <input type="text" id="bqCategory" class="form-control" required
+                                placeholder="Contoh: STAGE 1: PREPARATORY WORK">
+                            <small style="color: #666; display: block; margin-top: 4px;">Kategori akan dijadikan tajuk
+                                (title) besar di dalam sebut harga.</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Kumpulan Sub-Kategori (Pilihan):</label>
+                            <input type="text" id="bqSubCategory" class="form-control" placeholder="Contoh: Mobilization and Demobilization">
+                            <small style="color: #666; display: block; margin-top: 4px;">Tahap 2: Kumpulan di bawah Kategori Utama.</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Kumpulan Sub-Sub-Kategori (Pilihan):</label>
+                            <input type="text" id="bqSubSubCategory" class="form-control" placeholder="Contoh: Kerja-kerja tanah / Jarak < 50km">
+                            <small style="color: #666; display: block; margin-top: 4px;">Tahap 3: Kumpulan di bawah Sub-Kategori.</small>
+                        </div>
+
+                        <div class="form-group" style="display: flex; gap: 15px;">
+                            <div style="flex: 1;">
+                                <label>Kod Item (Unik):</label>
+                                <input type="text" id="bqCode" class="form-control" required placeholder="Contoh: SR1">
+                            </div>
+                            <div style="flex: 1;">
+                                <label>Fasa JKR:</label>
+                                <select id="bqJkrStage" class="form-control">
+                                    <option value="stage1">Stage 1</option>
+                                    <option value="stage2">Stage 2</option>
+                                    <option value="daywork">Daywork / Lain-lain</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Nama Sub-item dalam Borang (BM):</label>
+                            <textarea id="bqName" class="form-control" rows="2" required placeholder="Cth: Mob demob < 50km"></textarea>
+                            <small style="color: #666; display: block; margin-top: 4px;">Nama ini akan dipaparkan di borang (Langkah 2) untuk rujukan anda.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nama Cetakan PDF (BM):</label>
+                            <textarea id="bqPrintName" class="form-control" rows="2" placeholder="Cth: Mobilization and Demobilization"></textarea>
+                            <small style="color: #666; display: block; margin-top: 4px;">Opsional. Jika diisi, nama ini yang akan terpapar kepada klien di dalam fail PDF.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nama Sub-item (EN):</label>
+                            <textarea id="bqNameEn" class="form-control" rows="1" placeholder="(Opsional) Terjemahan BI"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Nama Cetakan PDF (EN):</label>
+                            <textarea id="bqPrintNameEn" class="form-control" rows="1" placeholder="(Opsional) Terjemahan BI untuk cetakan PDF"></textarea>
+                        </div>
+
+                        <div class="form-group" style="display: flex; gap: 15px;">
+                            <div style="flex: 1;">
+                                <label>Unit:</label>
+                                <input type="text" id="bqUnit" class="form-control" required
+                                    placeholder="Contoh: LS, M, PD">
+                            </div>
+                            <div style="flex: 1;">
+                                <label>Kadar Harga (RM):</label>
+                                <input type="number" id="bqRate" class="form-control" required step="0.01" min="0">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Penerangan Tambahan (Pilihan):</label>
+                            <textarea id="bqDescription" class="form-control" rows="2"
+                                placeholder="Nota kaki jika ada..."></textarea>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <button type="submit" class="btn btn-primary" style="flex: 1;">Simpan Item</button>
+                            <button type="button" class="btn btn-secondary" id="bqDeleteBtn"
+                                style="background-color: #dc3545; border-color: #dc3545; color: white; display: none;">Padam</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase SDK (Database) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase_client.js?v=2"></script>
+    <script src="bq_data.js?v=2"></script>
+    <script src="app.js?v=2"></script>
 </body>
 
 </html>

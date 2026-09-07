@@ -285,7 +285,8 @@ header {
 }
 
 .form-section {
-    margin-bottom: 2rem;
+    max-width: 52rem;
+    margin: 0 auto 2rem auto;
     padding-bottom: 2rem;
     border-bottom: 1px solid #edf2f7;
 }
@@ -327,7 +328,7 @@ header {
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.5rem;
 }
 
 .form-group.checkbox-row {
@@ -360,6 +361,7 @@ input[type="date"],
 select,
 textarea {
     width: 100%;
+    
     padding: 0.6rem 0.75rem;
     border: 1px solid #cbd5e0;
     border-radius: 6px;
@@ -1089,3 +1091,15 @@ textarea:focus {
     text-align: right;
     font-variant-numeric: tabular-nums;
 }
+
+
+/* Modal Styles */
+.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
+.modal-content { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); max-height: 90vh; display: flex; flex-direction: column; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 15px; }
+.modal-header h2 { margin: 0; font-size: 18px; }
+.close-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: #666; }
+.close-btn:hover { color: #000; }
+.form-control { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+.form-group { margin-bottom: 12px; }
+.form-group label { display: block; font-weight: 500; margin-bottom: 4px; font-size: 13px; color: #444; }
