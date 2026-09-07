@@ -1419,6 +1419,34 @@ function setLanguage(lang) {
 
 let activeFilter = "all";
 
+function sortBqItemsForRender(items) {
+    const stageRank = { "stage1": 1, "stage2": 2, "reimbursable": 3 };
+    const secRank = { "A": 1, "B": 2, "C": 3 };
+    
+    items.sort((a, b) => {
+        // 1. Sort by Section / JkrStage
+        const rankA = state.bqType === 'jkr' ? (stageRank[a.jkrStage] || 99) : (secRank[a.section] || 99);
+        const rankB = state.bqType === 'jkr' ? (stageRank[b.jkrStage] || 99) : (secRank[b.section] || 99);
+        if (rankA !== rankB) return rankA - rankB;
+
+        // 2. Sort by Code SR number mathematically (Abaikan Kategori)
+        const getNum = (code) => {
+            if (!code) return 99999;
+            const match = code.match(/\d+/);
+            return match ? parseInt(match[0], 10) : 99999;
+        };
+        const numA = getNum(a.code);
+        const numB = getNum(b.code);
+        if (numA !== numB) return numA - numB;
+        
+        // Fallback to normal string compare if same number
+        return (a.code || '').localeCompare(b.code || '');
+    });
+    
+    console.log("DEBUG SORTING RESULTS: ", items.map(x => x.code).join(", "));
+    return items;
+}
+
 function renderBqTable() {
     const tableBody = document.getElementById("formBqTableBody");
     if (!tableBody) return;
@@ -1432,7 +1460,8 @@ function renderBqTable() {
     let currentSubSubCategory = "";
     let currentSection = "";
 
-    const filteredItems = ALL_BQ_ITEMS.filter(it => !isItemFiltered(it));
+    let filteredItems = ALL_BQ_ITEMS.filter(it => !isItemFiltered(it));
+    filteredItems = sortBqItemsForRender(filteredItems);
 
     filteredItems.forEach(item => {
         item._jkrPrintDesc = "";
@@ -1788,7 +1817,9 @@ function applyJkrDynamicNumbering() {
 
         let baseDesc = (lang === "en" && item.nameEn) ? item.nameEn : item.name;
 
-        if (item._originalCategory && flattenCategories.includes(item._originalCategory.trim())) {
+        if (item.subCategory) {
+            baseDesc = (lang === "en" && item.subCategoryEn) ? item.subCategoryEn : item.subCategory;
+        } else if (item._originalCategory && flattenCategories.includes(item._originalCategory.trim())) {
             let parentName = item._originalCategory.replace(/^STAGE \d+:\s*/i, "");
             parentName = parentName.replace(/\(GPS\)/i, "(GPS)");
             baseDesc = parentName;
@@ -1937,7 +1968,8 @@ function renderPreview() {
         previewTableBody.innerHTML = "";
 
         const renderGroupItems = (filterFn, sectionTitle, sectionClass) => {
-            const matchingItems = ALL_BQ_ITEMS.filter(item => filterFn(item) && (state.itemQuantities[item.code] || 0) > 0 && !isItemFiltered(item));
+            let matchingItems = ALL_BQ_ITEMS.filter(item => filterFn(item) && (state.itemQuantities[item.code] || 0) > 0 && !isItemFiltered(item));
+            matchingItems = sortBqItemsForRender(matchingItems);
             if (matchingItems.length === 0) return 0;
 
             const totalCols = state.showRefColumn ? 7 : 6;
@@ -1994,32 +2026,36 @@ function renderPreview() {
                 }
 
                 const subCatName = (lang === "en" && item.subCategoryEn) ? item.subCategoryEn : item.subCategory;
-                if (subCatName && subCatName !== currentSubCat) {
-                    currentSubCat = subCatName;
-                    currentSubSubCat = "";
-                    const subCatRow = document.createElement("tr");
-                    subCatRow.className = "item-sub-stage-row";
-                    subCatRow.innerHTML = `
-                        <td class="center"></td>
-                        <td colspan="${totalCols - 1}" style="font-weight: 600; font-size: 0.72rem; color: #2b6cb0; background-color: #fcfcfc; padding: 0.25rem 0.5rem; text-align: left; padding-left: 1rem; border-bottom: 1px solid #edf2f7;">${subCatName}</td>
-                    `;
-                    previewTableBody.appendChild(subCatRow);
-                } else if (!subCatName) {
-                    currentSubCat = "";
+                if (state.bqType !== 'jkr') {
+                    if (subCatName && subCatName !== currentSubCat) {
+                        currentSubCat = subCatName;
+                        currentSubSubCat = "";
+                        const subCatRow = document.createElement("tr");
+                        subCatRow.className = "item-sub-stage-row";
+                        subCatRow.innerHTML = `
+                            <td class="center"></td>
+                            <td colspan="${totalCols - 1}" style="font-weight: 600; font-size: 0.72rem; color: #2b6cb0; background-color: #fcfcfc; padding: 0.25rem 0.5rem; text-align: left; padding-left: 1rem; border-bottom: 1px solid #edf2f7;">${subCatName}</td>
+                        `;
+                        previewTableBody.appendChild(subCatRow);
+                    } else if (!subCatName) {
+                        currentSubCat = "";
+                    }
                 }
 
                 const subSubCatName = (lang === "en" && item.subSubCategoryEn) ? item.subSubCategoryEn : item.subSubCategory;
-                if (subSubCatName && subSubCatName !== currentSubSubCat) {
-                    currentSubSubCat = subSubCatName;
-                    const subSubCatRow = document.createElement("tr");
-                    subSubCatRow.className = "item-sub-sub-stage-row";
-                    subSubCatRow.innerHTML = `
-                        <td class="center"></td>
-                        <td colspan="${totalCols - 1}" style="font-weight: 600; font-size: 0.68rem; color: #555; background-color: #fdfdfd; padding: 0.25rem 0.5rem; text-align: left; padding-left: 1.5rem; border-bottom: 1px dashed #edf2f7; font-style: italic;">${subSubCatName}</td>
-                    `;
-                    previewTableBody.appendChild(subSubCatRow);
-                } else if (!subSubCatName) {
-                    currentSubSubCat = "";
+                if (state.bqType !== 'jkr') {
+                    if (subSubCatName && subSubCatName !== currentSubSubCat) {
+                        currentSubSubCat = subSubCatName;
+                        const subSubCatRow = document.createElement("tr");
+                        subSubCatRow.className = "item-sub-sub-stage-row";
+                        subSubCatRow.innerHTML = `
+                            <td class="center"></td>
+                            <td colspan="${totalCols - 1}" style="font-weight: 600; font-size: 0.68rem; color: #555; background-color: #fdfdfd; padding: 0.25rem 0.5rem; text-align: left; padding-left: 1.5rem; border-bottom: 1px dashed #edf2f7; font-style: italic;">${subSubCatName}</td>
+                        `;
+                        previewTableBody.appendChild(subSubCatRow);
+                    } else if (!subSubCatName) {
+                        currentSubSubCat = "";
+                    }
                 }
 
                 const qty = parseFloat(state.itemQuantities[item.code]) || 0;
