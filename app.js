@@ -1420,16 +1420,8 @@ function setLanguage(lang) {
 let activeFilter = "all";
 
 function sortBqItemsForRender(items) {
-    const stageRank = { "stage1": 1, "stage2": 2, "reimbursable": 3 };
-    const secRank = { "A": 1, "B": 2, "C": 3 };
-    
     items.sort((a, b) => {
-        // 1. Sort by Section / JkrStage
-        const rankA = state.bqType === 'jkr' ? (stageRank[a.jkrStage] || 99) : (secRank[a.section] || 99);
-        const rankB = state.bqType === 'jkr' ? (stageRank[b.jkrStage] || 99) : (secRank[b.section] || 99);
-        if (rankA !== rankB) return rankA - rankB;
-
-        // 2. Sort by Code SR number mathematically (Abaikan Kategori)
+        // Sort by Code SR number mathematically (Abaikan Kategori & Stage, ikut nombor mutlak)
         const getNum = (code) => {
             if (!code) return 99999;
             const match = code.match(/\d+/);
@@ -1443,7 +1435,7 @@ function sortBqItemsForRender(items) {
         return (a.code || '').localeCompare(b.code || '');
     });
     
-    console.log("DEBUG SORTING RESULTS: ", items.map(x => x.code).join(", "));
+    // console.log("DEBUG SORTING RESULTS: ", items.map(x => x.code).join(", "));
     return items;
 }
 

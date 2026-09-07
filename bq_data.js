@@ -1656,7 +1656,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: 4.14"
     },
     {
-        code: "SR99",
+        code: "SR110",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: DESCRIPTION OF WORKS",
@@ -1672,7 +1672,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: 1.11.3"
     },
     {
-        code: "SR100",
+        code: "SR111",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: Printing Of Section 4 (Peninsular Malaysia) / Section 4 and 5, Section 3 (5) of cap 69 or Section 3 of cap 69 (Sabah only) LA Plan for submission to authority",
@@ -1688,7 +1688,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: 1.11.4"
     },
     {
-        code: "SR101",
+        code: "SR112",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: Replotting A1 Size",
@@ -1704,7 +1704,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: 1.14.2"
     },
     {
-        code: "SR102",
+        code: "SR113",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
@@ -1720,7 +1720,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: 1.14.3"
     },
     {
-        code: "SR103",
+        code: "SR114",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
@@ -1736,7 +1736,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: "
     },
     {
-        code: "SR104",
+        code: "SR115",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
@@ -1752,7 +1752,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: 1.10.1.4"
     },
     {
-        code: "SR105",
+        code: "SR116",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: (40set JKPTG / PTG / PDT + min 10 set JKR and Kementerian Pelanggan)",
@@ -1768,7 +1768,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: 1.11.3"
     },
     {
-        code: "SR106",
+        code: "SR117",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: Printing Of Section 8 LA Plan for submission to authority",
@@ -1784,7 +1784,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: 1.11.4"
     },
     {
-        code: "SR107",
+        code: "SR118",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)",
@@ -1800,7 +1800,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: 1.14.3"
     },
     {
-        code: "SR108",
+        code: "SR119",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)",
@@ -1816,7 +1816,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: "
     },
     {
-        code: "SR109",
+        code: "SR120",
         section: "C",
         jkrStage: "reimbursable",
         category: "REIMBURSABLES: (40 set JKPTG + 10 set JKR Record)",
@@ -1832,7 +1832,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: 1.10.1.4"
     },
     {
-        code: "SR110",
+        code: "SR99",
         section: "A",
         jkrStage: "stage1",
         category: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
@@ -1848,7 +1848,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: PEJUTA 2023"
     },
     {
-        code: "SR111",
+        code: "SR100",
         section: "A",
         jkrStage: "stage1",
         category: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
@@ -1864,7 +1864,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: PEJUTA 2023"
     },
     {
-        code: "SR112",
+        code: "SR101",
         section: "A",
         jkrStage: "stage1",
         category: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
@@ -1880,7 +1880,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: PEJUTA 2023"
     },
     {
-        code: "SR113",
+        code: "SR102",
         section: "A",
         jkrStage: "stage1",
         category: "STAGE 1: AERIAL MAPPING (LiDAR) - PREPARATORY & MOBILIZATION",
@@ -1896,7 +1896,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: PEJUTA 2023"
     },
     {
-        code: "SR114",
+        code: "SR103",
         section: "A",
         jkrStage: "stage2",
         category: "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION",
@@ -1912,7 +1912,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: PEJUTA 2023"
     },
     {
-        code: "SR115",
+        code: "SR104",
         section: "A",
         jkrStage: "stage2",
         category: "STAGE 2: AERIAL MAPPING (LiDAR) - DATA ACQUISITION",
@@ -1928,7 +1928,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: PEJUTA 2023"
     },
     {
-        code: "SR116",
+        code: "SR105",
         section: "C",
         jkrStage: "reimbursable",
         category: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
@@ -1944,7 +1944,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: PEJUTA 2023"
     },
     {
-        code: "SR117",
+        code: "SR106",
         section: "C",
         jkrStage: "reimbursable",
         category: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
@@ -1960,7 +1960,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: PEJUTA 2023"
     },
     {
-        code: "SR118",
+        code: "SR107",
         section: "C",
         jkrStage: "reimbursable",
         category: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
@@ -1976,7 +1976,7 @@ const DEFAULT_ALL_BQ_ITEMS = [
         descriptionEn: "Ref: PEJUTA 2023"
     },
     {
-        code: "SR119",
+        code: "SR108",
         section: "C",
         jkrStage: "reimbursable",
         category: "STAGE 3: AERIAL MAPPING (LiDAR) - PROCESSING & DELIVERABLES",
