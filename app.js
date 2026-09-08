@@ -80,6 +80,84 @@ const DEFAULT_CLIENTS_DIRECTORY = [
     }
 ];
 
+// --- LIVE PREVIEW WINDOW LOGIC ---
+let livePreviewWindow = null;
+
+function openLivePreview() {
+    if (livePreviewWindow && !livePreviewWindow.closed) {
+        livePreviewWindow.focus();
+        return;
+    }
+
+    livePreviewWindow = window.open("", "LivePreviewWindow", "width=950,height=1000");
+
+    // Write initial structure, including styles
+    livePreviewWindow.document.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Live Preview - Quotation Generator</title>
+            <style>
+                body {
+                    background-color: #525659;
+                    display: flex;
+                    justify-content: center;
+                    padding: 2rem 0;
+                    margin: 0;
+                    min-height: 100vh;
+                }
+                .a4-document {
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                    margin: 0; 
+                    background: white;
+                }
+                @media print {
+                    body { background: transparent; padding: 0; display: block; }
+                    .a4-document { box-shadow: none; margin: 0; }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="a4-document" id="livePreviewContainer">
+                <div style="padding: 5rem; text-align: center; color: #718096; font-family: sans-serif;">
+                    <h2>Menunggu Data...</h2>
+                    <p>Sila pastikan tab utama sedang dibuka dan data telah dimasukkan.</p>
+                </div>
+            </div>
+        </body>
+        </html>
+    `);
+
+    // Copy all current stylesheets from main document so it matches exactly
+    Array.from(document.styleSheets).forEach(sheet => {
+        if (sheet.href) {
+            const link = livePreviewWindow.document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = sheet.href;
+            livePreviewWindow.document.head.appendChild(link);
+        }
+    });
+
+    livePreviewWindow.document.close();
+
+    // Immediately push current content
+    setTimeout(syncLivePreview, 200);
+}
+
+function syncLivePreview() {
+    if (livePreviewWindow && !livePreviewWindow.closed) {
+        const a4Page = document.getElementById('a4Page');
+        if (a4Page) {
+            const container = livePreviewWindow.document.getElementById('livePreviewContainer');
+            if (container) {
+                container.innerHTML = a4Page.innerHTML;
+            }
+        }
+    }
+}
+// --------------------------------
+
 // ==========================================
 // 2. DYNAMIC DISTANCE ZONES (MOB/DEMOB)
 // ==========================================
@@ -720,7 +798,7 @@ function getFirmsDirectory() {
 function saveFirmsDirectory(firms, firmToUpsert = null, firmIdToDelete = null) {
     try {
         localStorage.setItem(FIRMS_STORAGE_KEY, JSON.stringify(firms));
-        
+
         if (typeof supabaseClient !== 'undefined') {
             if (firmIdToDelete) {
                 deleteFirmFromDb(firmIdToDelete);
@@ -747,7 +825,7 @@ function getClientsDirectory() {
 function saveClientsDirectory(clients, clientToUpsert = null, clientIdToDelete = null) {
     try {
         localStorage.setItem(CLIENTS_STORAGE_KEY, JSON.stringify(clients));
-        
+
         if (typeof supabaseClient !== 'undefined') {
             if (clientIdToDelete) {
                 deleteClientFromDb(clientIdToDelete);
@@ -1430,11 +1508,11 @@ function sortBqItemsForRender(items) {
         const numA = getNum(a.code);
         const numB = getNum(b.code);
         if (numA !== numB) return numA - numB;
-        
+
         // Fallback to normal string compare if same number
         return (a.code || '').localeCompare(b.code || '');
     });
-    
+
     // console.log("DEBUG SORTING RESULTS: ", items.map(x => x.code).join(", "));
     return items;
 }
@@ -1457,7 +1535,7 @@ function renderBqTable() {
 
     filteredItems.forEach(item => {
         item._jkrPrintDesc = "";
-        
+
         // Section Filtering logic
         if (isJkr) {
             if (activeFilter === "part_a" && item.jkrStage !== "stage1") return;
@@ -2098,14 +2176,13 @@ function renderPreview() {
             renderGroupItems(item => item.jkrStage === "stage2", t.jkrStage2Band, "section-b");
             renderGroupItems(item => item.jkrStage === "reimbursable", t.jkrReimbursableBand, "section-c");
 
+            const subtotalPreTax = fin.discountedConsultantFee + fin.subtotalReimbursables;
+            const subtotalLabel = lang === "en" ? "Subtotal" : "Jumlah Keseluruhan";
+
             summaryRows = [
-                ...(fin.subtotalStage1 > 0 ? [{ label: t.subtotalStage1, val: formatMoney(fin.subtotalStage1), isSub: true }] : []),
-                ...(fin.subtotalStage2 > 0 ? [{ label: t.subtotalStage2, val: formatMoney(fin.subtotalStage2), isSub: true }] : []),
-                { label: t.subtotalJkrConsultantFee, val: formatMoney(fin.totalConsultantFee), isSub: true, isBold: true },
+                { label: subtotalLabel, val: formatMoney(fin.totalConsultantFee + fin.subtotalReimbursables), isSub: true, isBold: true },
                 ...(fin.discountAmount > 0 ? [{ label: t.discountJkr, val: `-${formatMoney(fin.discountAmount)}`, isSub: true }] : []),
-                { label: lang === "en" ? "Net Consultant Fee" : "Yuran Perunding Bersih", val: formatMoney(fin.discountedConsultantFee), isSub: true, isBold: true },
-                ...(fin.subtotalReimbursables > 0 ? [{ label: t.subtotalJkrReimbursables, val: formatMoney(fin.subtotalReimbursables), isSub: true }] : []),
-                { label: lang === "en" ? "Gross Total (Net Fee + Reimbursables)" : "Jumlah Kasar (Yuran Bersih + Reimbursables)", val: formatMoney(fin.discountedConsultantFee + fin.subtotalReimbursables), isSub: true, isBold: true },
+                ...(fin.discountAmount > 0 ? [{ label: lang === "en" ? "Net Subtotal" : "Jumlah Bersih", val: formatMoney(subtotalPreTax), isSub: true, isBold: true }] : []),
                 ...(state.enableSst ? [{ label: lang === "en" ? "Service Tax (SST 8%)" : "Cukai Perkhidmatan (SST 8%)", val: formatMoney(fin.sstAmount), isSub: true }] : []),
                 { label: t.grandTotal, val: formatMoney(fin.grandTotal), isTotal: true }
             ];
@@ -2212,9 +2289,10 @@ function renderPreview() {
     }
 
     applyJkrPrintClone();
+
+    // DISPATCH HTML TO NEW TAB IF OPEN
+    syncLivePreview();
 }
-
-
 // === JKR 1:1 CLONE OVERRIDES ===
 function applyJkrPrintClone() {
     const isJkr = state.bqType === "jkr";
@@ -3060,7 +3138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         }
-        
+
         // Sync Firms
         if (typeof fetchFirmsFromDb === 'function') {
             fetchFirmsFromDb().then(dbFirms => {
@@ -3072,7 +3150,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         }
-        
+
         // Sync Clients
         if (typeof fetchClientsFromDb === 'function') {
             fetchClientsFromDb().then(dbClients => {
@@ -3185,7 +3263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetForm(keepCategory = false) {
         currentEditItemCode = null;
         formTitle.textContent = "Tambah Item Baharu";
-        
+
         if (keepCategory) {
             const tempCat = document.getElementById('bqCategory').value;
             const tempSubCat = document.getElementById('bqSubCategory').value;

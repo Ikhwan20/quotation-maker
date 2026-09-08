@@ -1103,3 +1103,129 @@ textarea:focus {
 .form-control { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
 .form-group { margin-bottom: 12px; }
 .form-group label { display: block; font-weight: 500; margin-bottom: 4px; font-size: 13px; color: #444; }
+
+/* 
+=========================================
+   RESPONSIVE OPTIMIZATIONS (MOBILE & IPAD) 
+=========================================
+*/
+
+/* Mobile Specific Optimizations */
+@media (max-width: 768px) {
+    /* Stack grid forms */
+    .form-grid-2, .form-grid-3, .land-admin-grid, .deliverables-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Touch targets */
+    input[type="text"], input[type="email"], input[type="number"], input[type="date"], select, textarea, .btn {
+        padding: 0.75rem 0.85rem;
+        font-size: 0.9rem;
+    }
+    
+    .btn-sm {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Modals */
+    .modal-content {
+        width: 95vw;
+        padding: 15px;
+        overflow-y: auto;
+    }
+    
+    /* Document Meta & Layout adjustments */
+    .doc-meta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .doc-meta-client {
+        max-width: 100%;
+    }
+    .doc-meta-table {
+        margin-left: 0;
+    }
+    
+    .signature-block {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    /* Make sure step footer is always accessible */
+    .step-footer {
+        position: sticky;
+        bottom: 0;
+        z-index: 10;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+}
+
+/* iPad and Mobile Common Optimizations for Tables and Scrolling */
+@media (max-width: 1024px) {
+    /* BQ Table containers - Horizontal scroll */
+    #bqTableContainer, #dayworkContainer {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -1rem;
+        padding: 0 1rem;
+        width: calc(100% + 2rem);
+    }
+    
+    .form-bq-table {
+        min-width: 800px; /* Force minimum width to prevent squishing */
+    }
+
+    /* Tabs horizontal scroll */
+    .form-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    .form-tabs::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+    
+    /* Header & Toolbar wrapping */
+    header, .toolbar-bar, .directory-control-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .header-controls, .toolbar-left, .toolbar-right {
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .form-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    /* Scale down A4 document in preview for smaller screens */
+    .a4-document {
+        transform: scale(0.9);
+        transform-origin: top center;
+        margin-bottom: -10%; /* Adjust margin since scaled */
+    }
+    
+    /* Toggle between Form and Preview (act as tabs on small screens) */
+    .main-container:not(.preview-hidden) .form-panel {
+        display: none;
+    }
+    .preview-panel {
+        height: calc(100vh - 105px); 
+    }
+}
+
+/* Specific Scale for Mobile Document Preview */
+@media (max-width: 768px) {
+    .a4-document {
+        transform: scale(0.65);
+        transform-origin: top center;
+        margin-bottom: -40%;
+    }
+}
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Preview - Quotation Generator</title>
+    <!-- Use the exact same styles so everything matches -->
+    <link rel="stylesheet" href="styles.css?v=8">
+    <style>
+        body {
+            background-color: #525659; /* Standard PDF viewer background */
+            display: flex;
+            justify-content: center;
+            padding: 2rem 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+        
+        /* Ensure the a4Page shadow looks like a floating paper */
+        .a4-document {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0; 
+        }
+
+        /* Hide print button when physically printing from this tab */
+        @media print {
+            body { background: transparent; padding: 0; display: block; }
+            .a4-document { box-shadow: none; margin: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="a4-document" id="a4Page">
+        <div style="padding: 5rem; text-align: center; color: #718096; font-family: sans-serif;">
+            <h2>Menunggu Data...</h2>
+            <p>Sila kembali ke tab utama dan buat sebarang perubahan pada borang untuk memuatkan prebiu ini.</p>
+        </div>
+    </div>
+
+    <script>
+        // 1. Initial Load: Grab what's currently in localStorage
+        const initialHtml = localStorage.getItem('LIVE_PREVIEW_HTML');
+        if (initialHtml) {
+            document.getElementById('a4Page').innerHTML = initialHtml;
+        }
+
+        // 2. React to changes instantly when user types in the main tab
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'LIVE_PREVIEW_HTML') {
+                document.getElementById('a4Page').innerHTML = e.newValue;
+            }
+        });
+    </script>
+
+</body>
+</html>
