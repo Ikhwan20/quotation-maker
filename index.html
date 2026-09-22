@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.0.6">
+    <link rel="stylesheet" href="styles.css?v=1.1.5">
     <!-- html2pdf.js via CDN for direct browser-to-PDF rendering -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -17,25 +17,204 @@
 
 <body>
 
-    <!-- Top Application Header -->
-    <header>
-        <div class="header-brand">
-            <div>
-                <h1 id="uiHeaderTitle">Sistem Penjana Sebut Harga Ukur Tanah</h1>
-                <span id="uiHeaderSubtitle">Land Surveyor Quotation & BQ System</span>
-            </div>
-        </div>
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-        <div class="header-controls">
-            <!-- Bilingual Toggle Switcher -->
-            <div class="lang-switcher">
-                <button type="button" class="lang-btn active" id="langBmBtn" onclick="setLanguage('bm')">BM</button>
-                <button type="button" class="lang-btn" id="langEnBtn" onclick="setLanguage('en')">EN</button>
+    <!-- Main Application Flex Layout -->
+    <div class="app-layout">
+
+        <!-- Collapsible Side Navbar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <div class="sidebar-logo">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <div class="brand-title">SISTEM BQ</div>
+                        <div class="brand-subtitle">Quotation & BQ Pro</div>
+                    </div>
+                </div>
+                <button type="button" class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Lipat / Kembang Bar Sisi">
+                    <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="11 17 6 12 11 7"></polyline>
+                        <polyline points="18 17 13 12 18 7"></polyline>
+                    </svg>
+                </button>
             </div>
 
-            <button class="btn btn-secondary" id="previewToggleBtn" style="font-size: 0.78rem;">Papar Dokumen</button>
-        </div>
-    </header>
+            <!-- Scrollable Navigation Items -->
+            <nav class="sidebar-nav">
+                <!-- Group 1: Form Sections -->
+                <div class="sidebar-group">
+                    <div class="sidebar-heading" id="sideHeadingQuote">BORANG SEBUTHARGA</div>
+                    <button type="button" class="sidebar-nav-item active" id="navItemFirm" data-tooltip="Maklumat Firma">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                            <line x1="9" y1="22" x2="9" y2="22.01"></line>
+                            <line x1="15" y1="22" x2="15" y2="22.01"></line>
+                            <line x1="9" y1="6" x2="9" y2="6.01"></line>
+                            <line x1="15" y1="6" x2="15" y2="6.01"></line>
+                            <line x1="9" y1="10" x2="9" y2="10.01"></line>
+                            <line x1="15" y1="10" x2="15" y2="10.01"></line>
+                            <line x1="9" y1="14" x2="9" y2="14.01"></line>
+                            <line x1="15" y1="14" x2="15" y2="14.01"></line>
+                        </svg>
+                        <span class="nav-text" id="sideNavFirm">Maklumat Firma</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemLand" data-tooltip="Pentadbiran Tanah & Tapak">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                            <line x1="8" y1="2" x2="8" y2="18"></line>
+                            <line x1="16" y1="6" x2="16" y2="22"></line>
+                        </svg>
+                        <span class="nav-text" id="sideNavLand">Tanah & Tapak</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemClient" data-tooltip="Maklumat Pelanggan">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="nav-text" id="sideNavClient">Pelanggan</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemTerms" data-tooltip="Skop & Terma Bayaran">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span class="nav-text" id="sideNavTerms">Skop & Terma</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemBq" data-tooltip="Senarai BQ & Kadar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                        <span class="nav-text" id="sideNavBq">Senarai BQ</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemDaywork" data-tooltip="Jadual Daywork">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span class="nav-text" id="sideNavDaywork">Kadar Daywork</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemDeliverables" data-tooltip="Matriks Serahan">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                        <span class="nav-text" id="sideNavDeliverables">Matriks Serahan</span>
+                    </button>
+                </div>
+
+                <!-- Group 2: Output & Documents -->
+                <div class="sidebar-group">
+                    <div class="sidebar-heading" id="sideHeadingDoc">DOKUMEN & PREBIU</div>
+                    <button type="button" class="sidebar-nav-item" id="navItemPreview" data-tooltip="Papar Prebiu A4">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <span class="nav-text" id="sideNavPreview">Papar Prebiu A4</span>
+                        <span class="nav-badge" id="sidePreviewBadge">Tutup</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemPrint" data-tooltip="Cetak Sebut Harga">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                            <rect x="6" y="14" width="12" height="8"></rect>
+                        </svg>
+                        <span class="nav-text" id="sideNavPrint">Cetak Dokumen</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemPdf" data-tooltip="Muat Turun PDF">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span class="nav-text" id="sideNavPdf">Muat Turun PDF</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemCsv" data-tooltip="Eksport Fail CSV">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="8" y1="13" x2="16" y2="13"></line>
+                            <line x1="8" y1="17" x2="16" y2="17"></line>
+                        </svg>
+                        <span class="nav-text" id="sideNavCsv">Eksport CSV</span>
+                    </button>
+                </div>
+
+                <!-- Group 3: Management & Tools -->
+                <div class="sidebar-group">
+                    <div class="sidebar-heading" id="sideHeadingMgmt">PENGURUSAN</div>
+                    <button type="button" class="sidebar-nav-item" id="navItemBqManager" data-tooltip="Pengurus Pangkalan Data BQ">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                        </svg>
+                        <span class="nav-text" id="sideNavBqManager">Pengurus BQ</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemNewQuote" data-tooltip="Sebut Harga Baru">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        <span class="nav-text" id="sideNavNewQuote">Sebut Harga Baru</span>
+                    </button>
+                    <button type="button" class="sidebar-nav-item" id="navItemSaveDraft" data-tooltip="Simpan Draf">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                            <polyline points="7 3 7 8 15 8"></polyline>
+                        </svg>
+                        <span class="nav-text" id="sideNavSaveDraft">Simpan Draf</span>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-version">v1.1.0 • LJT / JKR</div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="app-main">
+
+            <!-- Top Application Header -->
+            <header>
+                <div class="header-brand">
+                    <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" title="Buka Menu">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="header-controls">
+                    <!-- Bilingual Toggle Switcher -->
+                    <div class="lang-switcher">
+                        <button type="button" class="lang-btn active" id="langBmBtn" onclick="setLanguage('bm')">BM</button>
+                        <button type="button" class="lang-btn" id="langEnBtn" onclick="setLanguage('en')">EN</button>
+                    </div>
+
+                    <button class="btn btn-secondary" id="previewToggleBtn" style="font-size: 0.78rem;">Papar Dokumen</button>
+                </div>
+            </header>
 
     <!-- Top Action Toolbar (Phase 4 Templates & Phase 6 Storage/Versioning) -->
     <div class="toolbar-bar">
@@ -141,7 +320,7 @@
                 <div class="tab-pane active" id="tab1Pane">
 
                     <!-- Section 1: Document Config & LJT Firm Credentials -->
-                    <div class="form-section">
+                    <div class="form-section" id="secFirmConfig">
                         <h2 id="secTitleConfig">Konfigurasi Dokumen & Kredensial Firma LJT</h2>
 
                         <!-- Firm Profile Directory Bar (BA/QA Criteria) -->
@@ -233,10 +412,11 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Section 2: Land Administration & Site Metadata (BA/QA Criteria 1) -->
-                        <div class="form-section">
-                            <h2 id="secTitleLandAdmin">Maklumat Pentadbiran Tanah & Tapak Ukur</h2>
+                    <!-- Section 2: Land Administration & Site Metadata (BA/QA Criteria 1) -->
+                    <div class="form-section" id="secLandAdmin">
+                        <h2 id="secTitleLandAdmin">Maklumat Pentadbiran Tanah & Tapak Ukur</h2>
 
                             <div class="form-grid-3">
                                 <div class="form-group">
@@ -345,7 +525,7 @@
                         </div>
 
                         <!-- Section 3: Client Details & Smart Reference Generator -->
-                        <div class="form-section">
+                        <div class="form-section" id="secClientInfo">
                             <h2 id="secTitleClient">Maklumat Pelanggan & Penomboran Rujukan</h2>
 
                             <!-- Client Directory Bar (BA/QA Criteria) -->
@@ -427,10 +607,9 @@
                                 <textarea id="clientAddress" rows="2"></textarea>
                             </div>
                         </div>
-                    </div>
 
                     <!-- Section 4: Project Scope, Terms & Signatory -->
-                    <div class="form-section">
+                    <div class="form-section" id="secProjectTerms">
                         <h2 id="secTitleTerms">Perkara, Tempoh & Terma Pembayaran</h2>
                         <div class="form-grid">
                             <div class="form-group">
@@ -890,6 +1069,10 @@
             </div>
         </div>
     </div>
+    <!-- End Main Container Layout -->
+
+        </div> <!-- End app-main -->
+    </div> <!-- End app-layout -->
 
     <!-- BQ Item Manager Modal -->
     <div id="bqManagerModal" class="modal">
@@ -1026,7 +1209,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase_client.js?v=9"></script>
     <script src="bq_data.js?v=9"></script>
-    <script src="app.js?v=9"></script>
+    <script src="app.js?v=1.1.4"></script>
 </body>
 
 </html>

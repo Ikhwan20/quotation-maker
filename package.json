@@ -1,4 +1,9 @@
 {
+  "name": "quotation-maker",
+  "version": "1.1.0",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.116.0"
   }

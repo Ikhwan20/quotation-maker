@@ -439,6 +439,26 @@ const TRANSLATIONS = {
         btnPdf: "Muat Turun PDF",
         previewBtnShow: "Papar Dokumen",
         previewBtnHide: "Tutup Paparan",
+        sideHeadingQuote: "BORANG SEBUTHARGA",
+        sideHeadingDoc: "DOKUMEN & PREBIU",
+        sideHeadingMgmt: "PENGURUSAN",
+        sideNavFirm: "Maklumat Firma",
+        sideNavLand: "Tanah & Tapak",
+        sideNavClient: "Pelanggan",
+        sideNavTerms: "Skop & Terma",
+        sideNavBq: "Senarai BQ",
+        sideNavDaywork: "Kadar Daywork",
+        sideNavDeliverables: "Matriks Serahan",
+        sideNavPreview: "Papar Prebiu A4",
+        sideNavPrint: "Cetak Dokumen",
+        sideNavPdf: "Muat Turun PDF",
+        sideNavCsv: "Eksport CSV",
+        sideNavBqManager: "Pengurus BQ",
+        sideNavNewQuote: "Sebut Harga Baru",
+        sideNavSaveDraft: "Simpan Draf",
+        sideNavStatus: "Auto-Simpan Aktif",
+        sidePreviewBadgeShow: "Buka",
+        sidePreviewBadgeHide: "Tutup",
         prevTo: "Kepada (To):",
         prevOurRef: "Rujukan Kami:",
         prevClientRef: "Rujukan Tuan:",
@@ -572,6 +592,26 @@ const TRANSLATIONS = {
         btnPdf: "Download PDF",
         previewBtnShow: "Show Preview",
         previewBtnHide: "Hide Preview",
+        sideHeadingQuote: "QUOTATION FORM",
+        sideHeadingDoc: "DOCUMENT & PREVIEW",
+        sideHeadingMgmt: "MANAGEMENT",
+        sideNavFirm: "Firm Details",
+        sideNavLand: "Land & Site Info",
+        sideNavClient: "Client Info",
+        sideNavTerms: "Scope & Terms",
+        sideNavBq: "BQ Item List",
+        sideNavDaywork: "Daywork Rates",
+        sideNavDeliverables: "Deliverables Matrix",
+        sideNavPreview: "A4 Live Preview",
+        sideNavPrint: "Print Document",
+        sideNavPdf: "Download PDF",
+        sideNavCsv: "Export CSV",
+        sideNavBqManager: "BQ Manager",
+        sideNavNewQuote: "New Quotation",
+        sideNavSaveDraft: "Save Draft",
+        sideNavStatus: "Auto-Save Active",
+        sidePreviewBadgeShow: "Open",
+        sidePreviewBadgeHide: "Closed",
         prevTo: "To:",
         prevOurRef: "Our Ref:",
         prevClientRef: "Client Ref:",
@@ -1372,8 +1412,6 @@ function setLanguage(lang) {
 
     const t = TRANSLATIONS[lang];
 
-    setText("uiHeaderTitle", t.headerTitle);
-    setText("uiHeaderSubtitle", t.headerSubtitle);
     setText("lblTemplateSelect", t.lblTemplateSelect);
     setText("btnApplyTemplate", t.btnApplyTemplate);
     setText("btnTextNewQuote", t.btnNewQuote);
@@ -1481,6 +1519,50 @@ function setLanguage(lang) {
     setText("btnTextPrint", t.btnPrint);
     setText("btnTextCsv", t.btnCsv);
     setText("btnTextPdf", t.btnPdf);
+
+    // Update Sidebar Navigation Translations & Tooltips
+    setText("sideHeadingQuote", t.sideHeadingQuote);
+    setText("sideHeadingDoc", t.sideHeadingDoc);
+    setText("sideHeadingMgmt", t.sideHeadingMgmt);
+    setText("sideNavFirm", t.sideNavFirm);
+    setText("sideNavLand", t.sideNavLand);
+    setText("sideNavClient", t.sideNavClient);
+    setText("sideNavTerms", t.sideNavTerms);
+    setText("sideNavBq", t.sideNavBq);
+    setText("sideNavDaywork", t.sideNavDaywork);
+    setText("sideNavDeliverables", t.sideNavDeliverables);
+    setText("sideNavPreview", t.sideNavPreview);
+    setText("sideNavPrint", t.sideNavPrint);
+    setText("sideNavPdf", t.sideNavPdf);
+    setText("sideNavCsv", t.sideNavCsv);
+    setText("sideNavBqManager", t.sideNavBqManager);
+    setText("sideNavNewQuote", t.sideNavNewQuote);
+    setText("sideNavSaveDraft", t.sideNavSaveDraft);
+
+    const sidebarTipMap = {
+        navItemFirm: t.sideNavFirm,
+        navItemLand: t.sideNavLand,
+        navItemClient: t.sideNavClient,
+        navItemTerms: t.sideNavTerms,
+        navItemBq: t.sideNavBq,
+        navItemDaywork: t.sideNavDaywork,
+        navItemDeliverables: t.sideNavDeliverables,
+        navItemPreview: t.sideNavPreview,
+        navItemPrint: t.sideNavPrint,
+        navItemPdf: t.sideNavPdf,
+        navItemCsv: t.sideNavCsv,
+        navItemBqManager: t.sideNavBqManager,
+        navItemNewQuote: t.sideNavNewQuote,
+        navItemSaveDraft: t.sideNavSaveDraft
+    };
+    Object.keys(sidebarTipMap).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.setAttribute("data-tooltip", sidebarTipMap[id]);
+    });
+
+    if (typeof window.updateSidebarPreviewBadge === "function") {
+        window.updateSidebarPreviewBadge();
+    }
 
     populateFirmProfilesDropdown();
     populateClientsDropdown();
@@ -2676,6 +2758,71 @@ function initFormValues() {
     setText("btnFilterPartC", isJkr ? (lang === "en" ? "Reimbursables (PBT)" : "Reimbursables (PBT)") : t.btnPartC);
 }
 
+// ==========================================
+// 19. WIZARD STEP NAVIGATION & PREVIEW TOGGLE (GLOBAL)
+// ==========================================
+
+function goToTab(tabIndex, options = {}) {
+    state.activeTab = tabIndex;
+    autoSaveState();
+
+    const formContent = document.querySelector(".form-content");
+    const previewPanel = document.querySelector(".preview-panel");
+    const tab1Btn = document.getElementById("tab1Btn");
+    const tab2Btn = document.getElementById("tab2Btn");
+    const tab1Pane = document.getElementById("tab1Pane");
+    const tab2Pane = document.getElementById("tab2Pane");
+    const prevStepBtn = document.getElementById("prevStepBtn");
+    const nextStepBtn = document.getElementById("nextStepBtn");
+
+    if (!options.preventScrollTop) {
+        if (formContent) formContent.scrollTop = 0;
+        if (previewPanel) previewPanel.scrollTop = 0;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    if (tabIndex === 1) {
+        if (tab1Btn) tab1Btn.classList.add("active");
+        if (tab2Btn) tab2Btn.classList.remove("active");
+        if (tab1Pane) tab1Pane.classList.add("active");
+        if (tab2Pane) tab2Pane.classList.remove("active");
+        if (prevStepBtn) prevStepBtn.style.visibility = "hidden";
+        if (nextStepBtn) nextStepBtn.innerText = state.currentLang === "en" ? "Next: BQ Items" : "Seterusnya: Senarai BQ";
+        if (typeof window.syncSidebarTabState === "function") window.syncSidebarTabState(1);
+    } else {
+        if (tab2Btn) tab2Btn.classList.add("active");
+        if (tab1Btn) tab1Btn.classList.remove("active");
+        if (tab2Pane) tab2Pane.classList.add("active");
+        if (tab1Pane) tab1Pane.classList.remove("active");
+        if (prevStepBtn) prevStepBtn.style.visibility = "visible";
+        if (nextStepBtn) nextStepBtn.innerText = state.currentLang === "en" ? "View Preview" : "Papar Sebut Harga";
+        if (typeof window.syncSidebarTabState === "function") window.syncSidebarTabState(2);
+    }
+}
+window.goToTab = goToTab;
+
+function togglePreview() {
+    const container = document.querySelector(".main-container");
+    if (!container) return;
+    container.classList.toggle("preview-hidden");
+    const isHidden = container.classList.contains("preview-hidden");
+    const previewToggleBtn = document.getElementById("previewToggleBtn");
+    const t = TRANSLATIONS[state.currentLang || "bm"];
+    if (previewToggleBtn) {
+        previewToggleBtn.innerText = isHidden ? t.previewBtnShow : t.previewBtnHide;
+        previewToggleBtn.classList.toggle("btn-primary", !isHidden);
+        previewToggleBtn.classList.toggle("btn-secondary", isHidden);
+    }
+    if (typeof window.updateSidebarPreviewBadge === "function") {
+        window.updateSidebarPreviewBadge();
+    }
+    if (!isHidden) {
+        const previewPanel = document.querySelector(".preview-panel");
+        if (previewPanel) previewPanel.scrollTop = 0;
+    }
+}
+window.togglePreview = togglePreview;
+
 function setupEventListeners() {
     const formFields = [
         "firmName", "firmLjtNo", "surveyorLjtNo", "practiceYear", "piiCoverage",
@@ -3010,38 +3157,6 @@ function setupEventListeners() {
     const prevStepBtn = document.getElementById("prevStepBtn");
     const nextStepBtn = document.getElementById("nextStepBtn");
 
-    function goToTab(tabIndex) {
-        state.activeTab = tabIndex;
-        autoSaveState();
-
-        // Scroll form content container to top
-        const formContent = document.querySelector(".form-content");
-        if (formContent) formContent.scrollTop = 0;
-
-        // Scroll preview panel to top
-        const previewPanel = document.querySelector(".preview-panel");
-        if (previewPanel) previewPanel.scrollTop = 0;
-
-        // Scroll window for mobile responsive view
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        if (tabIndex === 1) {
-            if (tab1Btn) tab1Btn.classList.add("active");
-            if (tab2Btn) tab2Btn.classList.remove("active");
-            if (tab1Pane) tab1Pane.classList.add("active");
-            if (tab2Pane) tab2Pane.classList.remove("active");
-            if (prevStepBtn) prevStepBtn.style.visibility = "hidden";
-            if (nextStepBtn) nextStepBtn.innerText = state.currentLang === "en" ? "Next: BQ Items" : "Seterusnya: Senarai BQ";
-        } else {
-            if (tab2Btn) tab2Btn.classList.add("active");
-            if (tab1Btn) tab1Btn.classList.remove("active");
-            if (tab2Pane) tab2Pane.classList.add("active");
-            if (tab1Pane) tab1Pane.classList.remove("active");
-            if (prevStepBtn) prevStepBtn.style.visibility = "visible";
-            if (nextStepBtn) nextStepBtn.innerText = state.currentLang === "en" ? "View Preview" : "Papar Sebut Harga";
-        }
-    }
-
     if (tab1Btn) tab1Btn.addEventListener("click", () => goToTab(1));
     if (tab2Btn) tab2Btn.addEventListener("click", () => goToTab(2));
     if (prevStepBtn) prevStepBtn.addEventListener("click", () => goToTab(1));
@@ -3060,22 +3175,6 @@ function setupEventListeners() {
 
     // Toggle Preview Panel
     const previewToggleBtn = document.getElementById("previewToggleBtn");
-    function togglePreview() {
-        const container = document.querySelector(".main-container");
-        if (!container) return;
-        container.classList.toggle("preview-hidden");
-        const isHidden = container.classList.contains("preview-hidden");
-        const t = TRANSLATIONS[state.currentLang];
-        if (previewToggleBtn) {
-            previewToggleBtn.innerText = isHidden ? t.previewBtnShow : t.previewBtnHide;
-            previewToggleBtn.classList.toggle("btn-primary", !isHidden);
-            previewToggleBtn.classList.toggle("btn-secondary", isHidden);
-        }
-        if (!isHidden) {
-            const previewPanel = document.querySelector(".preview-panel");
-            if (previewPanel) previewPanel.scrollTop = 0;
-        }
-    }
     if (previewToggleBtn) {
         previewToggleBtn.addEventListener("click", togglePreview);
     }
@@ -3106,6 +3205,324 @@ function setupEventListeners() {
     // Restore active tab from state on initialization
     const restoredTab = parseInt(state.activeTab) || 1;
     goToTab(restoredTab);
+
+    // Initialize Side Navbar
+    initSidebar();
+}
+
+// ==========================================
+// 20. SIDE NAVBAR LOGIC & NAVIGATION
+// ==========================================
+
+function initSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    const sidebarToggleBtn = document.getElementById("sidebarToggleBtn");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+    const sidePreviewBadge = document.getElementById("sidePreviewBadge");
+
+    // 1. Restore collapsed state from localStorage (desktop only)
+    const isCollapsed = localStorage.getItem("lls_sidebar_collapsed") === "true";
+    if (sidebar && isCollapsed && window.innerWidth > 1024) {
+        sidebar.classList.add("collapsed");
+    }
+
+    // 2. Desktop Collapse / Expand toggle
+    if (sidebarToggleBtn && sidebar) {
+        sidebarToggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("collapsed");
+            const collapsedNow = sidebar.classList.contains("collapsed");
+            localStorage.setItem("lls_sidebar_collapsed", collapsedNow);
+        });
+    }
+
+    // 3. Mobile Drawer Toggle & Backdrop
+    function closeMobileSidebar() {
+        if (sidebar) sidebar.classList.remove("mobile-open");
+        if (sidebarBackdrop) sidebarBackdrop.classList.remove("active");
+    }
+
+    function openMobileSidebar() {
+        if (sidebar) sidebar.classList.add("mobile-open");
+        if (sidebarBackdrop) sidebarBackdrop.classList.add("active");
+    }
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", () => {
+            if (sidebar && sidebar.classList.contains("mobile-open")) {
+                closeMobileSidebar();
+            } else {
+                openMobileSidebar();
+            }
+        });
+    }
+
+    if (sidebarBackdrop) {
+        sidebarBackdrop.addEventListener("click", closeMobileSidebar);
+    }
+
+    // 4. Update preview badge function
+    window.updateSidebarPreviewBadge = function() {
+        const container = document.querySelector(".main-container");
+        const isHidden = !container || container.classList.contains("preview-hidden");
+        const t = TRANSLATIONS[state.currentLang || "bm"];
+        if (sidePreviewBadge) {
+            sidePreviewBadge.innerText = isHidden ? (t.sidePreviewBadgeHide || "Tutup") : (t.sidePreviewBadgeShow || "Buka");
+            sidePreviewBadge.classList.toggle("active", !isHidden);
+        }
+        const navItemPreview = document.getElementById("navItemPreview");
+        if (navItemPreview) {
+            navItemPreview.classList.toggle("active", !isHidden);
+        }
+    };
+
+    // 5. Helper to set active nav item
+    function setActiveNavItem(id) {
+        document.querySelectorAll(".sidebar-nav-item").forEach(item => {
+            if (item.id !== "navItemPreview") {
+                item.classList.remove("active");
+            }
+        });
+        const target = document.getElementById(id);
+        if (target) target.classList.add("active");
+    }
+
+    // 6. Sync tab state with sidebar
+    window.syncSidebarTabState = function(tabIndex) {
+        if (tabIndex === 1) {
+            const activeItem = document.querySelector(".sidebar-nav-item.active");
+            const tab1NavIds = ["navItemFirm", "navItemLand", "navItemClient", "navItemTerms"];
+            if (!activeItem || !tab1NavIds.includes(activeItem.id)) {
+                setActiveNavItem("navItemFirm");
+            }
+        } else if (tabIndex === 2) {
+            const activeItem = document.querySelector(".sidebar-nav-item.active");
+            const tab2NavIds = ["navItemBq", "navItemDaywork", "navItemDeliverables"];
+            if (!activeItem || !tab2NavIds.includes(activeItem.id)) {
+                setActiveNavItem("navItemBq");
+            }
+        }
+    };
+
+    // 7. Helper to jump and flash section
+    function jumpToSection(sectionId, tabIndex, navItemId) {
+        // If on mobile and preview is currently open, switch back to form view
+        if (window.innerWidth <= 768) {
+            const container = document.querySelector(".main-container");
+            if (container && !container.classList.contains("preview-hidden")) {
+                togglePreview();
+            }
+        }
+
+        goToTab(tabIndex, { preventScrollTop: true });
+        setActiveNavItem(navItemId);
+        closeMobileSidebar();
+
+        setTimeout(() => {
+            const el = document.getElementById(sectionId);
+            const formContent = document.querySelector(".form-content");
+            if (el && formContent) {
+                const targetScroll = formContent.scrollTop + (el.getBoundingClientRect().top - formContent.getBoundingClientRect().top) - 15;
+                formContent.scrollTo({ top: Math.max(0, targetScroll), behavior: 'smooth' });
+
+                el.classList.remove("section-highlight");
+                void el.offsetWidth;
+                el.classList.add("section-highlight");
+                setTimeout(() => el.classList.remove("section-highlight"), 2000);
+            } else if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 60);
+    }
+
+    // 8. Attach Navigation Click Listeners
+    const navItemFirm = document.getElementById("navItemFirm");
+    if (navItemFirm) {
+        navItemFirm.addEventListener("click", () => jumpToSection("secFirmConfig", 1, "navItemFirm"));
+    }
+
+    const navItemLand = document.getElementById("navItemLand");
+    if (navItemLand) {
+        navItemLand.addEventListener("click", () => jumpToSection("secLandAdmin", 1, "navItemLand"));
+    }
+
+    const navItemClient = document.getElementById("navItemClient");
+    if (navItemClient) {
+        navItemClient.addEventListener("click", () => jumpToSection("secClientInfo", 1, "navItemClient"));
+    }
+
+    const navItemTerms = document.getElementById("navItemTerms");
+    if (navItemTerms) {
+        navItemTerms.addEventListener("click", () => jumpToSection("secProjectTerms", 1, "navItemTerms"));
+    }
+
+    const navItemBq = document.getElementById("navItemBq");
+    if (navItemBq) {
+        navItemBq.addEventListener("click", () => {
+            if (window.innerWidth <= 768) {
+                const container = document.querySelector(".main-container");
+                if (container && !container.classList.contains("preview-hidden")) {
+                    togglePreview();
+                }
+            }
+            goToTab(2);
+            setActiveNavItem("navItemBq");
+            closeMobileSidebar();
+            const btnFilterAll = document.getElementById("btnFilterAll");
+            if (btnFilterAll) btnFilterAll.click();
+            const formContent = document.querySelector(".form-content");
+            if (formContent) formContent.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    const navItemDaywork = document.getElementById("navItemDaywork");
+    if (navItemDaywork) {
+        navItemDaywork.addEventListener("click", () => {
+            if (window.innerWidth <= 768) {
+                const container = document.querySelector(".main-container");
+                if (container && !container.classList.contains("preview-hidden")) {
+                    togglePreview();
+                }
+            }
+            goToTab(2);
+            setActiveNavItem("navItemDaywork");
+            closeMobileSidebar();
+            const btnFilterDaywork = document.getElementById("btnFilterDaywork");
+            if (btnFilterDaywork) btnFilterDaywork.click();
+            setTimeout(() => {
+                const el = document.getElementById("dayworkContainer");
+                const formContent = document.querySelector(".form-content");
+                if (el && formContent) {
+                    const targetScroll = formContent.scrollTop + (el.getBoundingClientRect().top - formContent.getBoundingClientRect().top) - 15;
+                    formContent.scrollTo({ top: Math.max(0, targetScroll), behavior: 'smooth' });
+                }
+            }, 80);
+        });
+    }
+
+    const navItemDeliverables = document.getElementById("navItemDeliverables");
+    if (navItemDeliverables) {
+        navItemDeliverables.addEventListener("click", () => {
+            if (window.innerWidth <= 768) {
+                const container = document.querySelector(".main-container");
+                if (container && !container.classList.contains("preview-hidden")) {
+                    togglePreview();
+                }
+            }
+            goToTab(2);
+            setActiveNavItem("navItemDeliverables");
+            closeMobileSidebar();
+            const btnFilterDeliverables = document.getElementById("btnFilterDeliverables");
+            if (btnFilterDeliverables) btnFilterDeliverables.click();
+            setTimeout(() => {
+                const el = document.getElementById("deliverablesContainer");
+                const formContent = document.querySelector(".form-content");
+                if (el && formContent) {
+                    const targetScroll = formContent.scrollTop + (el.getBoundingClientRect().top - formContent.getBoundingClientRect().top) - 15;
+                    formContent.scrollTo({ top: Math.max(0, targetScroll), behavior: 'smooth' });
+                }
+            }, 80);
+        });
+    }
+
+    const navItemPreview = document.getElementById("navItemPreview");
+    if (navItemPreview) {
+        navItemPreview.addEventListener("click", () => {
+            togglePreview();
+            window.updateSidebarPreviewBadge();
+            closeMobileSidebar();
+        });
+    }
+
+    const navItemPrint = document.getElementById("navItemPrint");
+    if (navItemPrint) {
+        navItemPrint.addEventListener("click", () => {
+            closeMobileSidebar();
+            const printBtn = document.getElementById("printBtn");
+            if (printBtn) printBtn.click();
+        });
+    }
+
+    const navItemPdf = document.getElementById("navItemPdf");
+    if (navItemPdf) {
+        navItemPdf.addEventListener("click", () => {
+            closeMobileSidebar();
+            const downloadPdfBtn = document.getElementById("downloadPdfBtn");
+            if (downloadPdfBtn) downloadPdfBtn.click();
+        });
+    }
+
+    const navItemCsv = document.getElementById("navItemCsv");
+    if (navItemCsv) {
+        navItemCsv.addEventListener("click", () => {
+            closeMobileSidebar();
+            const exportCsvBtn = document.getElementById("exportCsvBtn");
+            if (exportCsvBtn) exportCsvBtn.click();
+        });
+    }
+
+    const navItemBqManager = document.getElementById("navItemBqManager");
+    if (navItemBqManager) {
+        navItemBqManager.addEventListener("click", () => {
+            closeMobileSidebar();
+            const bqManagerBtn = document.getElementById("bqManagerBtn");
+            if (bqManagerBtn) {
+                bqManagerBtn.click();
+            } else {
+                const modal = document.getElementById("bqManagerModal");
+                if (modal) modal.style.display = "flex";
+            }
+        });
+    }
+
+    const navItemNewQuote = document.getElementById("navItemNewQuote");
+    if (navItemNewQuote) {
+        navItemNewQuote.addEventListener("click", () => {
+            closeMobileSidebar();
+            const btnNewQuotation = document.getElementById("btnNewQuotation");
+            if (btnNewQuotation) btnNewQuotation.click();
+        });
+    }
+
+    const navItemSaveDraft = document.getElementById("navItemSaveDraft");
+    if (navItemSaveDraft) {
+        navItemSaveDraft.addEventListener("click", () => {
+            closeMobileSidebar();
+            const btnSaveDraft = document.getElementById("btnSaveDraft");
+            if (btnSaveDraft) btnSaveDraft.click();
+        });
+    }
+
+    // 9. Form Content Scroll Spy for Tab 1
+    const formContent = document.querySelector(".form-content");
+    if (formContent) {
+        let scrollTimer = null;
+        formContent.addEventListener("scroll", () => {
+            if (state.activeTab !== 1) return;
+            if (scrollTimer) return;
+            scrollTimer = setTimeout(() => {
+                scrollTimer = null;
+                const sections = [
+                    { id: "secFirmConfig", nav: "navItemFirm" },
+                    { id: "secLandAdmin", nav: "navItemLand" },
+                    { id: "secClientInfo", nav: "navItemClient" },
+                    { id: "secProjectTerms", nav: "navItemTerms" }
+                ];
+                const scrollPos = formContent.scrollTop + 120;
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const el = document.getElementById(sections[i].id);
+                    if (el && el.offsetTop <= scrollPos) {
+                        setActiveNavItem(sections[i].nav);
+                        break;
+                    }
+                }
+            }, 100);
+        });
+    }
+
+    // Initial badge sync & initial tab sync
+    window.updateSidebarPreviewBadge();
+    window.syncSidebarTabState(state.activeTab || 1);
 }
 
 // ==========================================
@@ -3123,6 +3540,22 @@ document.addEventListener("DOMContentLoaded", () => {
     renderDeliverablesChecklist();
     renderDayworkTable();
     renderPreview();
+
+    // Guarantee Preview Panel is CLOSED by default on load
+    const container = document.querySelector(".main-container");
+    if (container) {
+        container.classList.add("preview-hidden");
+    }
+    const prevBtn = document.getElementById("previewToggleBtn");
+    if (prevBtn) {
+        const t = TRANSLATIONS[state.currentLang || "bm"];
+        prevBtn.innerText = t.previewBtnShow || "Papar Dokumen";
+        prevBtn.classList.remove("btn-primary");
+        prevBtn.classList.add("btn-secondary");
+    }
+    if (typeof window.updateSidebarPreviewBadge === "function") {
+        window.updateSidebarPreviewBadge();
+    }
 
     // Async Supabase Sync on Startup
     if (typeof supabaseClient !== 'undefined') {
